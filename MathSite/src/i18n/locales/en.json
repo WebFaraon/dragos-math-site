@@ -1,0 +1,185 @@
+{
+  "brand": {
+    "name": "Mathorizon",
+    "mentorName": "Dragoș"
+  },
+  "language": {
+    "ariaLabel": "Select language",
+    "menuAria": "Language options",
+    "options": {
+      "ro": {
+        "short": "RO",
+        "name": "Română",
+        "flag": "🇷🇴"
+      },
+      "en": {
+        "short": "EN",
+        "name": "English",
+        "flag": "🇬🇧"
+      },
+      "ru": {
+        "short": "RU",
+        "name": "Русский",
+        "flag": "🇷🇺"
+      }
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "programs": "Programs",
+    "parents": "For Parents",
+    "method": "How It Works",
+    "results": "Results",
+    "contact": "Contact",
+    "toggleMenuAria": "Toggle navigation menu"
+  },
+  "hero": {
+    "eyebrow": "Personal Mentoring for Grade 9 and Grade 12",
+    "title": "Build Math Confidence and Achieve Strong Exam Results",
+    "subtitle": "Personalized mentoring for Grade 9 foundations and Grade 12 BAC preparation, with calm explanations, structured weekly plans, and measurable progress.",
+    "ctaPrimary": "Book a Free Lesson",
+    "ctaSecondary": "Programs for Grade 9 and 12",
+    "proof": "10+ years experience | Weekly parent feedback | Exam-focused strategy",
+    "audience": {
+      "label": "I'm looking for:",
+      "grade9": "Grade 9",
+      "grade12": "Grade 12"
+    }
+  },
+  "sections": {
+    "programs": {
+      "eyebrow": "Programs",
+      "title": "Two Focused Paths for Grade 9 and Grade 12",
+      "labels": {
+        "forWho": "Who it's for:",
+        "solves": "What it solves:",
+        "outcome": "Expected outcome:"
+      },
+      "items": {
+        "grade9": {
+          "title": "Grade 9 - Foundations and Confidence",
+          "forWho": "Students transitioning into high school who need stable fundamentals.",
+          "solves": "Confusion in algebra and geometry, low confidence in class, and inconsistent test results.",
+          "outcome": "Clear understanding, better class participation, and stronger grades through weekly structure."
+        },
+        "grade12": {
+          "title": "Grade 12 - Exam and BAC Preparation",
+          "forWho": "Final-year students preparing for BAC and high-stakes exams.",
+          "solves": "Timing pressure, weak strategy on long exercises, and uncertainty in complex problems.",
+          "outcome": "Faster, more accurate solving with targeted exam practice and confidence under pressure."
+        }
+      }
+    },
+    "about": {
+      "eyebrow": "About {{mentorName}}",
+      "title": "A Calm Mentor for Serious Academic Progress",
+      "paragraph1": "{{mentorName}} is a mathematics mentor focused on helping Grade 9 and Grade 12 students build real understanding, not just memorize formulas. Lessons are clear, step-by-step, and adapted to each student's pace.",
+      "paragraph2": "Parents choose this mentoring approach for structure, consistency, and transparency. Every week includes focused objectives, practical feedback, and a clear path toward exam confidence.",
+      "panelTitle": "Mentoring Principles",
+      "principles": {
+        "item1": "Clarity first: each concept explained in simple, logical steps.",
+        "item2": "Structured practice: weekly plan with increasing difficulty.",
+        "item3": "Results focus: exam strategy, error analysis, and measurable progress."
+      },
+      "meta": "10+ years of experience with Grades 9-12"
+    },
+    "parents": {
+      "eyebrow": "For Parents",
+      "title": "Serious Mentoring with Clear Communication",
+      "items": {
+        "structuredPlan": {
+          "title": "Structured Learning Plan",
+          "text": "Each student follows a tailored plan aligned with current level and academic goals."
+        },
+        "weeklyFeedback": {
+          "title": "Weekly Feedback",
+          "text": "You receive concise updates on lesson focus, homework quality, and next priorities."
+        },
+        "measurableProgress": {
+          "title": "Measurable Progress",
+          "text": "Progress is tracked through checkpoints, mock tests, and problem-solving consistency."
+        },
+        "calmStyle": {
+          "title": "Calm Mentoring Style",
+          "text": "Students learn in a focused, respectful environment that builds confidence steadily."
+        }
+      }
+    },
+    "method": {
+      "eyebrow": "How Learning Works",
+      "title": "A Simple 3-Step Process for Reliable Results",
+      "steps": {
+        "step1": {
+          "title": "Assessment and Level Check",
+          "text": "We identify current strengths, gaps, and exam priorities for a realistic starting plan."
+        },
+        "step2": {
+          "title": "Weekly Structured Lessons",
+          "text": "Each week combines concept clarity, guided exercises, and targeted homework review."
+        },
+        "step3": {
+          "title": "Exam Practice and Feedback",
+          "text": "Students train with exam-style tasks, timing strategy, and focused correction loops."
+        }
+      }
+    },
+    "testimonials": {
+      "eyebrow": "Testimonials",
+      "title": "Trusted by Students and Parents",
+      "ratingAria": "5 star rating",
+      "items": {
+        "maria": {
+          "name": "Maria T.",
+          "result": "Grade 9 Student | From 6 to 9",
+          "review": "I was anxious in every math class. The explanations were calm and clear, and my test average improved from 6 to 9 in one semester."
+        },
+        "andrei": {
+          "name": "Andrei P.",
+          "result": "Grade 12 Student | BAC Mock +2.1 points",
+          "review": "The BAC strategy sessions changed how I solve problems. I became faster, more precise, and much more confident before finals."
+        },
+        "parent": {
+          "name": "Parent Feedback",
+          "result": "Mother of Grade 12 Student",
+          "review": "Dragoș is serious, organized, and very clear in communication. We received weekly feedback and saw measurable progress."
+        }
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's Plan the Next Step in Math Progress",
+    "introTitle": "Friendly and Clear from the First Conversation",
+    "introBody": "Parents and students are welcome to reach out with current grades, goals, and concerns. You will receive a clear recommendation and next steps.",
+    "responseTime": "Typical response time: within 24 hours.",
+    "altPrefix": "Prefer direct contact? Email:",
+    "telegramLabel": "Telegram",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@example.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Share your grade, goals, and what feels difficult right now...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "emailSubject": "New message - Mathorizon",
+      "fromName": "Mathorizon Website",
+      "status": {
+        "invalidEmail": "Please enter a valid email address.",
+        "sending": "Sending...",
+        "success": "Thank you. Your message was sent. I usually respond within 24 hours.",
+        "error": "Something went wrong. Please try again or email me directly."
+      }
+    }
+  },
+  "footer": {
+    "socialAria": "Social media links",
+    "social": {
+      "facebookAria": "Facebook",
+      "instagramAria": "Instagram",
+      "linkedinAria": "LinkedIn"
+    },
+    "rights": "All rights reserved."
+  }
+}

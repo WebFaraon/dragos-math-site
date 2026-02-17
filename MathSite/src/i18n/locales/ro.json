@@ -1,0 +1,185 @@
+{
+  "brand": {
+    "name": "Mathorizon",
+    "mentorName": "Dragoș"
+  },
+  "language": {
+    "ariaLabel": "Selectează limba",
+    "menuAria": "Opțiuni limbă",
+    "options": {
+      "ro": {
+        "short": "RO",
+        "name": "Română",
+        "flag": "🇷🇴"
+      },
+      "en": {
+        "short": "EN",
+        "name": "English",
+        "flag": "🇬🇧"
+      },
+      "ru": {
+        "short": "RU",
+        "name": "Русский",
+        "flag": "🇷🇺"
+      }
+    }
+  },
+  "nav": {
+    "home": "Acasă",
+    "programs": "Programe",
+    "parents": "Pentru Părinți",
+    "method": "Cum Funcționează",
+    "results": "Rezultate",
+    "contact": "Contact",
+    "toggleMenuAria": "Comută meniul de navigare"
+  },
+  "hero": {
+    "eyebrow": "Mentorat Personal pentru Clasa a 9-a și Clasa a 12-a",
+    "title": "Construiește încredere la matematică și obține rezultate puternice la examene",
+    "subtitle": "Mentorat personalizat pentru bazele din clasa a 9-a și pregătirea BAC din clasa a 12-a, cu explicații calme, planuri săptămânale structurate și progres măsurabil.",
+    "ctaPrimary": "Programează o lecție gratuită",
+    "ctaSecondary": "Programe pentru clasele 9 și 12",
+    "proof": "Peste 10 ani experiență | Feedback săptămânal pentru părinți | Strategie orientată spre examen",
+    "audience": {
+      "label": "Caut pentru:",
+      "grade9": "Clasa a 9-a",
+      "grade12": "Clasa a 12-a"
+    }
+  },
+  "sections": {
+    "programs": {
+      "eyebrow": "Programe",
+      "title": "Două trasee clare pentru clasa a 9-a și clasa a 12-a",
+      "labels": {
+        "forWho": "Pentru cine este:",
+        "solves": "Ce rezolvă:",
+        "outcome": "Rezultat așteptat:"
+      },
+      "items": {
+        "grade9": {
+          "title": "Clasa a 9-a - Baze solide și încredere",
+          "forWho": "Elevi care trec în liceu și au nevoie de fundamente stabile.",
+          "solves": "Confuzie la algebră și geometrie, încredere scăzută la clasă și rezultate inconstante la teste.",
+          "outcome": "Înțelegere clară, participare mai bună la ore și note mai mari prin structură săptămânală."
+        },
+        "grade12": {
+          "title": "Clasa a 12-a - Pregătire examen și BAC",
+          "forWho": "Elevi din ultimul an care se pregătesc pentru BAC și examene cu miză mare.",
+          "solves": "Presiune de timp, strategie slabă la exerciții lungi și nesiguranță în probleme complexe.",
+          "outcome": "Rezolvare mai rapidă și mai precisă, cu antrenament țintit de examen și încredere sub presiune."
+        }
+      }
+    },
+    "about": {
+      "eyebrow": "Despre {{mentorName}}",
+      "title": "Un mentor calm pentru progres academic serios",
+      "paragraph1": "{{mentorName}} este mentor de matematică și îi ajută pe elevii din clasa a 9-a și clasa a 12-a să înțeleagă cu adevărat, nu doar să memoreze formule. Lecțiile sunt clare, pas cu pas, și adaptate ritmului fiecărui elev.",
+      "paragraph2": "Părinții aleg acest tip de mentorat pentru structură, consecvență și transparență. Fiecare săptămână include obiective bine definite, feedback practic și un parcurs clar către încredere la examen.",
+      "panelTitle": "Principii de mentorat",
+      "principles": {
+        "item1": "Claritatea pe primul loc: fiecare concept explicat în pași simpli și logici.",
+        "item2": "Practică structurată: plan săptămânal cu dificultate progresivă.",
+        "item3": "Focus pe rezultate: strategie de examen, analiză a greșelilor și progres măsurabil."
+      },
+      "meta": "Peste 10 ani experiență cu clasele 9-12"
+    },
+    "parents": {
+      "eyebrow": "Pentru Părinți",
+      "title": "Mentorat serios, cu comunicare clară",
+      "items": {
+        "structuredPlan": {
+          "title": "Plan de învățare structurat",
+          "text": "Fiecare elev urmează un plan personalizat, aliniat nivelului actual și obiectivelor academice."
+        },
+        "weeklyFeedback": {
+          "title": "Feedback săptămânal",
+          "text": "Primești actualizări concise despre focusul lecțiilor, calitatea temelor și prioritățile următoare."
+        },
+        "measurableProgress": {
+          "title": "Progres măsurabil",
+          "text": "Progresul este urmărit prin verificări periodice, teste de simulare și consistență în rezolvarea problemelor."
+        },
+        "calmStyle": {
+          "title": "Stil de mentorat calm",
+          "text": "Elevii învață într-un mediu concentrat și respectuos, care construiește încredere pas cu pas."
+        }
+      }
+    },
+    "method": {
+      "eyebrow": "Cum Funcționează Învățarea",
+      "title": "Un proces simplu în 3 pași pentru rezultate stabile",
+      "steps": {
+        "step1": {
+          "title": "Evaluare și verificare de nivel",
+          "text": "Identificăm punctele forte, golurile și prioritățile de examen pentru un plan de start realist."
+        },
+        "step2": {
+          "title": "Lecții săptămânale structurate",
+          "text": "Fiecare săptămână combină claritatea conceptelor, exerciții ghidate și revizuirea țintită a temei."
+        },
+        "step3": {
+          "title": "Practică de examen și feedback",
+          "text": "Elevii lucrează pe sarcini de tip examen, strategie de timp și bucle de corecție concentrate."
+        }
+      }
+    },
+    "testimonials": {
+      "eyebrow": "Testimoniale",
+      "title": "Apreciat de elevi și părinți",
+      "ratingAria": "evaluare de 5 stele",
+      "items": {
+        "maria": {
+          "name": "Maria T.",
+          "result": "Elevă clasa a 9-a | De la 6 la 9",
+          "review": "Eram anxioasă la fiecare oră de matematică. Explicațiile au fost calme și clare, iar media la teste a crescut de la 6 la 9 într-un semestru."
+        },
+        "andrei": {
+          "name": "Andrei P.",
+          "result": "Elev clasa a 12-a | Simulare BAC +2.1 puncte",
+          "review": "Ședințele de strategie pentru BAC au schimbat modul în care rezolv problemele. Am devenit mai rapid, mai precis și mult mai încrezător înainte de examene."
+        },
+        "parent": {
+          "name": "Feedback părinte",
+          "result": "Mamă a unui elev de clasa a 12-a",
+          "review": "Dragoș este serios, organizat și foarte clar în comunicare. Am primit feedback săptămânal și am văzut progres măsurabil."
+        }
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Hai să planificăm următorul pas în progresul la matematică",
+    "introTitle": "Prietenos și clar încă de la prima conversație",
+    "introBody": "Părinții și elevii pot scrie cu notele actuale, obiectivele și dificultățile întâlnite. Vei primi o recomandare clară și pașii următori.",
+    "responseTime": "Timp obișnuit de răspuns: în maximum 24 de ore.",
+    "altPrefix": "Preferi contact direct? Email:",
+    "telegramLabel": "Telegram",
+    "form": {
+      "nameLabel": "Nume",
+      "namePlaceholder": "Numele tău",
+      "emailLabel": "Email",
+      "emailPlaceholder": "tu@exemplu.com",
+      "messageLabel": "Mesaj",
+      "messagePlaceholder": "Spune-mi clasa, obiectivele și ce ți se pare dificil acum...",
+      "submit": "Trimite mesajul",
+      "sending": "Se trimite...",
+      "emailSubject": "Mesaj nou - Mathorizon",
+      "fromName": "Website Mathorizon",
+      "status": {
+        "invalidEmail": "Te rog introdu o adresă de email validă.",
+        "sending": "Se trimite...",
+        "success": "Mulțumesc. Mesajul tău a fost trimis. De obicei răspund în 24 de ore.",
+        "error": "A apărut o problemă. Te rog încearcă din nou sau scrie-mi direct pe email."
+      }
+    }
+  },
+  "footer": {
+    "socialAria": "Linkuri social media",
+    "social": {
+      "facebookAria": "Facebook",
+      "instagramAria": "Instagram",
+      "linkedinAria": "LinkedIn"
+    },
+    "rights": "Toate drepturile rezervate."
+  }
+}

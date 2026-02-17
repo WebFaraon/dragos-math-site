@@ -1,26 +1,32 @@
-﻿import GuideCharacter from './GuideCharacter.jsx'
-
-const steps = [
-  {
-    title: 'Assessment & Level Check',
-    text: 'We identify current strengths, gaps, and exam priorities for a realistic starting plan.',
-  },
-  {
-    title: 'Weekly Structured Lessons',
-    text: 'Each week combines concept clarity, guided exercises, and targeted homework review.',
-  },
-  {
-    title: 'Exam Practice & Feedback',
-    text: 'Students train with exam-style tasks, timing strategy, and focused correction loops.',
-  },
-]
+import { useTranslation } from 'react-i18next'
+import GuideCharacter from './GuideCharacter.jsx'
 
 function HowLearningWorks() {
+  const { t } = useTranslation()
+
+  const steps = [
+    {
+      key: 'step1',
+      title: t('sections.method.steps.step1.title'),
+      text: t('sections.method.steps.step1.text'),
+    },
+    {
+      key: 'step2',
+      title: t('sections.method.steps.step2.title'),
+      text: t('sections.method.steps.step2.text'),
+    },
+    {
+      key: 'step3',
+      title: t('sections.method.steps.step3.title'),
+      text: t('sections.method.steps.step3.text'),
+    },
+  ]
+
   return (
     <section id="method" className="section reveal">
       <div className="section-heading">
-        <p className="eyebrow">How Learning Works</p>
-        <h2 className="section-title">A Simple 3-Step Process for Reliable Results</h2>
+        <p className="eyebrow">{t('sections.method.eyebrow')}</p>
+        <h2 className="section-title">{t('sections.method.title')}</h2>
       </div>
 
       <div className="method-layout">
@@ -28,7 +34,7 @@ function HowLearningWorks() {
 
         <div className="method-steps">
           {steps.map((step, index) => (
-            <article key={step.title} className="method-step">
+            <article key={step.key} className="method-step">
               <span className="step-index">{index + 1}</span>
               <h3>{step.title}</h3>
               <p>{step.text}</p>

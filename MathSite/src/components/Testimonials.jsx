@@ -1,29 +1,31 @@
-﻿import { useEffect, useRef, useState } from 'react'
-
-const testimonials = [
-  {
-    name: 'Maria T.',
-    result: 'Grade 9 Student | From 6 to 9',
-    review:
-      'I was anxious in every math class. The explanations were calm and clear, and my test average improved from 6 to 9 in one semester.',
-  },
-  {
-    name: 'Andrei P.',
-    result: 'Grade 12 Student | BAC Mock +2.1 points',
-    review:
-      'The BAC strategy sessions changed how I solve problems. I became faster, more precise, and much more confident before finals.',
-  },
-  {
-    name: 'Parent Feedback',
-    result: 'Mother of Grade 12 Student',
-    review:
-      'Drago\u0219 is serious, organized, and very clear in communication. We received weekly feedback and saw measurable progress.',
-  },
-]
+import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 function Testimonials() {
+  const { t } = useTranslation()
   const [visibleCards, setVisibleCards] = useState([])
   const cardRefs = useRef([])
+
+  const testimonials = [
+    {
+      key: 'maria',
+      name: t('sections.testimonials.items.maria.name'),
+      result: t('sections.testimonials.items.maria.result'),
+      review: t('sections.testimonials.items.maria.review'),
+    },
+    {
+      key: 'andrei',
+      name: t('sections.testimonials.items.andrei.name'),
+      result: t('sections.testimonials.items.andrei.result'),
+      review: t('sections.testimonials.items.andrei.review'),
+    },
+    {
+      key: 'parent',
+      name: t('sections.testimonials.items.parent.name'),
+      result: t('sections.testimonials.items.parent.result'),
+      review: t('sections.testimonials.items.parent.review'),
+    },
+  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -49,21 +51,21 @@ function Testimonials() {
   return (
     <section id="testimonials" className="section">
       <div className="section-heading reveal">
-        <p className="eyebrow">Testimonials</p>
-        <h2 className="section-title">Trusted by Students and Parents</h2>
+        <p className="eyebrow">{t('sections.testimonials.eyebrow')}</p>
+        <h2 className="section-title">{t('sections.testimonials.title')}</h2>
       </div>
 
       <div className="testimonials-grid">
         {testimonials.map((item, index) => (
           <article
-            key={item.name}
+            key={item.key}
             className={`testimonial-card ${visibleCards.includes(index) ? 'in-view' : ''}`}
             data-index={index}
             ref={(element) => {
               cardRefs.current[index] = element
             }}
           >
-            <div className="stars" aria-label="5 star rating">
+            <div className="stars" aria-label={t('sections.testimonials.ratingAria')}>
               {String.fromCharCode(9733).repeat(5)}
             </div>
             <p>{item.review}</p>

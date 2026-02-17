@@ -1,4 +1,5 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { CONTACT_EMAIL, CONTACT_TELEGRAM } from '../brand.js'
 
 const initialFormState = {
@@ -9,6 +10,7 @@ const initialFormState = {
 }
 
 function Contact() {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState(initialFormState)
   const [status, setStatus] = useState('')
   const [statusType, setStatusType] = useState('idle')
@@ -28,7 +30,7 @@ function Contact() {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailPattern.test(formData.email.trim())) {
       setStatusType('error')
-      setStatus('Please enter a valid email address.')
+      setStatus(t('contact.form.status.invalidEmail'))
       return
     }
 
@@ -36,20 +38,20 @@ function Contact() {
     if (!accessKey) {
       console.warn('Missing VITE_WEB3FORMS_KEY. Contact form submission is disabled.')
       setStatusType('error')
-      setStatus('Something went wrong. Please try again or email me directly.')
+      setStatus(t('contact.form.status.error'))
       return
     }
 
     setStatusType('sending')
-    setStatus('Sending...')
+    setStatus(t('contact.form.status.sending'))
 
     const payload = {
       access_key: accessKey,
       name: formData.name,
       email: formData.email,
       message: formData.message,
-      subject: 'New message — Dragoș Math',
-      from_name: 'Dragoș Math Website',
+      subject: t('contact.form.emailSubject'),
+      from_name: t('contact.form.fromName'),
       botcheck: formData.botcheck,
       page_url: typeof window !== 'undefined' ? window.location.href : '',
     }
@@ -73,7 +75,7 @@ function Contact() {
 
       if (result?.success === true) {
         setStatusType('success')
-        setStatus('Thank you. Your message was sent. I usually respond within 24 hours.')
+        setStatus(t('contact.form.status.success'))
         setFormData(initialFormState)
         return
       }
@@ -82,7 +84,7 @@ function Contact() {
     } catch (error) {
       console.error('Contact form submission failed:', error)
       setStatusType('error')
-      setStatus('Something went wrong. Please try again or email me directly.')
+      setStatus(t('contact.form.status.error'))
     }
   }
 
@@ -98,21 +100,18 @@ function Contact() {
   return (
     <section id="contact" className="section reveal">
       <div className="section-heading">
-        <p className="eyebrow">Contact</p>
-        <h2 className="section-title">Let's Plan the Next Step in Math Progress</h2>
+        <p className="eyebrow">{t('contact.eyebrow')}</p>
+        <h2 className="section-title">{t('contact.title')}</h2>
       </div>
 
       <div className="contact-grid">
         <div className="contact-copy">
-          <h3>Friendly and Clear from the First Conversation</h3>
-          <p>
-            Parents and students are welcome to reach out with current grades, goals, and concerns.
-            You will receive a clear recommendation and next steps.
-          </p>
-          <p className="contact-response">Typical response time: within 24 hours.</p>
+          <h3>{t('contact.introTitle')}</h3>
+          <p>{t('contact.introBody')}</p>
+          <p className="contact-response">{t('contact.responseTime')}</p>
           <p className="contact-alt">
-            Prefer direct contact? Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> |
-            Telegram: {CONTACT_TELEGRAM}
+            {t('contact.altPrefix')} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> |{' '}
+            {t('contact.telegramLabel')}: {CONTACT_TELEGRAM}
           </p>
         </div>
 
@@ -128,34 +127,34 @@ function Contact() {
             aria-hidden="true"
           />
 
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">{t('contact.form.nameLabel')}</label>
           <input
             id="name"
             name="name"
             type="text"
-            placeholder="Your name"
+            placeholder={t('contact.form.namePlaceholder')}
             value={formData.name}
             onChange={handleChange}
             required
           />
 
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">{t('contact.form.emailLabel')}</label>
           <input
             id="email"
             name="email"
             type="email"
-            placeholder="you@example.com"
+            placeholder={t('contact.form.emailPlaceholder')}
             value={formData.email}
             onChange={handleChange}
             required
           />
 
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">{t('contact.form.messageLabel')}</label>
           <textarea
             id="message"
             name="message"
             rows="5"
-            placeholder="Share your grade, goals, and what feels difficult right now..."
+            placeholder={t('contact.form.messagePlaceholder')}
             value={formData.message}
             onChange={handleChange}
             required
@@ -166,7 +165,7 @@ function Contact() {
             className="btn btn-primary contact-submit"
             disabled={statusType === 'sending'}
           >
-            {statusType === 'sending' ? 'Sending...' : 'Send Message'}
+            {statusType === 'sending' ? t('contact.form.sending') : t('contact.form.submit')}
           </button>
 
           {status && <p className={`form-status form-status-${statusType}`}>{status}</p>}

@@ -1,27 +1,31 @@
-﻿function ForParents() {
+import { useTranslation } from 'react-i18next'
+
+function ForParents() {
+  const { t } = useTranslation()
+
   return (
     <section id="parents" className="section reveal">
       <div className="section-heading">
-        <p className="eyebrow">For Parents</p>
-        <h2 className="section-title">Serious Mentoring with Clear Communication</h2>
+        <p className="eyebrow">{t('sections.parents.eyebrow')}</p>
+        <h2 className="section-title">{t('sections.parents.title')}</h2>
       </div>
 
       <div className="parents-grid">
         <article>
-          <h3>Structured Learning Plan</h3>
-          <p>Each student follows a tailored plan aligned with current level and academic goals.</p>
+          <h3>{t('sections.parents.items.structuredPlan.title')}</h3>
+          <p>{t('sections.parents.items.structuredPlan.text')}</p>
         </article>
         <article>
-          <h3>Weekly Feedback</h3>
-          <p>You receive concise updates on lesson focus, homework quality, and next priorities.</p>
+          <h3>{t('sections.parents.items.weeklyFeedback.title')}</h3>
+          <p>{t('sections.parents.items.weeklyFeedback.text')}</p>
         </article>
         <article>
-          <h3>Measurable Progress</h3>
-          <p>Progress is tracked through checkpoints, mock tests, and problem-solving consistency.</p>
+          <h3>{t('sections.parents.items.measurableProgress.title')}</h3>
+          <p>{t('sections.parents.items.measurableProgress.text')}</p>
         </article>
         <article>
-          <h3>Calm Mentoring Style</h3>
-          <p>Students learn in a focused, respectful environment that builds confidence steadily.</p>
+          <h3>{t('sections.parents.items.calmStyle.title')}</h3>
+          <p>{t('sections.parents.items.calmStyle.text')}</p>
         </article>
       </div>
     </section>
