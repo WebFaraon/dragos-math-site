@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import LanguageDropdown from './LanguageDropdown.jsx'
+import ThemeToggle from './ThemeToggle.jsx'
 
 function Navbar() {
   const { t } = useTranslation()
@@ -51,6 +52,8 @@ function Navbar() {
               </a>
             ))}
           </nav>
+
+          <ThemeToggle />
 
           <LanguageDropdown />
 
