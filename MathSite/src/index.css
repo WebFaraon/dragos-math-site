@@ -183,6 +183,33 @@ a {
   gap: 0.58rem;
 }
 
+.nav-logo {
+  gap: 0.74rem;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  transform-origin: left center;
+}
+
+.nav-logo:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.nav-logo-image {
+  height: 80px;
+  width: auto;
+  display: block;
+}
+
+.nav-logo-text {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.28rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
 .logo-mark {
   width: 30px;
   height: 30px;
@@ -937,6 +964,14 @@ a {
 }
 
 @media (max-width: 960px) {
+  .nav-logo-image {
+    height: 68px;
+  }
+
+  .nav-logo-text {
+    font-size: 1.12rem;
+  }
+
   .hamburger {
     display: block;
   }

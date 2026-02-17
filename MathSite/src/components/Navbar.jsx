@@ -1,5 +1,4 @@
 ﻿import { useEffect, useState } from 'react'
-import { BRAND_NAME, LOGO_SYMBOL } from '../brand.js'
 
 const navLinks = [
   { id: 'home', label: 'Home' },
@@ -37,8 +36,8 @@ function Navbar() {
     <header className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-inner">
         <a className="nav-logo" href="#home" onClick={closeMenu}>
-          <span className="logo-mark">{LOGO_SYMBOL}</span>
-          <span className="logo-text">{BRAND_NAME}</span>
+          <img className="nav-logo-image" src="/Logo/math-logo.png" alt="Mathorizon logo" />
+          <span className="nav-logo-text">Mathorizon</span>
         </a>
 
         <button
