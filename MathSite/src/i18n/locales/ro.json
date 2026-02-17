@@ -68,6 +68,59 @@
           "solves": "Presiune de timp, strategie slabă la exerciții lungi și nesiguranță în probleme complexe.",
           "outcome": "Rezolvare mai rapidă și mai precisă, cu antrenament țintit de examen și încredere sub presiune."
         }
+      },
+      "cards": {
+        "grade9": {
+          "title": "Program Clasa a 9-a",
+          "subtitle": "Construiește încredere înainte de ritmul de liceu.",
+          "bullets": {
+            "item1": "Algebră și geometrie explicate clar",
+            "item2": "Structură săptămânală și rutină de lucru",
+            "item3": "Mai multă siguranță la teste"
+          },
+          "badges": {
+            "duration": "Plan 10 săptămâni",
+            "format": "Online 1:1",
+            "focus": "Focus pe baze"
+          },
+          "cta": "Vezi programul pentru clasa a 9-a"
+        },
+        "grade12": {
+          "title": "Program Clasa a 12-a",
+          "subtitle": "Pregătire țintită pentru BAC și examene finale.",
+          "bullets": {
+            "item1": "Strategie pentru exerciții lungi de examen",
+            "item2": "Antrenament cronometrat cu feedback clar",
+            "item3": "Mentorat calm sub presiune"
+          },
+          "badges": {
+            "duration": "Plan 12 săptămâni",
+            "format": "Online 1:1",
+            "focus": "Focus pe examen"
+          },
+          "cta": "Vezi programul pentru clasa a 12-a"
+        }
+      },
+      "overview": {
+        "subtitle": "O singură secțiune clară pentru ambele clase. Intră pe pagina de programe și alege traseul potrivit.",
+        "grade9": {
+          "title": "Traseu Clasa a 9-a",
+          "item1": "Fundamente solide la algebră și geometrie",
+          "item2": "Structură săptămânală și ritm constant",
+          "item3": "Mai multă încredere la clasă și teste"
+        },
+        "grade12": {
+          "title": "Traseu Clasa a 12-a",
+          "item1": "Strategie țintită pentru BAC",
+          "item2": "Antrenament cronometrat cu feedback",
+          "item3": "Control calm sub presiune"
+        },
+        "badges": {
+          "format": "Online 1:1",
+          "structure": "Plan Personalizat",
+          "focus": "Focus pe Rezultate"
+        },
+        "cta": "Vezi Programele"
       }
     },
     "about": {
@@ -181,5 +234,22 @@
       "linkedinAria": "LinkedIn"
     },
     "rights": "Toate drepturile rezervate."
+  },
+  "pages": {
+    "programs": {
+      "title": "Alege traseul potrivit de program",
+      "subtitle": "Două direcții clare, cu structură și rezultate.",
+      "backHome": "Înapoi la pagina principală"
+    },
+    "grade9": {
+      "title": "Program Clasa a 9-a",
+      "intro": "Structura completă și opțiunile de înscriere apar în curând.",
+      "backPrograms": "Înapoi la programe"
+    },
+    "grade12": {
+      "title": "Program Clasa a 12-a",
+      "intro": "Structura completă și opțiunile de înscriere apar în curând.",
+      "backPrograms": "Înapoi la programe"
+    }
   }
 }

@@ -159,6 +159,20 @@ body {
     color var(--theme-duration) var(--theme-ease);
 }
 
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app > main {
+  flex: 1;
+}
+
 /* Uniform full-page pattern prevents center-only visual emphasis */
 body::before {
   content: '';
@@ -196,8 +210,41 @@ a {
 .section {
   width: min(1100px, 92%);
   margin: 0 auto;
-  padding: 4.9rem 0;
+  padding: 3.6rem 0;
   position: relative;
+}
+
+.page-main {
+  padding-top: calc(var(--nav-height) + 1.9rem);
+}
+
+.page-back-link {
+  margin-top: 1.1rem;
+}
+
+.programs-page-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.programs-page-main .section-heading {
+  text-align: left;
+  margin-inline: 0;
+}
+
+.programs-page-main .hero-subtitle {
+  margin-inline: 0;
+}
+
+.programs-page-main .services-grid {
+  width: min(100%, 920px);
+  margin-inline: 0;
+  justify-content: flex-start;
+}
+
+.programs-page-main .page-back-link {
+  align-self: flex-start;
 }
 
 .section-heading {
@@ -682,10 +729,11 @@ a {
 }
 
 .hero {
-  min-height: 92vh;
+  min-height: 82vh;
   display: flex;
   align-items: center;
   padding-top: calc(var(--nav-height) + 1.9rem);
+  padding-bottom: 2.2rem;
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.65s ease, transform 0.65s ease;
@@ -694,6 +742,10 @@ a {
 .hero-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+#programs.section {
+  padding-top: 3.3rem;
 }
 
 .hero-content {
@@ -912,6 +964,10 @@ a {
   z-index: 2;
 }
 
+.services-grid.programs-overview-grid {
+  grid-template-columns: 1fr;
+}
+
 /* Glassmorphism is intentionally restricted to key cards only */
 .service-card,
 .testimonial-card {
@@ -946,6 +1002,116 @@ a {
 .service-card:hover {
   transform: translateY(-5px) scale(1.01);
   box-shadow: var(--shadow-hover);
+}
+
+.program-card {
+  border: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.72rem;
+}
+
+.program-card:hover {
+  border-color: var(--line-strong);
+  box-shadow: 0 20px 42px rgba(45, 63, 136, 0.2), 0 0 0 1px rgba(126, 153, 255, 0.2);
+}
+
+.program-overview-card {
+  max-width: 980px;
+  margin: 0;
+}
+
+.program-overview-intro {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+.program-overview-tracks {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+.program-track {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.85rem;
+  background: var(--bg-surface-soft);
+}
+
+.program-track h3 {
+  margin: 0 0 0.45rem;
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+}
+
+.program-overview-cta {
+  margin-top: 0.15rem;
+}
+
+.program-subtitle {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.program-bullets {
+  margin: 0;
+  padding-left: 1.12rem;
+  color: var(--ink-soft);
+  display: grid;
+  gap: 0.33rem;
+}
+
+.program-bullets li {
+  line-height: 1.45;
+}
+
+.program-badges {
+  margin-top: 0.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.48rem;
+}
+
+.program-badge {
+  padding: 0.35rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg-surface);
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.program-cta {
+  margin-top: auto;
+  align-self: flex-start;
+  gap: 0.45rem;
+  background-size: 180% 180%;
+  background-position: 0% 50%;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background-color var(--theme-duration) var(--theme-ease),
+    color var(--theme-duration) var(--theme-ease),
+    background-position 0.24s ease;
+}
+
+.program-cta:hover {
+  background-position: 100% 50%;
+}
+
+.program-cta-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.program-cta:hover .program-cta-arrow {
+  transform: translateX(4px);
 }
 
 .service-card:hover::before {
@@ -1346,6 +1512,10 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .program-overview-tracks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .about-grid {
     grid-template-columns: 1.2fr 0.8fr;
     align-items: start;
@@ -1369,11 +1539,16 @@ a {
 
 @media (min-width: 1080px) {
   .section {
-    padding: 5.7rem 0;
+    padding: 4.4rem 0;
   }
 
   .hero {
-    min-height: 96vh;
+    min-height: 84vh;
+    padding-bottom: 2.6rem;
+  }
+
+  #programs.section {
+    padding-top: 4.1rem;
   }
 
   .method-layout {

@@ -38,12 +38,6 @@ function Hero() {
         </div>
 
         <p className="hero-proof">{t('hero.proof')}</p>
-
-        <div className="audience-selector">
-          <span>{t('hero.audience.label')}</span>
-          <a href="#grade9-program">{t('hero.audience.grade9')}</a>
-          <a href="#grade12-program">{t('hero.audience.grade12')}</a>
-        </div>
       </div>
     </section>
   )

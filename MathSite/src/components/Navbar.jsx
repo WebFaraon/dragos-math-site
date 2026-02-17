@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import LanguageDropdown from './LanguageDropdown.jsx'
 import ThemeToggle from './ThemeToggle.jsx'
 
@@ -9,8 +10,8 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   const navLinks = [
-    { id: 'home', label: t('nav.home') },
-    { id: 'programs', label: t('nav.programs') },
+    { id: 'home', label: t('nav.home'), to: '/' },
+    { id: 'programs', label: t('nav.programs'), to: '/programs' },
     { id: 'parents', label: t('nav.parents') },
     { id: 'method', label: t('nav.method') },
     { id: 'testimonials', label: t('nav.results') },
@@ -47,9 +48,15 @@ function Navbar() {
         <div className="nav-actions">
           <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
             {navLinks.map((link) => (
-              <a key={link.id} href={`#${link.id}`} className="nav-link" onClick={closeMenu}>
-                {link.label}
-              </a>
+              link.to ? (
+                <Link key={link.id} to={link.to} className="nav-link" onClick={closeMenu}>
+                  {link.label}
+                </Link>
+              ) : (
+                <a key={link.id} href={`#${link.id}`} className="nav-link" onClick={closeMenu}>
+                  {link.label}
+                </a>
+              )
             ))}
           </nav>
 

@@ -68,6 +68,59 @@
           "solves": "Timing pressure, weak strategy on long exercises, and uncertainty in complex problems.",
           "outcome": "Faster, more accurate solving with targeted exam practice and confidence under pressure."
         }
+      },
+      "cards": {
+        "grade9": {
+          "title": "Grade 9 Program",
+          "subtitle": "Build confidence before high school math accelerates.",
+          "bullets": {
+            "item1": "Algebra and geometry made simple",
+            "item2": "Weekly structure and practice habits",
+            "item3": "Confidence in tests and class"
+          },
+          "badges": {
+            "duration": "10-week plan",
+            "format": "1:1 online",
+            "focus": "Foundation focus"
+          },
+          "cta": "View Grade 9 Program"
+        },
+        "grade12": {
+          "title": "Grade 12 Program",
+          "subtitle": "Targeted preparation for BAC and final exams.",
+          "bullets": {
+            "item1": "Exam strategy for full-length tasks",
+            "item2": "Timed practice with clear feedback",
+            "item3": "Calm coaching under exam pressure"
+          },
+          "badges": {
+            "duration": "12-week plan",
+            "format": "1:1 online",
+            "focus": "Exam focus"
+          },
+          "cta": "View Grade 12 Program"
+        }
+      },
+      "overview": {
+        "subtitle": "One clear section for both grades. Open the programs page and choose the exact path that fits your goal.",
+        "grade9": {
+          "title": "Grade 9 Track",
+          "item1": "Algebra and geometry foundations",
+          "item2": "Weekly structure and consistency",
+          "item3": "Confidence in class and tests"
+        },
+        "grade12": {
+          "title": "Grade 12 Track",
+          "item1": "BAC-focused exam strategy",
+          "item2": "Timed practice with feedback",
+          "item3": "Calm performance under pressure"
+        },
+        "badges": {
+          "format": "1:1 Online",
+          "structure": "Personalized Plan",
+          "focus": "Results Focus"
+        },
+        "cta": "View Programs"
       }
     },
     "about": {
@@ -181,5 +234,22 @@
       "linkedinAria": "LinkedIn"
     },
     "rights": "All rights reserved."
+  },
+  "pages": {
+    "programs": {
+      "title": "Choose the Right Program Path",
+      "subtitle": "Two focused tracks with clear outcomes and structure.",
+      "backHome": "Back to Home"
+    },
+    "grade9": {
+      "title": "Grade 9 Program",
+      "intro": "Detailed curriculum and enrollment options are coming soon.",
+      "backPrograms": "Back to Programs"
+    },
+    "grade12": {
+      "title": "Grade 12 Program",
+      "intro": "Detailed curriculum and enrollment options are coming soon.",
+      "backPrograms": "Back to Programs"
+    }
   }
 }

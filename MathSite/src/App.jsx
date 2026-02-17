@@ -1,48 +1,17 @@
-﻿import { useEffect } from 'react'
-import Navbar from './components/Navbar.jsx'
-import Hero from './components/Hero.jsx'
-import Services from './components/Services.jsx'
-import About from './components/About.jsx'
-import ForParents from './components/ForParents.jsx'
-import HowLearningWorks from './components/HowLearningWorks.jsx'
-import Testimonials from './components/Testimonials.jsx'
-import Contact from './components/Contact.jsx'
-import Footer from './components/Footer.jsx'
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage.jsx'
+import ProgramsPage from './pages/ProgramsPage.jsx'
+import Grade9Page from './pages/Grade9Page.jsx'
+import Grade12Page from './pages/Grade12Page.jsx'
 
 function App() {
-  useEffect(() => {
-    const revealElements = document.querySelectorAll('.reveal')
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view')
-            revealObserver.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.2 },
-    )
-
-    revealElements.forEach((element) => revealObserver.observe(element))
-
-    return () => revealObserver.disconnect()
-  }, [])
-
   return (
-    <div className="app">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <ForParents />
-        <HowLearningWorks />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/programs" element={<ProgramsPage />} />
+      <Route path="/programs/grade-9" element={<Grade9Page />} />
+      <Route path="/programs/grade-12" element={<Grade12Page />} />
+    </Routes>
   )
 }
 

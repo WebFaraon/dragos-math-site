@@ -1,29 +1,8 @@
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import GuideCharacter from './GuideCharacter.jsx'
 
 function Services() {
   const { t } = useTranslation()
-
-  const programs = [
-    {
-      id: 'grade9-program',
-      key: 'grade9',
-      title: t('sections.programs.items.grade9.title'),
-      forWho: t('sections.programs.items.grade9.forWho'),
-      solves: t('sections.programs.items.grade9.solves'),
-      outcome: t('sections.programs.items.grade9.outcome'),
-      symbol: '\u03C0',
-    },
-    {
-      id: 'grade12-program',
-      key: 'grade12',
-      title: t('sections.programs.items.grade12.title'),
-      forWho: t('sections.programs.items.grade12.forWho'),
-      solves: t('sections.programs.items.grade12.solves'),
-      outcome: t('sections.programs.items.grade12.outcome'),
-      symbol: '\u03A3',
-    },
-  ]
 
   return (
     <section id="programs" className="section reveal">
@@ -32,24 +11,43 @@ function Services() {
         <h2 className="section-title">{t('sections.programs.title')}</h2>
       </div>
 
-      <GuideCharacter symbol={'x'} className="programs-guide" />
+      <div className="services-grid programs-overview-grid">
+        <article className="service-card program-card program-overview-card">
+          <p className="program-overview-intro">{t('sections.programs.overview.subtitle')}</p>
 
-      <div className="services-grid">
-        {programs.map((program) => (
-          <article id={program.id} key={program.key} className="service-card">
-            <span className="service-icon">{program.symbol}</span>
-            <h3>{program.title}</h3>
-            <p>
-              <strong>{t('sections.programs.labels.forWho')}</strong> {program.forWho}
-            </p>
-            <p>
-              <strong>{t('sections.programs.labels.solves')}</strong> {program.solves}
-            </p>
-            <p>
-              <strong>{t('sections.programs.labels.outcome')}</strong> {program.outcome}
-            </p>
-          </article>
-        ))}
+          <div className="program-overview-tracks">
+            <div className="program-track">
+              <h3>{t('sections.programs.overview.grade9.title')}</h3>
+              <ul className="program-bullets">
+                <li>{t('sections.programs.overview.grade9.item1')}</li>
+                <li>{t('sections.programs.overview.grade9.item2')}</li>
+                <li>{t('sections.programs.overview.grade9.item3')}</li>
+              </ul>
+            </div>
+
+            <div className="program-track">
+              <h3>{t('sections.programs.overview.grade12.title')}</h3>
+              <ul className="program-bullets">
+                <li>{t('sections.programs.overview.grade12.item1')}</li>
+                <li>{t('sections.programs.overview.grade12.item2')}</li>
+                <li>{t('sections.programs.overview.grade12.item3')}</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="program-badges">
+            <span className="program-badge">{t('sections.programs.overview.badges.format')}</span>
+            <span className="program-badge">{t('sections.programs.overview.badges.structure')}</span>
+            <span className="program-badge">{t('sections.programs.overview.badges.focus')}</span>
+          </div>
+
+          <Link className="btn btn-primary program-cta program-overview-cta" to="/programs">
+            <span>{t('sections.programs.overview.cta')}</span>
+            <span className="program-cta-arrow" aria-hidden="true">
+              {'\u2192'}
+            </span>
+          </Link>
+        </article>
       </div>
     </section>
   )
