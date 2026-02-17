@@ -12,10 +12,10 @@ function Navbar() {
   const navLinks = [
     { id: 'home', label: t('nav.home'), to: '/' },
     { id: 'programs', label: t('nav.programs'), to: '/programs' },
-    { id: 'parents', label: t('nav.parents') },
-    { id: 'method', label: t('nav.method') },
-    { id: 'testimonials', label: t('nav.results') },
-    { id: 'contact', label: t('nav.contact') },
+    { id: 'parents', label: t('nav.parents'), to: '/#parents' },
+    { id: 'method', label: t('nav.method'), to: '/#method' },
+    { id: 'testimonials', label: t('nav.results'), to: '/#testimonials' },
+    { id: 'contact', label: t('nav.contact'), to: '/#contact' },
   ]
 
   useEffect(() => {
@@ -40,23 +40,17 @@ function Navbar() {
   return (
     <header className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-inner">
-        <a className="nav-logo" href="#home" onClick={closeMenu}>
+        <Link className="nav-logo" to="/" onClick={closeMenu}>
           <img className="nav-logo-image" src="/Logo/math-logo.png" alt="Mathorizon logo" />
           <span className="nav-logo-text">Mathorizon</span>
-        </a>
+        </Link>
 
         <div className="nav-actions">
           <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
             {navLinks.map((link) => (
-              link.to ? (
-                <Link key={link.id} to={link.to} className="nav-link" onClick={closeMenu}>
-                  {link.label}
-                </Link>
-              ) : (
-                <a key={link.id} href={`#${link.id}`} className="nav-link" onClick={closeMenu}>
-                  {link.label}
-                </a>
-              )
+              <Link key={link.id} to={link.to} className="nav-link" onClick={closeMenu}>
+                {link.label}
+              </Link>
             ))}
           </nav>
 

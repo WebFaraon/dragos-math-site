@@ -1,0 +1,231 @@
+.grade9-page-main {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.grade9-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--card-glass);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-soft);
+}
+
+.grade9-hero {
+  padding: clamp(1.2rem, 2.2vw, 1.8rem);
+}
+
+.grade9-badge {
+  margin: 0;
+  display: inline-flex;
+  padding: 0.3rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg-surface);
+  color: var(--blue);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.grade9-title {
+  margin: 0.88rem 0 0.62rem;
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+  line-height: 1.1;
+}
+
+.grade9-subtitle {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.grade9-hero-actions {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.grade9-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+.grade9-overview-card {
+  padding: 1rem;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.grade9-overview-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: 0 18px 38px rgba(45, 63, 136, 0.16);
+}
+
+.grade9-overview-card h2 {
+  margin: 0.74rem 0 0.36rem;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.05rem;
+}
+
+.grade9-overview-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.grade9-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  border: 1px solid var(--line);
+  background: var(--bg-surface);
+  color: var(--text-strong-accent);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.grade9-materials {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.grade9-section-head h2,
+.grade9-usage h2,
+.grade9-final-cta h2 {
+  margin: 0;
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+}
+
+.grade9-section-head p,
+.grade9-final-cta p {
+  margin: 0.4rem 0 0;
+  color: var(--ink-soft);
+}
+
+.grade9-material-groups {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.grade9-material-group {
+  padding: 0.95rem;
+}
+
+.grade9-material-group h3 {
+  margin: 0 0 0.8rem;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.08rem;
+}
+
+.grade9-material-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+.grade9-material-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-soft);
+  padding: 0.9rem;
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.grade9-material-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: 0 16px 32px rgba(46, 65, 141, 0.18), 0 0 0 1px rgba(126, 153, 255, 0.18);
+}
+
+.grade9-material-card h4 {
+  margin: 0.66rem 0 0.34rem;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.98rem;
+}
+
+.grade9-material-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.58;
+}
+
+.grade9-material-meta {
+  margin-top: 0.5rem !important;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-strong-accent) !important;
+}
+
+.grade9-material-actions {
+  margin-top: 0.72rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.grade9-material-btn {
+  padding: 0.62rem 1rem;
+  font-size: 0.82rem;
+}
+
+.grade9-usage {
+  padding: 1rem;
+}
+
+.grade9-usage-grid {
+  margin-top: 0.76rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.56rem;
+}
+
+.grade9-usage-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.grade9-usage-item p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.grade9-final-cta {
+  padding: 1.12rem;
+  background: linear-gradient(135deg, var(--bg-surface-soft), var(--bg-surface));
+}
+
+.grade9-final-cta .btn {
+  margin-top: 0.82rem;
+}
+
+@media (min-width: 780px) {
+  .grade9-overview-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grade9-material-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grade9-usage-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grade9-overview-card,
+  .grade9-material-card {
+    transition: none !important;
+  }
+}

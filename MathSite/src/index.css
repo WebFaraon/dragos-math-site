@@ -207,6 +207,10 @@ a {
   text-decoration: none;
 }
 
+section[id] {
+  scroll-margin-top: calc(var(--nav-height) + 1.1rem);
+}
+
 .section {
   width: min(1100px, 92%);
   margin: 0 auto;
@@ -215,7 +219,7 @@ a {
 }
 
 .page-main {
-  padding-top: calc(var(--nav-height) + 1.9rem);
+  padding-top: calc(var(--nav-height) + 4rem);
 }
 
 .page-back-link {
