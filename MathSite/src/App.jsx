@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 import HomePage from './pages/HomePage.jsx'
 import ProgramsPage from './pages/ProgramsPage.jsx'
 import Grade9Page from './pages/Grade9Page.jsx'
 import Grade12Page from './pages/Grade12Page.jsx'
+import PageTransition from './components/PageTransition.jsx'
 
 function RouteScrollManager() {
   const location = useLocation()
@@ -42,15 +44,47 @@ function RouteScrollManager() {
 }
 
 function App() {
+  const location = useLocation()
+
   return (
     <>
       <RouteScrollManager />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/programs" element={<ProgramsPage />} />
-        <Route path="/programs/grade-9" element={<Grade9Page />} />
-        <Route path="/programs/grade-12" element={<Grade12Page />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <PageTransition>
+                <HomePage />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/programs"
+            element={
+              <PageTransition>
+                <ProgramsPage />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/programs/grade-9"
+            element={
+              <PageTransition>
+                <Grade9Page />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/programs/grade-12"
+            element={
+              <PageTransition>
+                <Grade12Page />
+              </PageTransition>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
     </>
   )
 }

@@ -1,179 +1,175 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
+import TopicCard from '../components/TopicCard.jsx'
 import './Grade9Page.css'
 
 function Grade9Page() {
-  const overviewCards = [
-    {
-      title: 'Core Topics',
-      description: 'Algebra, Geometry, and Functions basics.',
-      icon: '\u03A3',
-    },
-    {
-      title: 'Weekly Structure',
-      description: 'Guided lessons with focused, structured practice.',
-      icon: '\u0192',
-    },
-    {
-      title: 'Expected Outcome',
-      description: 'Confidence, clarity, and better grades.',
-      icon: '\u03C0',
-    },
-  ]
+  const [expandedTopic, setExpandedTopic] = useState(null)
 
-  const materialGroups = [
+  const topicBlocks = [
     {
-      title: 'Algebra Basics',
-      items: [
+      title: 'Algebra and Function Foundations',
+      topics: [
         {
-          title: 'Linear Equations Essentials',
-          description: 'Step-by-step methods for solving linear equations.',
-          meta: 'PDF · ~30 min',
+          title: 'Algebraic Calculations',
+          slug: 'algebraic-calculations',
           icon: '\u03A3',
+          description: 'Operations with expressions, factorization, and simplification methods.',
+          pdfs: [],
+          downloadAllPath: '',
         },
         {
-          title: 'Expressions and Factorization Drill',
-          description: 'Core manipulation patterns for confident practice.',
-          meta: 'PDF · ~25 min',
-          icon: '\u00D7',
-        },
-      ],
-    },
-    {
-      title: 'Geometry Foundations',
-      items: [
-        {
-          title: 'Angles, Triangles, and Proof Basics',
-          description: 'Essential geometry logic with clean examples.',
-          meta: 'PDF · ~35 min',
+          title: 'Basic Plane Geometry',
+          slug: 'basic-plane-geometry',
           icon: '\u25B3',
+          description:
+            'Core properties of points, lines, angles, and fundamental plane figures.',
+          pdfs: [],
+          downloadAllPath: '',
         },
         {
-          title: 'Perimeter, Area, and Applications',
-          description: 'Formula use with practical exam-style questions.',
-          meta: 'PDF · ~30 min',
-          icon: '\u2220',
+          title: 'Linear and Quadratic Functions',
+          slug: 'linear-and-quadratic-functions',
+          icon: '\u0192',
+          description: 'Representation and analysis of first-degree and second-degree functions.',
+          pdfs: [],
+          downloadAllPath: '',
         },
       ],
     },
     {
-      title: 'Practice & Reinforcement',
-      items: [
+      title: 'Proportions, Powers, and Quadratics',
+      topics: [
         {
-          title: 'Weekly Mixed Practice Set',
-          description: 'Balanced problems to reinforce new concepts.',
-          meta: 'PDF · ~40 min',
-          icon: '\u2713',
+          title: 'Ratios and Percentages',
+          slug: 'ratios-and-percentages',
+          icon: '%',
+          description: 'Applications of proportional reasoning, ratios, and percentage change.',
+          pdfs: [],
+          downloadAllPath: '',
         },
         {
-          title: 'Self-Check Quiz Pack',
-          description: 'Quick checks to find and fix weak points early.',
-          meta: 'PDF · ~20 min',
-          icon: '\u2717',
+          title: 'Powers and Radicals',
+          slug: 'powers-and-radicals',
+          icon: '\u221A',
+          description: 'Rules for exponents and operations with roots and radical expressions.',
+          pdfs: [],
+          downloadAllPath: '',
+        },
+        {
+          title: 'Quadratic Equations',
+          slug: 'quadratic-equations',
+          icon: 'x\u00B2',
+          description: 'Methods for solving and verifying equations of second degree.',
+          pdfs: [],
+          downloadAllPath: '',
         },
       ],
     },
-  ]
-
-  const usageSteps = [
-    { label: 'Follow the weekly plan', icon: '\u23F1' },
-    { label: 'Practice after each lesson', icon: '\u270E' },
-    { label: 'Mark unclear topics', icon: '?' },
-    { label: 'Review during mentoring sessions', icon: '\u21BB' },
+    {
+      title: 'Geometry and Equation Systems',
+      topics: [
+        {
+          title: 'Advanced Plane Geometry',
+          slug: 'advanced-plane-geometry',
+          icon: '\u2220',
+          description: 'Geometric relations involving triangles, polygons, and circle elements.',
+          pdfs: [],
+          downloadAllPath: '',
+        },
+        {
+          title: 'Systems of Equations',
+          slug: 'systems-of-equations',
+          icon: '{x,y}',
+          description: 'Solving two-variable systems using algebraic and graphical approaches.',
+          pdfs: [],
+          downloadAllPath: '',
+        },
+        {
+          title: 'Linear Inequalities',
+          slug: 'linear-inequalities',
+          icon: '\u2264',
+          description: 'Formulation and solution of first-degree inequalities and intervals.',
+          pdfs: [],
+          downloadAllPath: '',
+        },
+      ],
+    },
+    {
+      title: 'Solid and Parameterized Topics',
+      topics: [
+        {
+          title: 'Solid Geometry',
+          slug: 'solid-geometry',
+          icon: '\u25A1',
+          description: 'Study of three-dimensional figures, surface area, and volume relations.',
+          pdfs: [],
+          downloadAllPath: '',
+        },
+        {
+          title: 'Algebraic Fractions',
+          slug: 'algebraic-fractions',
+          icon: '\u00F7',
+          description: 'Simplification and operations with rational algebraic expressions.',
+          pdfs: [],
+          downloadAllPath: '',
+        },
+        {
+          title: 'Functions with Parameters',
+          slug: 'functions-with-parameters',
+          icon: 'f(a,x)',
+          description: 'Behavior of function families defined by variable parameter values.',
+          pdfs: [],
+          downloadAllPath: '',
+        },
+      ],
+    },
   ]
 
   return (
     <div className="app">
       <Navbar />
       <main className="section page-main grade9-page-main">
-        <section className="grade9-hero grade9-panel">
-          <p className="grade9-badge">GRADE 9 PROGRAM</p>
-          <h1 className="grade9-title">Build Strong Math Foundations with Confidence</h1>
-          <p className="grade9-subtitle">
-            A structured path that helps Grade 9 students understand core math concepts and
-            progress consistently each week.
-          </p>
-
-          <div className="grade9-hero-actions">
-            <Link className="btn btn-primary" to="/#contact">
-              Book a Free Lesson
+        <section className="grade9-header grade9-panel">
+          <div className="grade9-header-top">
+            <p className="grade9-badge">{'Curriculum-aligned \u2022 PDFs available'}</p>
+            <Link className="btn btn-secondary grade9-back-btn" to="/programs">
+              Back to Programs
             </Link>
-            <a className="btn btn-secondary" href="#grade9-materials">
-              See Learning Materials
-            </a>
           </div>
+
+          <h1 className="grade9-title">{'Grade 9 \u2013 Mathematics Program'}</h1>
+          <p className="grade9-subtitle">Structured materials aligned with the Grade 9 curriculum.</p>
         </section>
 
-        <section className="grade9-overview">
-          <div className="grade9-overview-grid">
-            {overviewCards.map((card) => (
-              <article key={card.title} className="grade9-overview-card grade9-panel">
-                <span className="grade9-icon" aria-hidden="true">
-                  {card.icon}
-                </span>
-                <h2>{card.title}</h2>
-                <p>{card.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="grade9-materials" className="grade9-materials">
+        <section className="grade9-curriculum">
           <div className="grade9-section-head">
-            <h2>Learning Materials for Grade 9</h2>
-            <p>Structured resources aligned with the weekly learning plan</p>
+            <h2>Curriculum Topics</h2>
           </div>
 
-          <div className="grade9-material-groups">
-            {materialGroups.map((group) => (
-              <section key={group.title} className="grade9-material-group grade9-panel">
-                <h3>{group.title}</h3>
-                <div className="grade9-material-grid">
-                  {group.items.map((item) => (
-                    <article key={item.title} className="grade9-material-card">
-                      <span className="grade9-icon" aria-hidden="true">
-                        {item.icon}
-                      </span>
-                      <h4>{item.title}</h4>
-                      <p>{item.description}</p>
-                      <p className="grade9-material-meta">{item.meta}</p>
-                      <div className="grade9-material-actions">
-                        <button type="button" className="btn btn-secondary grade9-material-btn">
-                          View PDF
-                        </button>
-                        <button type="button" className="btn btn-primary grade9-material-btn">
-                          Download
-                        </button>
-                      </div>
-                    </article>
+          <div className="grade9-topic-blocks">
+            {topicBlocks.map((block) => (
+              <section key={block.title} className="grade9-topic-block grade9-panel">
+                <h3>{block.title}</h3>
+                <div className="grade9-topic-grid">
+                  {block.topics.map((topic) => (
+                    <TopicCard
+                      key={topic.slug}
+                      topic={topic}
+                      isExpanded={expandedTopic === topic.slug}
+                      onToggle={() =>
+                        setExpandedTopic((currentTopic) =>
+                          currentTopic === topic.slug ? null : topic.slug,
+                        )
+                      }
+                    />
                   ))}
                 </div>
               </section>
             ))}
           </div>
-        </section>
-
-        <section className="grade9-usage grade9-panel">
-          <h2>How to Use These Materials</h2>
-          <div className="grade9-usage-grid">
-            {usageSteps.map((step) => (
-              <div key={step.label} className="grade9-usage-item">
-                <span className="grade9-icon" aria-hidden="true">
-                  {step.icon}
-                </span>
-                <p>{step.label}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="grade9-final-cta grade9-panel">
-          <h2>Not sure where to start?</h2>
-          <p>Book a free lesson and receive a personalized study plan.</p>
-          <Link className="btn btn-primary" to="/#contact">
-            Book a Free Lesson
-          </Link>
         </section>
       </main>
       <Footer />
