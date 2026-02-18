@@ -14,6 +14,8 @@ function Contact() {
   const [formData, setFormData] = useState(initialFormState)
   const [status, setStatus] = useState('')
   const [statusType, setStatusType] = useState('idle')
+  const directEmailLabel = t('contact.form.emailLabel', { defaultValue: 'Email' })
+  const directTelegramLabel = t('contact.telegramLabel', { defaultValue: 'Telegram' })
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -98,7 +100,7 @@ function Contact() {
   }, [status, statusType])
 
   return (
-    <section id="contact" className="section reveal">
+    <section id="contact" className="section reveal contact-section">
       <div className="section-heading">
         <p className="eyebrow">{t('contact.eyebrow')}</p>
         <h2 className="section-title">{t('contact.title')}</h2>
@@ -107,12 +109,33 @@ function Contact() {
       <div className="contact-grid">
         <div className="contact-copy">
           <h3>{t('contact.introTitle')}</h3>
-          <p>{t('contact.introBody')}</p>
+          <p className="contact-copy-lead">{t('contact.introBody')}</p>
+
+          <div className="contact-methods-grid">
+            <article className="contact-method-card">
+              <div className="contact-method-header">
+                <h4>{directEmailLabel}</h4>
+                <span className="contact-method-icon" aria-hidden="true">
+                  ✉
+                </span>
+              </div>
+              <p className="contact-method-value">
+                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              </p>
+            </article>
+
+            <article className="contact-method-card">
+              <div className="contact-method-header">
+                <h4>{directTelegramLabel}</h4>
+                <span className="contact-method-icon" aria-hidden="true">
+                  ☎
+                </span>
+              </div>
+              <p className="contact-method-value">{CONTACT_TELEGRAM}</p>
+            </article>
+          </div>
+
           <p className="contact-response">{t('contact.responseTime')}</p>
-          <p className="contact-alt">
-            {t('contact.altPrefix')} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> |{' '}
-            {t('contact.telegramLabel')}: {CONTACT_TELEGRAM}
-          </p>
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>

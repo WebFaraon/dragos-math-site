@@ -1,16 +1,18 @@
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import HomePage from './pages/HomePage.jsx'
 import ProgramsPage from './pages/ProgramsPage.jsx'
 import Grade9Page from './pages/Grade9Page.jsx'
 import Grade12Page from './pages/Grade12Page.jsx'
+import ContactPage from './pages/ContactPage.jsx'
+import PlaceholderPage from './pages/PlaceholderPage.jsx'
 import PageTransition from './components/PageTransition.jsx'
 
 function RouteScrollManager() {
   const location = useLocation()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!location.hash) {
       window.scrollTo({ top: 0, behavior: 'auto' })
       return
@@ -43,11 +45,37 @@ function RouteScrollManager() {
   return null
 }
 
+function RouteTransitionOverflowLock() {
+  const location = useLocation()
+
+  useLayoutEffect(() => {
+    const html = document.documentElement
+    const body = document.body
+
+    html.classList.add('route-transition-lock')
+    body.classList.add('route-transition-lock')
+
+    const unlockTimer = window.setTimeout(() => {
+      html.classList.remove('route-transition-lock')
+      body.classList.remove('route-transition-lock')
+    }, 340)
+
+    return () => {
+      window.clearTimeout(unlockTimer)
+      html.classList.remove('route-transition-lock')
+      body.classList.remove('route-transition-lock')
+    }
+  }, [location.pathname])
+
+  return null
+}
+
 function App() {
   const location = useLocation()
 
   return (
     <>
+      <RouteTransitionOverflowLock />
       <RouteScrollManager />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -80,6 +108,50 @@ function App() {
             element={
               <PageTransition>
                 <Grade12Page />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/resources"
+            element={
+              <PageTransition>
+                <PlaceholderPage
+                  eyebrow="Resources"
+                  title="Resources Library"
+                  copy="This page is coming soon. You will be able to browse by topic and level."
+                />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/results"
+            element={
+              <PageTransition>
+                <PlaceholderPage
+                  eyebrow="Results"
+                  title="Student Results"
+                  copy="This page is coming soon. Detailed outcomes and score improvements will be listed here."
+                />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/testimonials"
+            element={
+              <PageTransition>
+                <PlaceholderPage
+                  eyebrow="Testimonials"
+                  title="Testimonials"
+                  copy="This page is coming soon. Full student and parent testimonials will be published here."
+                />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <PageTransition>
+                <ContactPage />
               </PageTransition>
             }
           />

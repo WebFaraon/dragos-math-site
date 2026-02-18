@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import GuideCharacter from './GuideCharacter.jsx'
 
 const heroSymbols = ['f(x)', '\u03A3', '\u03C0']
@@ -7,6 +8,10 @@ const heroSymbols = ['f(x)', '\u03A3', '\u03C0']
 function Hero() {
   const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
+  const subtitle = t('hero.subtitleShort', {
+    defaultValue:
+      'Personalized mentoring for Grade 9 foundations and Grade 12 exam prep with clear weekly progress.',
+  })
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 120)
@@ -26,15 +31,15 @@ function Hero() {
       <div className="hero-content">
         <p className="eyebrow">{t('hero.eyebrow')}</p>
         <h1>{t('hero.title')}</h1>
-        <p className="hero-subtitle">{t('hero.subtitle')}</p>
+        <p className="hero-subtitle">{subtitle}</p>
 
         <div className="hero-actions">
-          <a className="btn btn-primary" href="#contact">
+          <Link className="btn btn-primary" to="/contact">
             {t('hero.ctaPrimary')}
-          </a>
-          <a className="btn btn-secondary" href="#programs">
+          </Link>
+          <Link className="btn btn-secondary" to="/programs">
             {t('hero.ctaSecondary')}
-          </a>
+          </Link>
         </div>
 
         <p className="hero-proof">{t('hero.proof')}</p>

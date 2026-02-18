@@ -9,7 +9,7 @@ function Grade12Page() {
   return (
     <div className="app">
       <Navbar />
-      <main className="section page-main">
+      <main className="section page-main grade12-page-main">
         <div className="section-heading">
           <h1 className="section-title">{t('pages.grade12.title')}</h1>
           <p className="hero-subtitle">{t('pages.grade12.intro')}</p>

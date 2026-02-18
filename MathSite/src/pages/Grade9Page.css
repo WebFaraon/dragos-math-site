@@ -3,6 +3,10 @@
   gap: 1.25rem;
 }
 
+.grade9-page-main.page-main {
+  padding-top: calc(var(--nav-height) + 5.4rem);
+}
+
 .grade9-panel {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -189,6 +193,12 @@
 @media (min-width: 760px) {
   .grade9-topic-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1080px) {
+  .grade9-page-main.page-main {
+    padding-top: calc(var(--nav-height) + 4.2rem);
   }
 }
 

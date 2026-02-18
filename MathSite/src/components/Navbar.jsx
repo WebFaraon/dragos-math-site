@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import LanguageDropdown from './LanguageDropdown.jsx'
 import ThemeToggle from './ThemeToggle.jsx'
 
@@ -10,18 +10,22 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   const navLinks = [
-    { id: 'home', label: t('nav.home'), to: '/' },
+    { id: 'home', label: t('nav.home'), to: '/', end: true },
     { id: 'programs', label: t('nav.programs'), to: '/programs' },
-    { id: 'parents', label: t('nav.parents'), to: '/#parents' },
-    { id: 'method', label: t('nav.method'), to: '/#method' },
-    { id: 'testimonials', label: t('nav.results'), to: '/#testimonials' },
-    { id: 'contact', label: t('nav.contact'), to: '/#contact' },
+    { id: 'resources', label: t('nav.resources', { defaultValue: 'Resources' }), to: '/resources' },
+    { id: 'results', label: t('nav.results'), to: '/results' },
+    {
+      id: 'testimonials',
+      label: t('nav.testimonials', { defaultValue: 'Testimonials' }),
+      to: '/testimonials',
+    },
+    { id: 'contact', label: t('nav.contact'), to: '/contact' },
   ]
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20)
     const onResize = () => {
-      if (window.innerWidth > 930) {
+      if (window.innerWidth > 1080) {
         setIsMenuOpen(false)
       }
     }
@@ -48,15 +52,22 @@ function Navbar() {
         <div className="nav-actions">
           <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
             {navLinks.map((link) => (
-              <Link key={link.id} to={link.to} className="nav-link" onClick={closeMenu}>
+              <NavLink
+                key={link.id}
+                to={link.to}
+                end={link.end}
+                className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}
+                onClick={closeMenu}
+              >
                 {link.label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
 
-          <ThemeToggle />
-
-          <LanguageDropdown />
+          <div className="nav-right-controls">
+            <ThemeToggle />
+            <LanguageDropdown />
+          </div>
 
           <button
             className={`hamburger ${isMenuOpen ? 'open' : ''}`}
