@@ -7,6 +7,7 @@ import Grade9Page from './pages/Grade9Page.jsx'
 import Grade12Page from './pages/Grade12Page.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import PlaceholderPage from './pages/PlaceholderPage.jsx'
+import ResourcesPage from './pages/ResourcesPage.jsx'
 import PageTransition from './components/PageTransition.jsx'
 
 function RouteScrollManager() {
@@ -115,11 +116,7 @@ function App() {
             path="/resources"
             element={
               <PageTransition>
-                <PlaceholderPage
-                  eyebrow="Resources"
-                  title="Resources Library"
-                  copy="This page is coming soon. You will be able to browse by topic and level."
-                />
+                <ResourcesPage />
               </PageTransition>
             }
           />

@@ -236,7 +236,7 @@ section[id] {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: calc(var(--nav-height) + 2.35rem);
+  padding-top: calc(var(--nav-height) + 5.4rem);
   padding-bottom: 0.25rem;
 }
 
@@ -1884,7 +1884,7 @@ section[id] {
   }
 
   .programs-page-main.section {
-    padding-top: calc(var(--nav-height) + 1.55rem);
+    padding-top: calc(var(--nav-height) + 4.2rem);
     padding-bottom: 0.35rem;
   }
 

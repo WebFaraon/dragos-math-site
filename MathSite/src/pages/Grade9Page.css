@@ -145,6 +145,19 @@
   gap: 0.5rem;
 }
 
+.grade9-topic-resource {
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.72rem;
+}
+
+.grade9-topic-resource-label {
+  margin: 0;
+  color: var(--text-strong-accent);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
 .grade9-topic-btn {
   padding: 0.58rem 0.96rem;
   font-size: 0.8rem;

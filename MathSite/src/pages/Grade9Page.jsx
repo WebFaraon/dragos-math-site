@@ -17,6 +17,10 @@ function Grade9Page() {
           slug: 'algebraic-calculations',
           icon: '\u03A3',
           description: 'Operations with expressions, factorization, and simplification methods.',
+          resource: {
+            label: 'Practice PDF - Algebraic Calculations',
+            path: '/pdfs/grade9/ex1/first-pdf.pdf',
+          },
           pdfs: [],
           downloadAllPath: '',
         },
