@@ -13,12 +13,7 @@ function Navbar() {
     { id: 'home', label: t('nav.home'), to: '/', end: true },
     { id: 'programs', label: t('nav.programs'), to: '/programs' },
     { id: 'resources', label: t('nav.resources', { defaultValue: 'Resources' }), to: '/resources' },
-    { id: 'results', label: t('nav.results'), to: '/results' },
-    {
-      id: 'testimonials',
-      label: t('nav.testimonials', { defaultValue: 'Testimonials' }),
-      to: '/testimonials',
-    },
+    { id: 'feedback', label: t('nav.feedback'), to: '/feedback' },
     { id: 'contact', label: t('nav.contact'), to: '/contact' },
   ]
 

@@ -278,8 +278,8 @@ function HomePage() {
           </div>
 
           <p className="home-section-action">
-            <Link className="btn btn-secondary home-action-link" to="/testimonials">
-              {t('home.testimonialsStrip.cta', { defaultValue: 'See all testimonials' })}
+            <Link className="btn btn-secondary home-action-link" to="/feedback">
+              {t('home.testimonialsStrip.cta', { defaultValue: 'See all feedback' })}
             </Link>
           </p>
         </section>

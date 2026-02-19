@@ -1,13 +1,13 @@
-import { useEffect, useLayoutEffect } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { useLayoutEffect } from 'react'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import HomePage from './pages/HomePage.jsx'
 import ProgramsPage from './pages/ProgramsPage.jsx'
 import Grade9Page from './pages/Grade9Page.jsx'
 import Grade12Page from './pages/Grade12Page.jsx'
 import ContactPage from './pages/ContactPage.jsx'
-import PlaceholderPage from './pages/PlaceholderPage.jsx'
 import ResourcesPage from './pages/ResourcesPage.jsx'
+import FeedbackPage from './pages/Feedback.jsx'
 import PageTransition from './components/PageTransition.jsx'
 
 function RouteScrollManager() {
@@ -121,29 +121,15 @@ function App() {
             }
           />
           <Route
-            path="/results"
+            path="/feedback"
             element={
               <PageTransition>
-                <PlaceholderPage
-                  eyebrow="Results"
-                  title="Student Results"
-                  copy="This page is coming soon. Detailed outcomes and score improvements will be listed here."
-                />
+                <FeedbackPage />
               </PageTransition>
             }
           />
-          <Route
-            path="/testimonials"
-            element={
-              <PageTransition>
-                <PlaceholderPage
-                  eyebrow="Testimonials"
-                  title="Testimonials"
-                  copy="This page is coming soon. Full student and parent testimonials will be published here."
-                />
-              </PageTransition>
-            }
-          />
+          <Route path="/results" element={<Navigate to="/feedback" replace />} />
+          <Route path="/testimonials" element={<Navigate to="/feedback" replace />} />
           <Route
             path="/contact"
             element={

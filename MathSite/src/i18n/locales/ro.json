@@ -31,7 +31,8 @@
     "method": "Cum Funcționează",
     "results": "Rezultate",
     "contact": "Contact",
-    "toggleMenuAria": "Comută meniul de navigare"
+    "toggleMenuAria": "Comută meniul de navigare",
+    "feedback": "Feedback"
   },
   "hero": {
     "eyebrow": "Mentorat Personal pentru Clasa a 9-a și Clasa a 12-a",
@@ -250,6 +251,24 @@
       "title": "Program Clasa a 12-a",
       "intro": "Structura completă și opțiunile de înscriere apar în curând.",
       "backPrograms": "Înapoi la programe"
+    }
+  },
+  "feedback": {
+    "title": "Feedback",
+    "subtitle": "Rezultate, testimoniale si feedback de la parinti, intr-un singur loc.",
+    "sections": {
+      "results": "Rezultate",
+      "testimonials": "Testimoniale",
+      "submit": "Trimite feedback"
+    },
+    "form": {
+      "name": "Nume",
+      "role": "Rol",
+      "roleParent": "Parinte",
+      "roleStudent": "Elev",
+      "message": "Mesaj",
+      "submit": "Trimite feedback",
+      "success": "Multumim. Feedbackul tau a fost trimis cu succes."
     }
   }
 }

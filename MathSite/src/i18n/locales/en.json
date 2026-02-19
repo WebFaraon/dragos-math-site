@@ -31,7 +31,8 @@
     "method": "How It Works",
     "results": "Results",
     "contact": "Contact",
-    "toggleMenuAria": "Toggle navigation menu"
+    "toggleMenuAria": "Toggle navigation menu",
+    "feedback": "Feedback"
   },
   "hero": {
     "eyebrow": "Personal Mentoring for Grade 9 and Grade 12",
@@ -250,6 +251,24 @@
       "title": "Grade 12 Program",
       "intro": "Detailed curriculum and enrollment options are coming soon.",
       "backPrograms": "Back to Programs"
+    }
+  },
+  "feedback": {
+    "title": "Feedback",
+    "subtitle": "Results, testimonials, and parent feedback in one place.",
+    "sections": {
+      "results": "Results",
+      "testimonials": "Testimonials",
+      "submit": "Submit Feedback"
+    },
+    "form": {
+      "name": "Name",
+      "role": "Role",
+      "roleParent": "Parent",
+      "roleStudent": "Student",
+      "message": "Message",
+      "submit": "Submit Feedback",
+      "success": "Thank you. Your feedback was sent successfully."
     }
   }
 }

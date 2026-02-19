@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CONTACT_EMAIL, CONTACT_TELEGRAM } from '../brand.js'
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_TELEGRAM } from '../brand.js'
 
 const initialFormState = {
   name: '',
@@ -15,6 +15,7 @@ function Contact() {
   const [status, setStatus] = useState('')
   const [statusType, setStatusType] = useState('idle')
   const directEmailLabel = t('contact.form.emailLabel', { defaultValue: 'Email' })
+  const directPhoneLabel = t('contact.phoneLabel', { defaultValue: 'Phone Number' })
   const directTelegramLabel = t('contact.telegramLabel', { defaultValue: 'Telegram' })
 
   const handleChange = (event) => {
@@ -126,12 +127,32 @@ function Contact() {
 
             <article className="contact-method-card">
               <div className="contact-method-header">
-                <h4>{directTelegramLabel}</h4>
+                <h4>{directPhoneLabel}</h4>
                 <span className="contact-method-icon" aria-hidden="true">
                   ☎
                 </span>
               </div>
-              <p className="contact-method-value">{CONTACT_TELEGRAM}</p>
+              <p className="contact-method-value">
+                <a href={`tel:${CONTACT_PHONE.replace(/\s+/g, '')}`}>{CONTACT_PHONE}</a>
+              </p>
+            </article>
+
+            <article className="contact-method-card">
+              <div className="contact-method-header">
+                <h4>{directTelegramLabel}</h4>
+                <span className="contact-method-icon" aria-hidden="true">
+                  @
+                </span>
+              </div>
+              <p className="contact-method-value">
+                <a
+                  href={`https://t.me/${CONTACT_TELEGRAM.replace(/^@/, '')}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {CONTACT_TELEGRAM}
+                </a>
+              </p>
             </article>
           </div>
 
