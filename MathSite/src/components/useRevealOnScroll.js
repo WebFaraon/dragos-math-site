@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-function useRevealOnScroll() {
+function useRevealOnScroll(deps = []) {
   useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal')
     if (!revealElements.length) return
@@ -20,7 +20,7 @@ function useRevealOnScroll() {
     revealElements.forEach((element) => revealObserver.observe(element))
 
     return () => revealObserver.disconnect()
-  }, [])
+  }, deps)
 }
 
 export default useRevealOnScroll

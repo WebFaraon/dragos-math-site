@@ -6,7 +6,7 @@ import ProgramsPage from './pages/ProgramsPage.jsx'
 import Grade9Page from './pages/Grade9Page.jsx'
 import Grade12Page from './pages/Grade12Page.jsx'
 import ContactPage from './pages/ContactPage.jsx'
-import ResourcesPage from './pages/ResourcesPage.jsx'
+import ResourcesPage from './pages/ResourcesPage.tsx'
 import FeedbackPage from './pages/Feedback.jsx'
 import PageTransition from './components/PageTransition.jsx'
 
