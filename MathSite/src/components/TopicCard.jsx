@@ -1,4 +1,7 @@
+import { useTranslation } from 'react-i18next'
+
 function TopicCard({ topic, isExpanded, onToggle }) {
+  const { t } = useTranslation()
   const basePath = `/pdfs/grade-9/${topic.slug}/`
   const hasPdfs = topic.pdfs.length > 0
   const downloadAllHref =
@@ -26,10 +29,10 @@ function TopicCard({ topic, isExpanded, onToggle }) {
               target="_blank"
               rel="noreferrer"
             >
-              View PDF
+              {t('topicCard.actions.viewPdf')}
             </a>
             <a className="btn btn-secondary grade9-topic-btn" href={topic.resource.path} download>
-              Download
+              {t('topicCard.actions.download')}
             </a>
           </div>
         </div>
@@ -43,16 +46,16 @@ function TopicCard({ topic, isExpanded, onToggle }) {
               aria-expanded={isExpanded}
               aria-controls={`topic-pdfs-${topic.slug}`}
             >
-              View PDFs
+              {t('topicCard.actions.viewPdfs')}
             </button>
 
             {downloadAllHref ? (
               <a className="btn btn-secondary grade9-topic-btn" href={downloadAllHref} download>
-                Download All
+                {t('topicCard.actions.downloadAll')}
               </a>
             ) : (
               <button type="button" className="btn btn-secondary grade9-topic-btn" disabled>
-                Download All
+                {t('topicCard.actions.downloadAll')}
               </button>
             )}
           </div>
@@ -71,7 +74,7 @@ function TopicCard({ topic, isExpanded, onToggle }) {
                 </ul>
               ) : (
                 <p className="grade9-topic-empty">
-                  PDF links for this topic will be added in `{basePath}`.
+                  {t('topicCard.empty', { basePath })}
                 </p>
               )}
             </div>

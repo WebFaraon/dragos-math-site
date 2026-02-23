@@ -3,10 +3,12 @@ import { useTranslation } from 'react-i18next'
 import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import TestimonialsForm from '../components/TestimonialsForm.jsx'
+import useRevealOnScroll from '../components/useRevealOnScroll.js'
 
 function FeedbackPage() {
   const { t } = useTranslation()
   const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0)
+  useRevealOnScroll()
 
   const testimonials = [
     {
@@ -52,25 +54,6 @@ function FeedbackPage() {
       prevIndex === testimonialSlides.length - 1 ? 0 : prevIndex + 1,
     )
   }
-
-  useEffect(() => {
-    const revealElements = document.querySelectorAll('.reveal')
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view')
-            revealObserver.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.2 },
-    )
-
-    revealElements.forEach((element) => revealObserver.observe(element))
-
-    return () => revealObserver.disconnect()
-  }, [])
 
   return (
     <div className="app">

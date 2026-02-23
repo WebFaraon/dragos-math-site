@@ -1,14 +1,16 @@
+import { useTranslation } from 'react-i18next'
 import { useTheme } from '../theme/ThemeContext.jsx'
 
 function ThemeToggle() {
   const { isDark, toggleTheme } = useTheme()
+  const { t } = useTranslation()
 
   return (
     <button
       type="button"
       className={`theme-toggle ${isDark ? 'dark' : 'light'}`}
       onClick={toggleTheme}
-      aria-label="Toggle dark mode"
+      aria-label={t('theme.toggleAria')}
       aria-pressed={isDark}
     >
       <span className="theme-toggle-icon-wrap" aria-hidden="true">

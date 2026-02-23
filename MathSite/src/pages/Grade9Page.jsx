@@ -1,130 +1,159 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import TopicCard from '../components/TopicCard.jsx'
+import useRevealOnScroll from '../components/useRevealOnScroll.js'
 import './Grade9Page.css'
 
 function Grade9Page() {
   const [expandedTopic, setExpandedTopic] = useState(null)
+  const { t } = useTranslation()
+  useRevealOnScroll()
 
   const topicBlocks = [
     {
-      title: 'Algebra and Function Foundations',
+      title: t('grade9Page.blocks.algebraFoundations.title'),
       topics: [
         {
-          title: 'Algebraic Calculations',
+          title: t('grade9Page.blocks.algebraFoundations.topics.algebraicCalculations.title'),
           slug: 'algebraic-calculations',
           icon: '\u03A3',
-          description: 'Operations with expressions, factorization, and simplification methods.',
+          description: t(
+            'grade9Page.blocks.algebraFoundations.topics.algebraicCalculations.description',
+          ),
           resource: {
-            label: 'Practice PDF - Algebraic Calculations',
+            label: t(
+              'grade9Page.blocks.algebraFoundations.topics.algebraicCalculations.resourceLabel',
+            ),
             path: '/pdfs/grade9/ex1/first-pdf.pdf',
           },
           pdfs: [],
           downloadAllPath: '',
         },
         {
-          title: 'Basic Plane Geometry',
+          title: t('grade9Page.blocks.algebraFoundations.topics.basicPlaneGeometry.title'),
           slug: 'basic-plane-geometry',
           icon: '\u25B3',
-          description:
-            'Core properties of points, lines, angles, and fundamental plane figures.',
+          description: t(
+            'grade9Page.blocks.algebraFoundations.topics.basicPlaneGeometry.description',
+          ),
           pdfs: [],
           downloadAllPath: '',
         },
         {
-          title: 'Linear and Quadratic Functions',
+          title: t('grade9Page.blocks.algebraFoundations.topics.linearQuadratic.title'),
           slug: 'linear-and-quadratic-functions',
           icon: '\u0192',
-          description: 'Representation and analysis of first-degree and second-degree functions.',
+          description: t(
+            'grade9Page.blocks.algebraFoundations.topics.linearQuadratic.description',
+          ),
           pdfs: [],
           downloadAllPath: '',
         },
       ],
     },
     {
-      title: 'Proportions, Powers, and Quadratics',
+      title: t('grade9Page.blocks.proportionsPowers.title'),
       topics: [
         {
-          title: 'Ratios and Percentages',
+          title: t('grade9Page.blocks.proportionsPowers.topics.ratiosPercentages.title'),
           slug: 'ratios-and-percentages',
           icon: '%',
-          description: 'Applications of proportional reasoning, ratios, and percentage change.',
+          description: t(
+            'grade9Page.blocks.proportionsPowers.topics.ratiosPercentages.description',
+          ),
           pdfs: [],
           downloadAllPath: '',
         },
         {
-          title: 'Powers and Radicals',
+          title: t('grade9Page.blocks.proportionsPowers.topics.powersRadicals.title'),
           slug: 'powers-and-radicals',
           icon: '\u221A',
-          description: 'Rules for exponents and operations with roots and radical expressions.',
+          description: t(
+            'grade9Page.blocks.proportionsPowers.topics.powersRadicals.description',
+          ),
           pdfs: [],
           downloadAllPath: '',
         },
         {
-          title: 'Quadratic Equations',
+          title: t('grade9Page.blocks.proportionsPowers.topics.quadraticEquations.title'),
           slug: 'quadratic-equations',
           icon: 'x\u00B2',
-          description: 'Methods for solving and verifying equations of second degree.',
+          description: t(
+            'grade9Page.blocks.proportionsPowers.topics.quadraticEquations.description',
+          ),
           pdfs: [],
           downloadAllPath: '',
         },
       ],
     },
     {
-      title: 'Geometry and Equation Systems',
+      title: t('grade9Page.blocks.geometrySystems.title'),
       topics: [
         {
-          title: 'Advanced Plane Geometry',
+          title: t('grade9Page.blocks.geometrySystems.topics.advancedPlane.title'),
           slug: 'advanced-plane-geometry',
           icon: '\u2220',
-          description: 'Geometric relations involving triangles, polygons, and circle elements.',
+          description: t(
+            'grade9Page.blocks.geometrySystems.topics.advancedPlane.description',
+          ),
           pdfs: [],
           downloadAllPath: '',
         },
         {
-          title: 'Systems of Equations',
+          title: t('grade9Page.blocks.geometrySystems.topics.systemsEquations.title'),
           slug: 'systems-of-equations',
           icon: '{x,y}',
-          description: 'Solving two-variable systems using algebraic and graphical approaches.',
+          description: t(
+            'grade9Page.blocks.geometrySystems.topics.systemsEquations.description',
+          ),
           pdfs: [],
           downloadAllPath: '',
         },
         {
-          title: 'Linear Inequalities',
+          title: t('grade9Page.blocks.geometrySystems.topics.linearInequalities.title'),
           slug: 'linear-inequalities',
           icon: '\u2264',
-          description: 'Formulation and solution of first-degree inequalities and intervals.',
+          description: t(
+            'grade9Page.blocks.geometrySystems.topics.linearInequalities.description',
+          ),
           pdfs: [],
           downloadAllPath: '',
         },
       ],
     },
     {
-      title: 'Solid and Parameterized Topics',
+      title: t('grade9Page.blocks.solidsParameters.title'),
       topics: [
         {
-          title: 'Solid Geometry',
+          title: t('grade9Page.blocks.solidsParameters.topics.solidGeometry.title'),
           slug: 'solid-geometry',
           icon: '\u25A1',
-          description: 'Study of three-dimensional figures, surface area, and volume relations.',
+          description: t(
+            'grade9Page.blocks.solidsParameters.topics.solidGeometry.description',
+          ),
           pdfs: [],
           downloadAllPath: '',
         },
         {
-          title: 'Algebraic Fractions',
+          title: t('grade9Page.blocks.solidsParameters.topics.algebraicFractions.title'),
           slug: 'algebraic-fractions',
           icon: '\u00F7',
-          description: 'Simplification and operations with rational algebraic expressions.',
+          description: t(
+            'grade9Page.blocks.solidsParameters.topics.algebraicFractions.description',
+          ),
           pdfs: [],
           downloadAllPath: '',
         },
         {
-          title: 'Functions with Parameters',
+          title: t('grade9Page.blocks.solidsParameters.topics.functionsParameters.title'),
           slug: 'functions-with-parameters',
           icon: 'f(a,x)',
-          description: 'Behavior of function families defined by variable parameter values.',
+          description: t(
+            'grade9Page.blocks.solidsParameters.topics.functionsParameters.description',
+          ),
           pdfs: [],
           downloadAllPath: '',
         },
@@ -136,26 +165,26 @@ function Grade9Page() {
     <div className="app">
       <Navbar />
       <main className="section page-main grade9-page-main">
-        <section className="grade9-header grade9-panel">
+        <section className="grade9-header grade9-panel reveal">
           <div className="grade9-header-top">
-            <p className="grade9-badge">{'Curriculum-aligned \u2022 PDFs available'}</p>
+            <p className="grade9-badge">{t('grade9Page.badge')}</p>
             <Link className="btn btn-secondary grade9-back-btn" to="/programs">
-              Back to Programs
+              {t('grade9Page.backPrograms')}
             </Link>
           </div>
 
-          <h1 className="grade9-title">{'Grade 9 \u2013 Mathematics Program'}</h1>
-          <p className="grade9-subtitle">Structured materials aligned with the Grade 9 curriculum.</p>
+          <h1 className="grade9-title">{t('grade9Page.title')}</h1>
+          <p className="grade9-subtitle">{t('grade9Page.subtitle')}</p>
         </section>
 
         <section className="grade9-curriculum">
-          <div className="grade9-section-head">
-            <h2>Curriculum Topics</h2>
+          <div className="grade9-section-head reveal">
+            <h2>{t('grade9Page.curriculumTitle')}</h2>
           </div>
 
           <div className="grade9-topic-blocks">
             {topicBlocks.map((block) => (
-              <section key={block.title} className="grade9-topic-block grade9-panel">
+              <section key={block.title} className="grade9-topic-block grade9-panel reveal">
                 <h3>{block.title}</h3>
                 <div className="grade9-topic-grid">
                   {block.topics.map((topic) => (

@@ -1,274 +1,478 @@
-{
-  "brand": {
-    "name": "Mathorizon",
-    "mentorName": "Dragoș"
-  },
-  "language": {
-    "ariaLabel": "Selectează limba",
-    "menuAria": "Opțiuni limbă",
-    "options": {
-      "ro": {
-        "short": "RO",
-        "name": "Română",
-        "flag": "🇷🇴"
-      },
-      "en": {
-        "short": "EN",
-        "name": "English",
-        "flag": "🇬🇧"
-      },
-      "ru": {
-        "short": "RU",
-        "name": "Русский",
-        "flag": "🇷🇺"
-      }
-    }
-  },
-  "nav": {
-    "home": "Acasă",
-    "programs": "Programe",
-    "parents": "Pentru Părinți",
-    "method": "Cum Funcționează",
-    "results": "Rezultate",
-    "contact": "Contact",
-    "toggleMenuAria": "Comută meniul de navigare",
-    "feedback": "Feedback"
-  },
-  "hero": {
-    "eyebrow": "Mentorat Personal pentru Clasa a 9-a și Clasa a 12-a",
-    "title": "Construiește încredere la matematică și obține rezultate puternice la examene",
-    "subtitle": "Mentorat personalizat pentru bazele din clasa a 9-a și pregătirea BAC din clasa a 12-a, cu explicații calme, planuri săptămânale structurate și progres măsurabil.",
-    "ctaPrimary": "Programează o lecție gratuită",
-    "ctaSecondary": "Programe pentru clasele 9 și 12",
-    "proof": "Peste 10 ani experiență | Feedback săptămânal pentru părinți | Strategie orientată spre examen",
-    "audience": {
-      "label": "Caut pentru:",
-      "grade9": "Clasa a 9-a",
-      "grade12": "Clasa a 12-a"
-    }
-  },
-  "sections": {
-    "programs": {
-      "eyebrow": "Programe",
-      "title": "Două trasee clare pentru clasa a 9-a și clasa a 12-a",
-      "labels": {
-        "forWho": "Pentru cine este:",
-        "solves": "Ce rezolvă:",
-        "outcome": "Rezultat așteptat:"
-      },
-      "items": {
-        "grade9": {
-          "title": "Clasa a 9-a - Baze solide și încredere",
-          "forWho": "Elevi care trec în liceu și au nevoie de fundamente stabile.",
-          "solves": "Confuzie la algebră și geometrie, încredere scăzută la clasă și rezultate inconstante la teste.",
-          "outcome": "Înțelegere clară, participare mai bună la ore și note mai mari prin structură săptămânală."
-        },
-        "grade12": {
-          "title": "Clasa a 12-a - Pregătire examen și BAC",
-          "forWho": "Elevi din ultimul an care se pregătesc pentru BAC și examene cu miză mare.",
-          "solves": "Presiune de timp, strategie slabă la exerciții lungi și nesiguranță în probleme complexe.",
-          "outcome": "Rezolvare mai rapidă și mai precisă, cu antrenament țintit de examen și încredere sub presiune."
-        }
-      },
-      "cards": {
-        "grade9": {
-          "title": "Program Clasa a 9-a",
-          "subtitle": "Construiește încredere înainte de ritmul de liceu.",
-          "bullets": {
-            "item1": "Algebră și geometrie explicate clar",
-            "item2": "Structură săptămânală și rutină de lucru",
-            "item3": "Mai multă siguranță la teste"
-          },
-          "badges": {
-            "duration": "Plan 10 săptămâni",
-            "format": "Online 1:1",
-            "focus": "Focus pe baze"
-          },
-          "cta": "Vezi programul pentru clasa a 9-a"
-        },
-        "grade12": {
-          "title": "Program Clasa a 12-a",
-          "subtitle": "Pregătire țintită pentru BAC și examene finale.",
-          "bullets": {
-            "item1": "Strategie pentru exerciții lungi de examen",
-            "item2": "Antrenament cronometrat cu feedback clar",
-            "item3": "Mentorat calm sub presiune"
-          },
-          "badges": {
-            "duration": "Plan 12 săptămâni",
-            "format": "Online 1:1",
-            "focus": "Focus pe examen"
-          },
-          "cta": "Vezi programul pentru clasa a 12-a"
-        }
-      },
-      "overview": {
-        "subtitle": "O singură secțiune clară pentru ambele clase. Intră pe pagina de programe și alege traseul potrivit.",
-        "grade9": {
-          "title": "Traseu Clasa a 9-a",
-          "item1": "Fundamente solide la algebră și geometrie",
-          "item2": "Structură săptămânală și ritm constant",
-          "item3": "Mai multă încredere la clasă și teste"
-        },
-        "grade12": {
-          "title": "Traseu Clasa a 12-a",
-          "item1": "Strategie țintită pentru BAC",
-          "item2": "Antrenament cronometrat cu feedback",
-          "item3": "Control calm sub presiune"
-        },
-        "badges": {
-          "format": "Online 1:1",
-          "structure": "Plan Personalizat",
-          "focus": "Focus pe Rezultate"
-        },
-        "cta": "Vezi Programele"
-      }
-    },
-    "about": {
-      "eyebrow": "Despre {{mentorName}}",
-      "title": "Un mentor calm pentru progres academic serios",
-      "paragraph1": "{{mentorName}} este mentor de matematică și îi ajută pe elevii din clasa a 9-a și clasa a 12-a să înțeleagă cu adevărat, nu doar să memoreze formule. Lecțiile sunt clare, pas cu pas, și adaptate ritmului fiecărui elev.",
-      "paragraph2": "Părinții aleg acest tip de mentorat pentru structură, consecvență și transparență. Fiecare săptămână include obiective bine definite, feedback practic și un parcurs clar către încredere la examen.",
-      "panelTitle": "Principii de mentorat",
-      "principles": {
-        "item1": "Claritatea pe primul loc: fiecare concept explicat în pași simpli și logici.",
-        "item2": "Practică structurată: plan săptămânal cu dificultate progresivă.",
-        "item3": "Focus pe rezultate: strategie de examen, analiză a greșelilor și progres măsurabil."
-      },
-      "meta": "Peste 10 ani experiență cu clasele 9-12"
-    },
-    "parents": {
-      "eyebrow": "Pentru Părinți",
-      "title": "Mentorat serios, cu comunicare clară",
-      "items": {
-        "structuredPlan": {
-          "title": "Plan de învățare structurat",
-          "text": "Fiecare elev urmează un plan personalizat, aliniat nivelului actual și obiectivelor academice."
-        },
-        "weeklyFeedback": {
-          "title": "Feedback săptămânal",
-          "text": "Primești actualizări concise despre focusul lecțiilor, calitatea temelor și prioritățile următoare."
-        },
-        "measurableProgress": {
-          "title": "Progres măsurabil",
-          "text": "Progresul este urmărit prin verificări periodice, teste de simulare și consistență în rezolvarea problemelor."
-        },
-        "calmStyle": {
-          "title": "Stil de mentorat calm",
-          "text": "Elevii învață într-un mediu concentrat și respectuos, care construiește încredere pas cu pas."
-        }
-      }
-    },
-    "method": {
-      "eyebrow": "Cum Funcționează Învățarea",
-      "title": "Un proces simplu în 3 pași pentru rezultate stabile",
-      "steps": {
-        "step1": {
-          "title": "Evaluare și verificare de nivel",
-          "text": "Identificăm punctele forte, golurile și prioritățile de examen pentru un plan de start realist."
-        },
-        "step2": {
-          "title": "Lecții săptămânale structurate",
-          "text": "Fiecare săptămână combină claritatea conceptelor, exerciții ghidate și revizuirea țintită a temei."
-        },
-        "step3": {
-          "title": "Practică de examen și feedback",
-          "text": "Elevii lucrează pe sarcini de tip examen, strategie de timp și bucle de corecție concentrate."
-        }
-      }
-    },
-    "testimonials": {
-      "eyebrow": "Testimoniale",
-      "title": "Apreciat de elevi și părinți",
-      "ratingAria": "evaluare de 5 stele",
-      "items": {
-        "maria": {
-          "name": "Maria T.",
-          "result": "Elevă clasa a 9-a | De la 6 la 9",
-          "review": "Eram anxioasă la fiecare oră de matematică. Explicațiile au fost calme și clare, iar media la teste a crescut de la 6 la 9 într-un semestru."
-        },
-        "andrei": {
-          "name": "Andrei P.",
-          "result": "Elev clasa a 12-a | Simulare BAC +2.1 puncte",
-          "review": "Ședințele de strategie pentru BAC au schimbat modul în care rezolv problemele. Am devenit mai rapid, mai precis și mult mai încrezător înainte de examene."
-        },
-        "parent": {
-          "name": "Feedback părinte",
-          "result": "Mamă a unui elev de clasa a 12-a",
-          "review": "Dragoș este serios, organizat și foarte clar în comunicare. Am primit feedback săptămânal și am văzut progres măsurabil."
-        }
-      }
-    }
-  },
-  "contact": {
-    "eyebrow": "Contact",
-    "title": "Hai să planificăm următorul pas în progresul la matematică",
-    "introTitle": "Prietenos și clar încă de la prima conversație",
-    "introBody": "Părinții și elevii pot scrie cu notele actuale, obiectivele și dificultățile întâlnite. Vei primi o recomandare clară și pașii următori.",
-    "responseTime": "Timp obișnuit de răspuns: în maximum 24 de ore.",
-    "altPrefix": "Preferi contact direct? Email:",
-    "telegramLabel": "Telegram",
-    "form": {
-      "nameLabel": "Nume",
-      "namePlaceholder": "Numele tău",
-      "emailLabel": "Email",
-      "emailPlaceholder": "tu@exemplu.com",
-      "messageLabel": "Mesaj",
-      "messagePlaceholder": "Spune-mi clasa, obiectivele și ce ți se pare dificil acum...",
-      "submit": "Trimite mesajul",
-      "sending": "Se trimite...",
-      "emailSubject": "Mesaj nou - Mathorizon",
-      "fromName": "Website Mathorizon",
-      "status": {
-        "invalidEmail": "Te rog introdu o adresă de email validă.",
-        "sending": "Se trimite...",
-        "success": "Mulțumesc. Mesajul tău a fost trimis. De obicei răspund în 24 de ore.",
-        "error": "A apărut o problemă. Te rog încearcă din nou sau scrie-mi direct pe email."
-      }
-    }
-  },
-  "footer": {
-    "socialAria": "Linkuri social media",
-    "social": {
-      "facebookAria": "Facebook",
-      "instagramAria": "Instagram",
-      "linkedinAria": "LinkedIn"
-    },
-    "rights": "Toate drepturile rezervate."
-  },
-  "pages": {
-    "programs": {
-      "title": "Alege traseul potrivit de program",
-      "subtitle": "Două direcții clare, cu structură și rezultate.",
-      "backHome": "Înapoi la pagina principală"
-    },
-    "grade9": {
-      "title": "Program Clasa a 9-a",
-      "intro": "Structura completă și opțiunile de înscriere apar în curând.",
-      "backPrograms": "Înapoi la programe"
-    },
-    "grade12": {
-      "title": "Program Clasa a 12-a",
-      "intro": "Structura completă și opțiunile de înscriere apar în curând.",
-      "backPrograms": "Înapoi la programe"
-    }
-  },
-  "feedback": {
-    "title": "Feedback",
-    "subtitle": "Rezultate, testimoniale si feedback de la parinti, intr-un singur loc.",
-    "sections": {
-      "results": "Rezultate",
-      "testimonials": "Testimoniale",
-      "submit": "Trimite feedback"
-    },
-    "form": {
-      "name": "Nume",
-      "role": "Rol",
-      "roleParent": "Parinte",
-      "roleStudent": "Elev",
-      "message": "Mesaj",
-      "submit": "Trimite feedback",
-      "success": "Multumim. Feedbackul tau a fost trimis cu succes."
-    }
-  }
+﻿{
+    "brand":  {
+                  "name":  "Mathorizon",
+                  "mentorName":  "Dragoș"
+              },
+    "language":  {
+                     "ariaLabel":  "Selectează limba",
+                     "menuAria":  "Opțiuni limbă",
+                     "options":  {
+                                     "ro":  {
+                                                "short":  "RO",
+                                                "name":  "Română",
+                                                "flag":  "🇷🇴"
+                                            },
+                                     "en":  {
+                                                "short":  "EN",
+                                                "name":  "English",
+                                                "flag":  "🇬🇧"
+                                            },
+                                     "ru":  {
+                                                "short":  "RU",
+                                                "name":  "Русский",
+                                                "flag":  "🇷🇺"
+                                            }
+                                 }
+                 },
+    "nav":  {
+                "home":  "Acasă",
+                "programs":  "Programe",
+                "parents":  "Pentru Părinți",
+                "method":  "Cum Funcționează",
+                "results":  "Rezultate",
+                "contact":  "Contact",
+                "toggleMenuAria":  "Comută meniul de navigare",
+                "feedback":  "Feedback"
+            },
+    "hero":  {
+                 "eyebrow":  "Mentorat Personal pentru Clasa a 9-a și Clasa a 12-a",
+                 "title":  "Construiește încredere la matematică și obține rezultate puternice la examene",
+                 "subtitle":  "Mentorat personalizat pentru bazele din clasa a 9-a și pregătirea BAC din clasa a 12-a, cu explicații calme, planuri săptămânale structurate și progres măsurabil.",
+                 "ctaPrimary":  "Programează o lecție gratuită",
+                 "ctaSecondary":  "Programe pentru clasele 9 și 12",
+                 "proof":  "Peste 10 ani experiență | Feedback săptămânal pentru părinți | Strategie orientată spre examen",
+                 "audience":  {
+                                  "label":  "Caut pentru:",
+                                  "grade9":  "Clasa a 9-a",
+                                  "grade12":  "Clasa a 12-a"
+                              }
+             },
+    "sections":  {
+                     "programs":  {
+                                      "eyebrow":  "Programe",
+                                      "title":  "Două trasee clare pentru clasa a 9-a și clasa a 12-a",
+                                      "labels":  {
+                                                     "forWho":  "Pentru cine este:",
+                                                     "solves":  "Ce rezolvă:",
+                                                     "outcome":  "Rezultat așteptat:"
+                                                 },
+                                      "items":  {
+                                                    "grade9":  {
+                                                                   "title":  "Clasa a 9-a - Baze solide și încredere",
+                                                                   "forWho":  "Elevi care trec în liceu și au nevoie de fundamente stabile.",
+                                                                   "solves":  "Confuzie la algebră și geometrie, încredere scăzută la clasă și rezultate inconstante la teste.",
+                                                                   "outcome":  "Înțelegere clară, participare mai bună la ore și note mai mari prin structură săptămânală."
+                                                               },
+                                                    "grade12":  {
+                                                                    "title":  "Clasa a 12-a - Pregătire examen și BAC",
+                                                                    "forWho":  "Elevi din ultimul an care se pregătesc pentru BAC și examene cu miză mare.",
+                                                                    "solves":  "Presiune de timp, strategie slabă la exerciții lungi și nesiguranță în probleme complexe.",
+                                                                    "outcome":  "Rezolvare mai rapidă și mai precisă, cu antrenament țintit de examen și încredere sub presiune."
+                                                                }
+                                                },
+                                      "cards":  {
+                                                    "grade9":  {
+                                                                   "title":  "Program Clasa a 9-a",
+                                                                   "subtitle":  "Construiește încredere înainte de ritmul de liceu.",
+                                                                   "bullets":  {
+                                                                                   "item1":  "Algebră și geometrie explicate clar",
+                                                                                   "item2":  "Structură săptămânală și rutină de lucru",
+                                                                                   "item3":  "Mai multă siguranță la teste"
+                                                                               },
+                                                                   "badges":  {
+                                                                                  "duration":  "Plan 10 săptămâni",
+                                                                                  "format":  "Online 1:1",
+                                                                                  "focus":  "Focus pe baze"
+                                                                              },
+                                                                   "cta":  "Vezi programul pentru clasa a 9-a"
+                                                               },
+                                                    "grade12":  {
+                                                                    "title":  "Program Clasa a 12-a",
+                                                                    "subtitle":  "Pregătire țintită pentru BAC și examene finale.",
+                                                                    "bullets":  {
+                                                                                    "item1":  "Strategie pentru exerciții lungi de examen",
+                                                                                    "item2":  "Antrenament cronometrat cu feedback clar",
+                                                                                    "item3":  "Mentorat calm sub presiune"
+                                                                                },
+                                                                    "badges":  {
+                                                                                   "duration":  "Plan 12 săptămâni",
+                                                                                   "format":  "Online 1:1",
+                                                                                   "focus":  "Focus pe examen"
+                                                                               },
+                                                                    "cta":  "Vezi programul pentru clasa a 12-a"
+                                                                }
+                                                },
+                                      "overview":  {
+                                                       "subtitle":  "O singură secțiune clară pentru ambele clase. Intră pe pagina de programe și alege traseul potrivit.",
+                                                       "grade9":  {
+                                                                      "title":  "Traseu Clasa a 9-a",
+                                                                      "item1":  "Fundamente solide la algebră și geometrie",
+                                                                      "item2":  "Structură săptămânală și ritm constant",
+                                                                      "item3":  "Mai multă încredere la clasă și teste"
+                                                                  },
+                                                       "grade12":  {
+                                                                       "title":  "Traseu Clasa a 12-a",
+                                                                       "item1":  "Strategie țintită pentru BAC",
+                                                                       "item2":  "Antrenament cronometrat cu feedback",
+                                                                       "item3":  "Control calm sub presiune"
+                                                                   },
+                                                       "badges":  {
+                                                                      "format":  "Online 1:1",
+                                                                      "structure":  "Plan Personalizat",
+                                                                      "focus":  "Focus pe Rezultate"
+                                                                  },
+                                                       "cta":  "Vezi Programele"
+                                                   }
+                                  },
+                     "about":  {
+                                   "eyebrow":  "Despre {{mentorName}}",
+                                   "title":  "Un mentor calm pentru progres academic serios",
+                                   "paragraph1":  "{{mentorName}} este mentor de matematică și îi ajută pe elevii din clasa a 9-a și clasa a 12-a să înțeleagă cu adevărat, nu doar să memoreze formule. Lecțiile sunt clare, pas cu pas, și adaptate ritmului fiecărui elev.",
+                                   "paragraph2":  "Părinții aleg acest tip de mentorat pentru structură, consecvență și transparență. Fiecare săptămână include obiective bine definite, feedback practic și un parcurs clar către încredere la examen.",
+                                   "panelTitle":  "Principii de mentorat",
+                                   "principles":  {
+                                                      "item1":  "Claritatea pe primul loc: fiecare concept explicat în pași simpli și logici.",
+                                                      "item2":  "Practică structurată: plan săptămânal cu dificultate progresivă.",
+                                                      "item3":  "Focus pe rezultate: strategie de examen, analiză a greșelilor și progres măsurabil."
+                                                  },
+                                   "meta":  "Peste 10 ani experiență cu clasele 9-12"
+                               },
+                     "parents":  {
+                                     "eyebrow":  "Pentru Părinți",
+                                     "title":  "Mentorat serios, cu comunicare clară",
+                                     "items":  {
+                                                   "structuredPlan":  {
+                                                                          "title":  "Plan de învățare structurat",
+                                                                          "text":  "Fiecare elev urmează un plan personalizat, aliniat nivelului actual și obiectivelor academice."
+                                                                      },
+                                                   "weeklyFeedback":  {
+                                                                          "title":  "Feedback săptămânal",
+                                                                          "text":  "Primești actualizări concise despre focusul lecțiilor, calitatea temelor și prioritățile următoare."
+                                                                      },
+                                                   "measurableProgress":  {
+                                                                              "title":  "Progres măsurabil",
+                                                                              "text":  "Progresul este urmărit prin verificări periodice, teste de simulare și consistență în rezolvarea problemelor."
+                                                                          },
+                                                   "calmStyle":  {
+                                                                     "title":  "Stil de mentorat calm",
+                                                                     "text":  "Elevii învață într-un mediu concentrat și respectuos, care construiește încredere pas cu pas."
+                                                                 }
+                                               }
+                                 },
+                     "method":  {
+                                    "eyebrow":  "Cum Funcționează Învățarea",
+                                    "title":  "Un proces simplu în 3 pași pentru rezultate stabile",
+                                    "steps":  {
+                                                  "step1":  {
+                                                                "title":  "Evaluare și verificare de nivel",
+                                                                "text":  "Identificăm punctele forte, golurile și prioritățile de examen pentru un plan de start realist."
+                                                            },
+                                                  "step2":  {
+                                                                "title":  "Lecții săptămânale structurate",
+                                                                "text":  "Fiecare săptămână combină claritatea conceptelor, exerciții ghidate și revizuirea țintită a temei."
+                                                            },
+                                                  "step3":  {
+                                                                "title":  "Practică de examen și feedback",
+                                                                "text":  "Elevii lucrează pe sarcini de tip examen, strategie de timp și bucle de corecție concentrate."
+                                                            }
+                                              }
+                                },
+                     "testimonials":  {
+                                          "eyebrow":  "Testimoniale",
+                                          "title":  "Apreciat de elevi și părinți",
+                                          "ratingAria":  "evaluare de 5 stele",
+                                          "items":  {
+                                                        "maria":  {
+                                                                      "name":  "Maria T.",
+                                                                      "result":  "Elevă clasa a 9-a | De la 6 la 9",
+                                                                      "review":  "Eram anxioasă la fiecare oră de matematică. Explicațiile au fost calme și clare, iar media la teste a crescut de la 6 la 9 într-un semestru."
+                                                                  },
+                                                        "andrei":  {
+                                                                       "name":  "Andrei P.",
+                                                                       "result":  "Elev clasa a 12-a | Simulare BAC +2.1 puncte",
+                                                                       "review":  "Ședințele de strategie pentru BAC au schimbat modul în care rezolv problemele. Am devenit mai rapid, mai precis și mult mai încrezător înainte de examene."
+                                                                   },
+                                                        "parent":  {
+                                                                       "name":  "Feedback părinte",
+                                                                       "result":  "Mamă a unui elev de clasa a 12-a",
+                                                                       "review":  "Dragoș este serios, organizat și foarte clar în comunicare. Am primit feedback săptămânal și am văzut progres măsurabil."
+                                                                   }
+                                                    }
+                                      }
+                 },
+    "contact":  {
+                    "eyebrow":  "Contact",
+                    "title":  "Hai să planificăm următorul pas în progresul la matematică",
+                    "introTitle":  "Prietenos și clar încă de la prima conversație",
+                    "introBody":  "Părinții și elevii pot scrie cu notele actuale, obiectivele și dificultățile întâlnite. Vei primi o recomandare clară și pașii următori.",
+                    "responseTime":  "Timp obișnuit de răspuns: în maximum 24 de ore.",
+                    "altPrefix":  "Preferi contact direct? Email:",
+                    "telegramLabel":  "Telegram",
+                    "form":  {
+                                 "nameLabel":  "Nume",
+                                 "namePlaceholder":  "Numele tău",
+                                 "emailLabel":  "Email",
+                                 "emailPlaceholder":  "tu@exemplu.com",
+                                 "messageLabel":  "Mesaj",
+                                 "messagePlaceholder":  "Spune-mi clasa, obiectivele și ce ți se pare dificil acum...",
+                                 "submit":  "Trimite mesajul",
+                                 "sending":  "Se trimite...",
+                                 "emailSubject":  "Mesaj nou - Mathorizon",
+                                 "fromName":  "Website Mathorizon",
+                                 "status":  {
+                                                "invalidEmail":  "Te rog introdu o adresă de email validă.",
+                                                "sending":  "Se trimite...",
+                                                "success":  "Mulțumesc. Mesajul tău a fost trimis. De obicei răspund în 24 de ore.",
+                                                "error":  "A apărut o problemă. Te rog încearcă din nou sau scrie-mi direct pe email."
+                                            }
+                             }
+                },
+    "footer":  {
+                   "socialAria":  "Linkuri social media",
+                   "social":  {
+                                  "facebookAria":  "Facebook",
+                                  "instagramAria":  "Instagram",
+                                  "linkedinAria":  "LinkedIn"
+                              },
+                   "rights":  "Toate drepturile rezervate."
+               },
+    "pages":  {
+                  "programs":  {
+                                   "title":  "Alege traseul potrivit de program",
+                                   "subtitle":  "Două direcții clare, cu structură și rezultate.",
+                                   "backHome":  "Înapoi la pagina principală"
+                               },
+                  "grade9":  {
+                                 "title":  "Program Clasa a 9-a",
+                                 "intro":  "Structura completă și opțiunile de înscriere apar în curând.",
+                                 "backPrograms":  "Înapoi la programe"
+                             },
+                  "grade12":  {
+                                  "title":  "Program Clasa a 12-a",
+                                  "intro":  "Structura completă și opțiunile de înscriere apar în curând.",
+                                  "backPrograms":  "Înapoi la programe"
+                              }
+              },
+    "feedback":  {
+                     "title":  "Feedback",
+                     "subtitle":  "Rezultate, testimoniale si feedback de la parinti, intr-un singur loc.",
+                     "sections":  {
+                                      "results":  "Rezultate",
+                                      "testimonials":  "Testimoniale",
+                                      "submit":  "Trimite feedback"
+                                  },
+                     "form":  {
+                                  "name":  "Nume",
+                                  "role":  "Rol",
+                                  "roleParent":  "Parinte",
+                                  "roleStudent":  "Elev",
+                                  "message":  "Mesaj",
+                                  "submit":  "Trimite feedback",
+                                  "success":  "Multumim. Feedbackul tau a fost trimis cu succes.",
+                                  "rolePlaceholder":  "Alege rolul",
+                                  "feedbackType":  "Tip de feedback",
+                                  "feedbackTypes":  {
+                                                        "lessonExperience":  "Experiența lecțiilor",
+                                                        "materialsQuality":  "Calitatea materialelor",
+                                                        "examPreparation":  "Pregătire pentru examen",
+                                                        "overallExperience":  "Experiența generală"
+                                                    },
+                                  "rating":  "Rating",
+                                  "ratingAria":  "Alege un rating între 1 și 5 stele",
+                                  "starValue":  "{{count}} stele",
+                                  "ratingHint":  "Selectează între 1 și 5 stele.",
+                                  "ratingRequired":  "Selectează un rating între 1 și 5 stele.",
+                                  "improvedMost":  "Ce s-a îmbunătățit cel mai mult?",
+                                  "improvements":  {
+                                                       "confidence":  "Încredere",
+                                                       "grades":  "Note",
+                                                       "understanding":  "Înțelegere",
+                                                       "speedInSolving":  "Viteză în rezolvare",
+                                                       "examStrategy":  "Strategie de examen"
+                                                   },
+                                  "consentPublic":  "Sunt de acord ca feedbackul meu să fie afișat public (doar prenumele)"
+                              }
+                 },
+    "common":  {
+                   "backHome":  "Înapoi la pagina principală"
+               },
+    "theme":  {
+                  "toggleAria":  "Comută modul întunecat"
+              },
+    "topicCard":  {
+                      "actions":  {
+                                      "viewPdf":  "Vezi PDF",
+                                      "download":  "Descarcă",
+                                      "viewPdfs":  "Vezi PDF-urile",
+                                      "downloadAll":  "Descarcă tot"
+                                  },
+                      "empty":  "Linkurile PDF pentru acest subiect vor fi adăugate în {{basePath}}."
+                  },
+    "grade9Page":  {
+                       "badge":  "Aliniat la curriculum • PDF-uri disponibile",
+                       "backPrograms":  "Înapoi la programe",
+                       "title":  "Clasa a 9-a – Program de matematică",
+                       "subtitle":  "Materiale structurate aliniate curriculei pentru clasa a 9-a.",
+                       "curriculumTitle":  "Teme din curriculum",
+                       "blocks":  {
+                                      "algebraFoundations":  {
+                                                                 "title":  "Fundamente de algebră și funcții",
+                                                                 "topics":  {
+                                                                                "algebraicCalculations":  {
+                                                                                                              "title":  "Calcul algebric",
+                                                                                                              "description":  "Operații cu expresii, factorizare și metode de simplificare.",
+                                                                                                              "resourceLabel":  "PDF de practică - Calcul algebric"
+                                                                                                          },
+                                                                                "basicPlaneGeometry":  {
+                                                                                                           "title":  "Geometrie plană de bază",
+                                                                                                           "description":  "Proprietăți de bază ale punctelor, liniilor, unghiurilor și figurilor plane."
+                                                                                                       },
+                                                                                "linearQuadratic":  {
+                                                                                                        "title":  "Funcții liniare și de gradul al doilea",
+                                                                                                        "description":  "Reprezentarea și analiza funcțiilor de gradul întâi și al doilea."
+                                                                                                    }
+                                                                            }
+                                                             },
+                                      "proportionsPowers":  {
+                                                                "title":  "Proporții, puteri și ecuații de gradul al doilea",
+                                                                "topics":  {
+                                                                               "ratiosPercentages":  {
+                                                                                                         "title":  "Raporturi și procente",
+                                                                                                         "description":  "Aplicații ale raționamentului proporțional, raporturilor și variației procentuale."
+                                                                                                     },
+                                                                               "powersRadicals":  {
+                                                                                                      "title":  "Puterile și radicalii",
+                                                                                                      "description":  "Reguli pentru exponenți și operații cu radicali."
+                                                                                                  },
+                                                                               "quadraticEquations":  {
+                                                                                                          "title":  "Ecuații de gradul al doilea",
+                                                                                                          "description":  "Metode de rezolvare și verificare a ecuațiilor de gradul al doilea."
+                                                                                                      }
+                                                                           }
+                                                            },
+                                      "geometrySystems":  {
+                                                              "title":  "Geometrie și sisteme de ecuații",
+                                                              "topics":  {
+                                                                             "advancedPlane":  {
+                                                                                                   "title":  "Geometrie plană avansată",
+                                                                                                   "description":  "Relații geometrice cu triunghiuri, poligoane și elemente ale cercului."
+                                                                                               },
+                                                                             "systemsEquations":  {
+                                                                                                      "title":  "Sisteme de ecuații",
+                                                                                                      "description":  "Rezolvarea sistemelor cu două necunoscute prin metode algebrice și grafice."
+                                                                                                  },
+                                                                             "linearInequalities":  {
+                                                                                                        "title":  "Inegalități liniare",
+                                                                                                        "description":  "Formularea și rezolvarea inegalităților de gradul întâi și a intervalelor."
+                                                                                                    }
+                                                                         }
+                                                          },
+                                      "solidsParameters":  {
+                                                               "title":  "Geometrie în spațiu și teme parametrizate",
+                                                               "topics":  {
+                                                                              "solidGeometry":  {
+                                                                                                    "title":  "Geometrie în spațiu",
+                                                                                                    "description":  "Studiul figurilor tridimensionale, ariei și volumului."
+                                                                                                },
+                                                                              "algebraicFractions":  {
+                                                                                                         "title":  "Fracții algebrice",
+                                                                                                         "description":  "Simplificarea și operații cu expresii algebrice raționale."
+                                                                                                     },
+                                                                              "functionsParameters":  {
+                                                                                                          "title":  "Funcții cu parametri",
+                                                                                                          "description":  "Comportamentul familiilor de funcții definite prin parametri."
+                                                                                                      }
+                                                                          }
+                                                           }
+                                  }
+                   },
+    "resources":  {
+                      "eyebrow":  "Resurse",
+                      "title":  "Resurse de învățare",
+                      "subtitle":  "Răsfoiește materiale structurate, ghiduri și fișe de lucru.",
+                      "badge":  "Bibliotecă cu acces liber",
+                      "filters":  {
+                                      "aria":  "Filtre resurse",
+                                      "groupAria":  "{{label}} filtre",
+                                      "labels":  {
+                                                     "grade":  "Clasă",
+                                                     "topic":  "Temă",
+                                                     "type":  "Tip"
+                                                 },
+                                      "grade":  {
+                                                    "all":  "Toate",
+                                                    "grade9":  "Clasa a 9-a",
+                                                    "grade12":  "Clasa a 12-a"
+                                                },
+                                      "topic":  {
+                                                    "all":  "Toate",
+                                                    "algebra":  "Algebră",
+                                                    "geometry":  "Geometrie",
+                                                    "functions":  "Funcții",
+                                                    "equations":  "Ecuații",
+                                                    "mixed":  "Mixt"
+                                                },
+                                      "type":  {
+                                                   "all":  "Toate",
+                                                   "worksheet":  "Fișă de lucru",
+                                                   "guide":  "Ghid",
+                                                   "examPractice":  "Pregătire examen"
+                                               }
+                                  },
+                      "actions":  {
+                                      "viewPdf":  "Vezi PDF",
+                                      "download":  "Descarcă"
+                                  },
+                      "empty":  "Nu au fost găsite resurse pentru această combinație de filtre.",
+                      "items":  {
+                                    "linearEquations":  {
+                                                            "title":  "Exerciții cu ecuații liniare",
+                                                            "description":  "Fișă structurată pentru rezolvarea ecuațiilor liniare."
+                                                        },
+                                    "polynomials":  {
+                                                        "title":  "Noțiuni esențiale despre polinoame",
+                                                        "description":  "Ghid pentru operații cu polinoame și metode de simplificare."
+                                                    },
+                                    "geometryFoundations":  {
+                                                                "title":  "Set de bază pentru geometrie",
+                                                                "description":  "Fișă de practică despre unghiuri, triunghiuri și patrulatere."
+                                                            },
+                                    "coordinateGeometry":  {
+                                                               "title":  "Ghid de geometrie analitică",
+                                                               "description":  "Ghid vizual pentru distanță, mijloc și pantă în plan."
+                                                           },
+                                    "functionsGraph":  {
+                                                           "title":  "Interpretarea graficelor funcțiilor",
+                                                           "description":  "Fișă axată pe citirea și potrivirea graficelor de funcții."
+                                                       },
+                                    "equationSprint":  {
+                                                           "title":  "Sprint de rezolvare a ecuațiilor",
+                                                           "description":  "Exerciții de tip examen pentru rezolvare rapidă."
+                                                       },
+                                    "advancedFunctions":  {
+                                                              "title":  "Trusă avansată pentru funcții",
+                                                              "description":  "Ghid despre domenii, asimptote și transformări."
+                                                          },
+                                    "derivativePack":  {
+                                                           "title":  "Pachet de aplicații ale derivatelor",
+                                                           "description":  "Set de fișe pentru maxime, minime și rate de variație."
+                                                       },
+                                    "bacGeometry":  {
+                                                        "title":  "Pregătire BAC la geometrie",
+                                                        "description":  "Exerciții de examen cu vectori, demonstrații și raționament geometric."
+                                                    },
+                                    "algebraReview":  {
+                                                          "title":  "Set mixt de recapitulare algebră",
+                                                          "description":  "Fișă mixtă pentru tehnici algebrice la niveluri diferite."
+                                                      },
+                                    "examStrategy":  {
+                                                         "title":  "Ghid de strategie pentru examenul final",
+                                                         "description":  "Ghid pentru ritm, verificare și structurarea rezolvărilor."
+                                                     },
+                                    "grade9Mixed":  {
+                                                        "title":  "Verificare mixtă clasa a 9-a",
+                                                        "description":  "Set scurt de tip examen cu sarcini de algebră și geometrie."
+                                                    }
+                                }
+                  }
 }
