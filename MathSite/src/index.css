@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
   --radius-md: 16px;
@@ -157,7 +157,7 @@ body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   color: var(--ink);
   background: linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
   transition:
@@ -283,7 +283,7 @@ section[id] {
 
 .section-title {
   margin: 0.55rem 0 0;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(1.6rem, 4vw, 2.7rem);
   line-height: 1.2;
 }
@@ -303,7 +303,7 @@ section[id] {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   border: 1px solid transparent;
   border-radius: 999px;
   padding: 0.88rem 1.5rem;
@@ -403,7 +403,7 @@ section[id] {
 }
 
 .nav-logo-text {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.22rem;
   font-weight: 700;
   line-height: 1.1;
@@ -420,14 +420,14 @@ section[id] {
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.95rem;
   background: linear-gradient(135deg, var(--blue), var(--violet));
   box-shadow: 0 8px 16px rgba(79, 70, 229, 0.28);
 }
 
 .logo-text {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.98rem;
 }
 
@@ -807,7 +807,7 @@ section[id] {
 
 .hero h1 {
   margin: 0.72rem 0 1rem;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 1.07;
 }
@@ -986,7 +986,7 @@ section[id] {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.86rem;
   color: #fff;
   background: linear-gradient(135deg, var(--blue), var(--violet));
@@ -1095,7 +1095,7 @@ section[id] {
 
 .program-track h3 {
   margin: 0 0 0.45rem;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1rem;
 }
 
@@ -1197,7 +1197,7 @@ section[id] {
 
 .service-card h3 {
   margin: 0.85rem 0 0.6rem;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.14rem;
 }
 
@@ -1240,7 +1240,7 @@ section[id] {
 
 .about-panel h3 {
   margin: 0 0 0.64rem;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .about-panel ul {
@@ -1274,7 +1274,7 @@ section[id] {
 
 .parents-grid h3 {
   margin: 0;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.02rem;
 }
 
@@ -1320,7 +1320,7 @@ section[id] {
 
 .method-step h3 {
   margin: 0.7rem 0 0.48rem;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1rem;
 }
 
@@ -1859,7 +1859,7 @@ section[id] {
 
 .contact-copy h3 {
   margin: 0 0 0.7rem;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.2rem;
 }
 
@@ -1900,7 +1900,7 @@ section[id] {
 .contact-method-header h4 {
   margin: 0;
   font-size: 1.03rem;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .contact-method-icon {
@@ -2480,3 +2480,4 @@ section[id] {
     font-size: 0.82rem;
   }
 }
+

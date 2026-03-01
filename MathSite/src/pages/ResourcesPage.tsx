@@ -1,150 +1,120 @@
-﻿import { useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
-import useRevealOnScroll from '../components/useRevealOnScroll.js'
-import ModeCards from '../components/resources/ModeCards'
-import CategoryCards from '../components/resources/CategoryCards'
-import SubcategoryCards from '../components/resources/SubcategoryCards'
-import TopicCards from '../components/resources/TopicCards'
-import ContentCards from '../components/resources/ContentCards'
+import SidebarAccordion from '../components/resourcesViewer/SidebarAccordion'
+import ContentRenderer from '../components/resourcesViewer/ContentRenderer'
+import TocPanel, { type TocItem } from '../components/resourcesViewer/TocPanel'
 import useLocalStorageState from '../hooks/useLocalStorageState'
-import { grade12Resources, grade12Taxonomy } from '../data/resourcesData'
-import type { CategoryId, ResourceItem, ResourceMode, TopicNode } from '../types/resources'
+import { bacNavItems } from '../data/bacTopics'
+import { bacContentByTopic } from '../data/bacContent'
+import type { BacTopicContent } from '../types/bacContent'
 import './ResourcesPage.css'
 
+const defaultTopicId = bacNavItems[0]?.topics[0]?.id ?? 'operatii-numere'
+
 function ResourcesPage() {
-  const [mode, setMode] = useState<ResourceMode | null>(null)
-  const [categoryId, setCategoryId] = useState<CategoryId | null>(null)
-  const [subcategoryId, setSubcategoryId] = useState<string | null>(null)
-  const [topicId, setTopicId] = useState<string | null>(null)
-  const [savedIds, setSavedIds] = useLocalStorageState<string[]>('savedResources', [])
+  const [activeTopicId, setActiveTopicId] = useLocalStorageState<string>('bacActiveTopicId', defaultTopicId)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [tocOpen, setTocOpen] = useState(false)
 
-  useRevealOnScroll([mode, categoryId, subcategoryId, topicId])
+  const activeContent: BacTopicContent = useMemo(() => {
+    const found = bacContentByTopic.get(activeTopicId)
+    if (found) return found
+    return {
+      topicId: activeTopicId,
+      title: 'Continut in pregatire',
+      subtitle: 'Acest subiect va fi actualizat in curand.',
+      blocks: [
+        { type: 'heading', id: 'soon', level: 2, text: 'In curand' },
+        {
+          type: 'text',
+          text: 'Lucram la lectii, exemple si exercitii interactive pentru aceasta tema.',
+        },
+      ],
+    }
+  }, [activeTopicId])
 
-  const selectedCategory = useMemo(
-    () => grade12Taxonomy.find((category) => category.id === categoryId) ?? null,
-    [categoryId],
+  const tocItems: TocItem[] = useMemo(
+    () =>
+      activeContent.blocks
+        .filter((block) => block.type === 'heading')
+        .map((block) => ({
+          id: block.id,
+          text: block.text,
+          level: block.level,
+        })),
+    [activeContent.blocks],
   )
 
-  const selectedSubcategory = useMemo(() => {
-    if (!selectedCategory || !subcategoryId) return null
-    return selectedCategory.subcategories.find((sub) => sub.id === subcategoryId) ?? null
-  }, [selectedCategory, subcategoryId])
-
-  const selectedTopic = useMemo(() => {
-    if (!selectedSubcategory || !topicId) return null
-    return selectedSubcategory.topics.find((topic) => topic.id === topicId) ?? null
-  }, [selectedSubcategory, topicId])
-
-  const resources = useMemo(() => {
-    if (!mode || !topicId) return []
-    return grade12Resources.filter((item) => item.mode === mode && item.topicId === topicId)
-  }, [mode, topicId])
-
-  const handleModeSelect = (next: ResourceMode) => {
-    setMode(next)
-    setCategoryId(null)
-    setSubcategoryId(null)
-    setTopicId(null)
-  }
-
-  const handleCategorySelect = (id: CategoryId) => {
-    setCategoryId(id)
-    setSubcategoryId(null)
-    setTopicId(null)
-  }
-
-  const handleSubcategorySelect = (id: string) => {
-    setSubcategoryId(id)
-    setTopicId(null)
-  }
-
-  const handleTopicSelect = (topic: TopicNode) => {
-    setTopicId(topic.id)
-  }
-
-  const handleOpen = (item: ResourceItem) => {
-    if (item.links.view) {
-      window.location.href = item.links.view
-    } else if (item.links.pdf) {
-      window.open(item.links.pdf, '_blank', 'noreferrer')
-    }
-  }
-
-  const handleSecondary = (item: ResourceItem) => {
-    if (item.links.download) {
-      window.open(item.links.download, '_blank', 'noreferrer')
-      return
-    }
-
-    setSavedIds((prev) => {
-      if (prev.includes(item.id)) {
-        return prev.filter((id) => id !== item.id)
-      }
-      return [...prev, item.id]
+  const handleSelectTopic = (topicId: string) => {
+    setActiveTopicId(topicId)
+    setSidebarOpen(false)
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const header = document.querySelector('.rv-content-header')
+        if (header) {
+          const rootStyles = getComputedStyle(document.documentElement)
+          const navHeight = parseFloat(rootStyles.getPropertyValue('--nav-height')) || 84
+          const offset = navHeight + 16
+          const y = header.getBoundingClientRect().top + window.scrollY - offset
+          window.scrollTo({ top: y, behavior: 'smooth' })
+        }
+      })
     })
+  }
+
+  const handleNavigate = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      const rootStyles = getComputedStyle(document.documentElement)
+      const navHeight = parseFloat(rootStyles.getPropertyValue('--nav-height')) || 84
+      const offset = navHeight + 16
+      const y = element.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({ top: y, behavior: 'smooth' })
+    }
+    setTocOpen(false)
   }
 
   return (
     <div className="app">
       <Navbar />
-      <main className="section page-main resources-page resources-page-main">
-        <section className="resources-header reveal">
-          <p className="eyebrow">RESOURCES</p>
-          <h1 className="section-title">Learning Resources</h1>
-          <p className="hero-subtitle">
-            Choose a mode, browse categories, and open the right material instantly.
-          </p>
-        </section>
+      <main className="section page-main resources-page resources-viewer-page">
+        <div className="rv-toolbar">
+          <button type="button" className="btn btn-secondary" onClick={() => setSidebarOpen((prev) => !prev)}>
+            {sidebarOpen ? 'Inchide meniul' : 'Meniu bac'}
+          </button>
+          <button type="button" className="btn btn-secondary" onClick={() => setTocOpen((prev) => !prev)}>
+            {tocOpen ? 'Inchide cuprinsul' : 'Cuprins'}
+          </button>
+        </div>
 
-        <section className="resources-section reveal">
-          <div className="mode-header">
-            <h2>Mode</h2>
-            {mode && (
-              <button type="button" className="btn btn-secondary" onClick={() => setMode(null)}>
-                Change mode
-              </button>
-            )}
-          </div>
-          <ModeCards selected={mode} onSelect={handleModeSelect} />
-        </section>
-
-        {mode && (
-          <section className="resources-section reveal">
-            <h2>Categories</h2>
-            <CategoryCards categories={grade12Taxonomy} selectedId={categoryId} onSelect={handleCategorySelect} />
-          </section>
-        )}
-
-        {mode && selectedCategory && (
-          <section className="resources-section reveal">
-            <h2>Subcategories</h2>
-            <SubcategoryCards
-              subcategories={selectedCategory.subcategories}
-              categoryId={selectedCategory.id}
-              selectedId={subcategoryId}
-              onSelect={handleSubcategorySelect}
+        <div className="rv-layout">
+          <aside className={`rv-sidebar${sidebarOpen ? ' open' : ''}`}>
+            <SidebarAccordion
+              items={bacNavItems}
+              activeTopicId={activeTopicId}
+              onSelectTopic={handleSelectTopic}
             />
-          </section>
-        )}
+          </aside>
 
-        {mode && selectedSubcategory && (
-          <section className="resources-section reveal">
-            <h2>Topics</h2>
-            <TopicCards
-              topics={selectedSubcategory.topics}
-              categoryId={selectedCategory?.id ?? 'analysis'}
-              selectedId={topicId}
-              onSelect={handleTopicSelect}
-            />
+          <section className="rv-main">
+            <ContentRenderer content={activeContent} />
           </section>
-        )}
 
-        {mode && selectedTopic && (
-          <section className="resources-section reveal">
-            <h2>Content</h2>
-            <ContentCards mode={mode} items={resources} onOpen={handleOpen} onSecondary={handleSecondary} />
-          </section>
+          <aside className={`rv-toc${tocOpen ? ' open' : ''}`}>
+            <TocPanel items={tocItems} onNavigate={handleNavigate} />
+          </aside>
+        </div>
+        {(sidebarOpen || tocOpen) && (
+          <button
+            type="button"
+            aria-label="Inchide meniurile"
+            className="rv-overlay"
+            onClick={() => {
+              setSidebarOpen(false)
+              setTocOpen(false)
+            }}
+          />
         )}
       </main>
       <Footer />

@@ -54,8 +54,14 @@ const categoryMeta: Record<CategoryId, { color: string; icon: JSX.Element }> = {
 }
 
 function CategoryCards({ categories, selectedId, onSelect }: CategoryCardsProps) {
+  const hasSelection = selectedId !== null
+
   return (
-    <div className="category-cards" role="list">
+    <div
+      className={`category-cards${hasSelection ? ' has-selection' : ''}`}
+      role="list"
+      aria-label="Select category"
+    >
       {categories.map((category) => {
         const meta = categoryMeta[category.id]
         const isActive = selectedId === category.id
@@ -72,7 +78,6 @@ function CategoryCards({ categories, selectedId, onSelect }: CategoryCardsProps)
             </span>
             <div className="category-body">
               <h3>{category.name}</h3>
-              <p>{category.description}</p>
             </div>
           </button>
         )
