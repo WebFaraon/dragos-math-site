@@ -6,26 +6,13 @@ function Testimonials() {
   const [visibleCards, setVisibleCards] = useState([])
   const cardRefs = useRef([])
 
-  const testimonials = [
-    {
-      key: 'maria',
-      name: t('sections.testimonials.items.maria.name'),
-      result: t('sections.testimonials.items.maria.result'),
-      review: t('sections.testimonials.items.maria.review'),
-    },
-    {
-      key: 'andrei',
-      name: t('sections.testimonials.items.andrei.name'),
-      result: t('sections.testimonials.items.andrei.result'),
-      review: t('sections.testimonials.items.andrei.review'),
-    },
-    {
-      key: 'parent',
-      name: t('sections.testimonials.items.parent.name'),
-      result: t('sections.testimonials.items.parent.result'),
-      review: t('sections.testimonials.items.parent.review'),
-    },
-  ]
+  const testimonialKeys = ['andreea', 'anatol', 'stanislav', 'mihai', 'nicoleta']
+  const testimonials = testimonialKeys.map((key) => ({
+    key,
+    name: t(`sections.testimonials.items.${key}.name`),
+    result: t(`sections.testimonials.items.${key}.result`),
+    review: t(`sections.testimonials.items.${key}.review`),
+  }))
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,7 +46,7 @@ function Testimonials() {
         {testimonials.map((item, index) => (
           <article
             key={item.key}
-            className={`testimonial-card ${visibleCards.includes(index) ? 'in-view' : ''}`}
+            className={`testimonial-card home-testimonial-card ${visibleCards.includes(index) ? 'in-view' : ''}`}
             data-index={index}
             ref={(element) => {
               cardRefs.current[index] = element
@@ -68,9 +55,11 @@ function Testimonials() {
             <div className="stars" aria-label={t('sections.testimonials.ratingAria')}>
               {String.fromCharCode(9733).repeat(5)}
             </div>
-            <p>{item.review}</p>
-            <h3>{item.name}</h3>
-            <span>{item.result}</span>
+            <p className="testimonial-quote">{item.review}</p>
+            <div className="testimonial-meta">
+              <h3>{item.name}</h3>
+              <span>{item.result}</span>
+            </div>
           </article>
         ))}
       </div>

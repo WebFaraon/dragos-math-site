@@ -22,13 +22,13 @@ function ResourcesPage() {
     if (found) return found
     return {
       topicId: activeTopicId,
-      title: 'Continut in pregatire',
-      subtitle: 'Acest subiect va fi actualizat in curand.',
+      title: 'Conținut în pregătire',
+      subtitle: 'Acest subiect va fi actualizat în curând.',
       blocks: [
-        { type: 'heading', id: 'soon', level: 2, text: 'In curand' },
+        { type: 'heading', id: 'soon', level: 2, text: 'În curând' },
         {
           type: 'text',
-          text: 'Lucram la lectii, exemple si exercitii interactive pentru aceasta tema.',
+          text: 'Lucrăm la lecții, exemple și exerciții interactive pentru această temă.',
         },
       ],
     }
@@ -81,10 +81,10 @@ function ResourcesPage() {
       <main className="section page-main resources-page resources-viewer-page">
         <div className="rv-toolbar">
           <button type="button" className="btn btn-secondary" onClick={() => setSidebarOpen((prev) => !prev)}>
-            {sidebarOpen ? 'Inchide meniul' : 'Meniu bac'}
+            {sidebarOpen ? 'Închide meniul' : 'Meniu BAC'}
           </button>
           <button type="button" className="btn btn-secondary" onClick={() => setTocOpen((prev) => !prev)}>
-            {tocOpen ? 'Inchide cuprinsul' : 'Cuprins'}
+            {tocOpen ? 'Închide cuprinsul' : 'Cuprins'}
           </button>
         </div>
 
@@ -108,7 +108,7 @@ function ResourcesPage() {
         {(sidebarOpen || tocOpen) && (
           <button
             type="button"
-            aria-label="Inchide meniurile"
+            aria-label="Închide meniurile"
             className="rv-overlay"
             onClick={() => {
               setSidebarOpen(false)

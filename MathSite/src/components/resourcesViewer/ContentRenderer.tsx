@@ -5,6 +5,7 @@ import CalloutBlock from './blocks/CalloutBlock'
 import FormulaBlock from './blocks/FormulaBlock'
 import ExerciseBlock from './blocks/ExerciseBlock'
 import ExerciseListBlock from './blocks/ExerciseListBlock'
+import TrainingLevelsBlock from './blocks/TrainingLevelsBlock'
 
 type ContentRendererProps = {
   content: BacTopicContent
@@ -14,7 +15,7 @@ function ContentRenderer({ content }: ContentRendererProps) {
   return (
     <div className="rv-content">
       <header className="rv-content-header">
-        <p className="rv-content-eyebrow">LECTIE & PRACTICA</p>
+        <p className="rv-content-eyebrow">LECȚIE & PRACTICĂ</p>
         <h1>{content.title}</h1>
         {content.subtitle && <p className="rv-content-subtitle">{content.subtitle}</p>}
       </header>
@@ -50,12 +51,14 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
     case 'exercise_mcq':
     case 'exercise_short':
       return <ExerciseBlock block={block} />
+    case 'training_levels':
+      return <TrainingLevelsBlock />
     case 'worksheet':
       return (
         <div className="rv-worksheet">
           <div>
             <h4>{block.title}</h4>
-            <p>Descarca fisa PDF pentru exercitiu suplimentar.</p>
+            <p>Descarcă fișa PDF pentru exercițiu suplimentar.</p>
           </div>
           <a className="btn btn-secondary" href={block.pdfUrl} target="_blank" rel="noreferrer">
             Deschide PDF

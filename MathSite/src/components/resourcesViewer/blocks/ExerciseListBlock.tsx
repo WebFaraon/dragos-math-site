@@ -31,7 +31,7 @@ function ExerciseListBlock({ levels }: ExerciseListBlockProps) {
                   <span className="rv-exercise-level-index" aria-hidden="true">
                     {item.label}
                   </span>
-                  <span className="rv-exercise-level-label">Calculeaza:</span>
+                  <span className="rv-exercise-level-label">Calculează:</span>
                 </div>
                 <div className="rv-exercise-level-math">
                   <BlockMath math={item.latex} />
@@ -42,11 +42,11 @@ function ExerciseListBlock({ levels }: ExerciseListBlockProps) {
                     className="btn btn-secondary rv-exercise-check"
                     onClick={() => setOpenAnswerId((prev) => (prev === item.id ? null : item.id))}
                   >
-                    {openAnswerId === item.id ? 'Ascunde raspunsul' : 'Check Answer'}
+                    {openAnswerId === item.id ? 'Ascunde răspunsul' : 'Vezi răspunsul'}
                   </button>
                   {openAnswerId === item.id && (
                     <div className="rv-exercise-answer-inline">
-                      <span>Raspuns:</span>
+                      <span>Răspuns:</span>
                       <InlineMath math={item.answer} />
                     </div>
                   )}

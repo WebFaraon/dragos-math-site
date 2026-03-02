@@ -182,21 +182,31 @@
                                           "title":  "Apreciat de elevi și părinți",
                                           "ratingAria":  "evaluare de 5 stele",
                                           "items":  {
-                                                        "maria":  {
-                                                                      "name":  "Maria T.",
-                                                                      "result":  "Elevă clasa a 9-a | De la 6 la 9",
-                                                                      "review":  "Eram anxioasă la fiecare oră de matematică. Explicațiile au fost calme și clare, iar media la teste a crescut de la 6 la 9 într-un semestru."
-                                                                  },
-                                                        "andrei":  {
-                                                                       "name":  "Andrei P.",
-                                                                       "result":  "Elev clasa a 12-a | Simulare BAC +2.1 puncte",
-                                                                       "review":  "Ședințele de strategie pentru BAC au schimbat modul în care rezolv problemele. Am devenit mai rapid, mai precis și mult mai încrezător înainte de examene."
+                                                        "andreea":  {
+                                                                        "name":  "Cernea Andreea",
+                                                                        "result":  "Elevă | Pregătire pentru examen",
+                                                                        "review":  "Explicațiile m-au ajutat să înțeleg mult mai bine temele, iar notele mele au crescut semnificativ."
+                                                                    },
+                                                        "anatol":  {
+                                                                       "name":  "Cazac Anatol",
+                                                                       "result":  "Elev | Experiență generală",
+                                                                       "review":  "Lecțiile cu Dragoș au fost interesante și interactive. Explică de câte ori este nevoie, cu răbdare, și păstrează mereu o atmosferă prietenoasă."
                                                                    },
-                                                        "parent":  {
-                                                                       "name":  "Feedback părinte",
-                                                                       "result":  "Mamă a unui elev de clasa a 12-a",
-                                                                       "review":  "Dragoș este serios, organizat și foarte clar în comunicare. Am primit feedback săptămânal și am văzut progres măsurabil."
-                                                                   }
+                                                        "stanislav":  {
+                                                                           "name":  "Corcimari Stanislav",
+                                                                           "result":  "Elev | Claritate la lecții",
+                                                                           "review":  "Am înțeles cum să rezolv exercițiul 11 la examen, iar asta mi-a dat mai multă încredere."
+                                                                       },
+                                                        "mihai":  {
+                                                                      "name":  "Mihai Timbur",
+                                                                      "result":  "Elev | Experiență generală",
+                                                                      "review":  "Un profesor de nota 10."
+                                                                  },
+                                                        "nicoleta":  {
+                                                                          "name":  "Nicoleta Brus",
+                                                                          "result":  "Elevă | Mai bine pregătită pentru examen",
+                                                                          "review":  "Super lecții. Acum mă simt mai pregătită pentru examen."
+                                                                      }
                                                     }
                                       }
                  },

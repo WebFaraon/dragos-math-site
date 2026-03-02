@@ -56,18 +56,18 @@ function ExerciseMcq({ block }: { block: Extract<ContentBlock, { type: 'exercise
           onClick={() => setChecked(true)}
           disabled={selectedIndex === null}
         >
-          Verifica
+          Verifică
         </button>
         {block.steps && (
           <button type="button" className="btn btn-secondary" onClick={() => setShowSteps((prev) => !prev)}>
-            {showSteps ? 'Ascunde pasii' : 'Afiseaza pasii'}
+            {showSteps ? 'Ascunde pașii' : 'Afișează pașii'}
           </button>
         )}
       </div>
       {checked && (
         <div className={`rv-exercise-result ${isCorrect ? 'correct' : 'incorrect'}`}>
           {isCorrect ? <CheckCircle2 size={18} /> : <XCircle size={18} />}
-          <span>{isCorrect ? 'Corect!' : 'Incorect. Mai incearca.'}</span>
+          <span>{isCorrect ? 'Corect!' : 'Incorect. Mai încearcă.'}</span>
         </div>
       )}
       {block.explanation && checked && <p className="rv-exercise-explanation">{block.explanation}</p>}
@@ -98,12 +98,12 @@ function ExerciseShort({ block }: { block: Extract<ContentBlock, { type: 'exerci
         <input
           className="rv-exercise-input"
           type="text"
-          placeholder="Raspuns"
+          placeholder="Răspuns"
           value={input}
           onChange={(event) => setInput(event.target.value)}
         />
         <button type="button" className="btn btn-primary" onClick={() => setChecked(true)}>
-          Verifica
+          Verifică
         </button>
       </div>
       <div className="rv-exercise-actions">
@@ -115,22 +115,22 @@ function ExerciseShort({ block }: { block: Extract<ContentBlock, { type: 'exerci
         )}
         <button type="button" className="btn btn-secondary" onClick={() => setShowAnswer((prev) => !prev)}>
           <Eye size={16} />
-          {showAnswer ? 'Ascunde raspunsul' : 'Arata raspunsul'}
+          {showAnswer ? 'Ascunde răspunsul' : 'Arată răspunsul'}
         </button>
         {block.steps && (
           <button type="button" className="btn btn-secondary" onClick={() => setShowSteps((prev) => !prev)}>
-            {showSteps ? 'Ascunde pasii' : 'Afiseaza pasii'}
+            {showSteps ? 'Ascunde pașii' : 'Afișează pașii'}
           </button>
         )}
       </div>
       {checked && (
         <div className={`rv-exercise-result ${isCorrect ? 'correct' : 'incorrect'}`}>
           {isCorrect ? <CheckCircle2 size={18} /> : <XCircle size={18} />}
-          <span>{isCorrect ? 'Corect!' : 'Incorect. Verifica raspunsul.'}</span>
+          <span>{isCorrect ? 'Corect!' : 'Incorect. Verifică răspunsul.'}</span>
         </div>
       )}
       {showHint && block.hint && <p className="rv-exercise-hint">{block.hint}</p>}
-      {showAnswer && <p className="rv-exercise-answer">Raspuns: {block.answer}</p>}
+      {showAnswer && <p className="rv-exercise-answer">Răspuns: {block.answer}</p>}
       {block.explanation && checked && <p className="rv-exercise-explanation">{block.explanation}</p>}
       {showSteps && block.steps && (
         <ul className="rv-exercise-steps">

@@ -35,6 +35,7 @@ export type ContentBlock =
       explanation?: string
       steps?: string[]
     }
+  | { type: 'training_levels' }
   | { type: 'worksheet'; title: string; pdfUrl: string }
 
 export type BacTopicContent = {

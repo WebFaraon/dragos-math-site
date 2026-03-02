@@ -58,7 +58,7 @@ function SidebarAccordion({ items, activeTopicId, onSelectTopic }: SidebarAccord
     <div className="rv-sidebar-accordion">
       <div className="rv-sidebar-title">
         <p className="rv-sidebar-eyebrow">RESURSE BAC</p>
-        <h2>Pregatire Bacalaureat - Matematica</h2>
+        <h2>Pregătire Bacalaureat - Matematică</h2>
       </div>
       <div className="rv-accordion">
         {items.map((item) => {

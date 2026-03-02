@@ -1,0 +1,5 @@
+export { operatiiCuNumere } from './item1/operatiiCuNumere'
+export { puteri } from './item1/puteri'
+export { radicali } from './item1/radicali'
+export { logaritmi } from './item1/logaritmi'
+export { item1All } from './item1/item1All'

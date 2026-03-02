@@ -10,26 +10,13 @@ function FeedbackPage() {
   const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0)
   useRevealOnScroll()
 
-  const testimonials = [
-    {
-      id: 'maria',
-      name: t('sections.testimonials.items.maria.name'),
-      role: t('sections.testimonials.items.maria.result'),
-      quote: t('sections.testimonials.items.maria.review'),
-    },
-    {
-      id: 'andrei',
-      name: t('sections.testimonials.items.andrei.name'),
-      role: t('sections.testimonials.items.andrei.result'),
-      quote: t('sections.testimonials.items.andrei.review'),
-    },
-    {
-      id: 'parent',
-      name: t('sections.testimonials.items.parent.name'),
-      role: t('sections.testimonials.items.parent.result'),
-      quote: t('sections.testimonials.items.parent.review'),
-    },
-  ]
+  const testimonialKeys = ['andreea', 'anatol', 'stanislav', 'mihai', 'nicoleta']
+  const testimonials = testimonialKeys.map((id) => ({
+    id,
+    name: t(`sections.testimonials.items.${id}.name`),
+    role: t(`sections.testimonials.items.${id}.result`),
+    quote: t(`sections.testimonials.items.${id}.review`),
+  }))
   const testimonialsPerSlide = 2
   const testimonialSlides = []
   for (let index = 0; index < testimonials.length; index += testimonialsPerSlide) {
@@ -76,16 +63,6 @@ function FeedbackPage() {
 
           <div className="feedback-carousel-shell">
             <div className="feedback-carousel">
-              <button
-                type="button"
-                className="feedback-carousel-control feedback-carousel-control-prev"
-                onClick={goToPreviousTestimonial}
-                disabled={!hasMultipleSlides}
-                aria-label={t('feedback.carousel.prev', { defaultValue: 'Previous testimonial' })}
-              >
-                {String.fromCharCode(10094)}
-              </button>
-
               <div className="feedback-carousel-viewport">
                 <div
                   className="feedback-carousel-track"
@@ -110,20 +87,30 @@ function FeedbackPage() {
                   ))}
                 </div>
               </div>
+            </div>
 
+            <div className="feedback-carousel-footer">
               <button
                 type="button"
-                className="feedback-carousel-control feedback-carousel-control-next"
+                className="feedback-carousel-control"
+                onClick={goToPreviousTestimonial}
+                disabled={!hasMultipleSlides}
+                aria-label={t('feedback.carousel.prev', { defaultValue: 'Previous testimonial' })}
+              >
+                {String.fromCharCode(10094)}
+              </button>
+              <div className="feedback-carousel-indicator" aria-live="polite">
+                {activeTestimonialIndex + 1} / {testimonialSlides.length}
+              </div>
+              <button
+                type="button"
+                className="feedback-carousel-control"
                 onClick={goToNextTestimonial}
                 disabled={!hasMultipleSlides}
                 aria-label={t('feedback.carousel.next', { defaultValue: 'Next testimonial' })}
               >
                 {String.fromCharCode(10095)}
               </button>
-            </div>
-
-            <div className="feedback-carousel-indicator" aria-live="polite">
-              {activeTestimonialIndex + 1} / {testimonialSlides.length}
             </div>
           </div>
         </section>

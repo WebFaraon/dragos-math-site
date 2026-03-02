@@ -29,7 +29,7 @@ function TocPanel({ items, onNavigate }: TocPanelProps) {
             {item.text}
           </button>
         ))}
-        {items.length === 0 && <p className="rv-toc-empty">Nu exista sectiuni in acest moment.</p>}
+        {items.length === 0 && <p className="rv-toc-empty">Nu există secțiuni în acest moment.</p>}
       </div>
     </div>
   )

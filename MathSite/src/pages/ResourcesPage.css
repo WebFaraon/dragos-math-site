@@ -153,7 +153,7 @@
 }
 
 .rv-accordion-item.open .rv-accordion-panel {
-  max-height: 420px;
+  max-height: 2000px;
 }
 
 .rv-topic-list {
@@ -170,7 +170,7 @@
   border-radius: 12px;
   text-align: left;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   cursor: pointer;
   transition: background var(--theme-duration) var(--theme-ease), border var(--theme-duration) var(--theme-ease);
@@ -178,6 +178,7 @@
   font-size: 0.95rem;
   line-height: 1.45;
   font-weight: 600;
+  white-space: normal;
 }
 
 .rv-topic-link:hover {
@@ -195,11 +196,13 @@
 }
 
 .rv-topic-dot {
+  flex: 0 0 auto;
   width: 8px;
   height: 8px;
   border-radius: 999px;
   background: var(--accent);
   box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
+  margin-top: 0.35rem;
 }
 
 .rv-main {

@@ -182,21 +182,31 @@
                                           "title":  "Trusted by Students and Parents",
                                           "ratingAria":  "5 star rating",
                                           "items":  {
-                                                        "maria":  {
-                                                                      "name":  "Maria T.",
-                                                                      "result":  "Grade 9 Student | From 6 to 9",
-                                                                      "review":  "I was anxious in every math class. The explanations were calm and clear, and my test average improved from 6 to 9 in one semester."
-                                                                  },
-                                                        "andrei":  {
-                                                                       "name":  "Andrei P.",
-                                                                       "result":  "Grade 12 Student | BAC Mock +2.1 points",
-                                                                       "review":  "The BAC strategy sessions changed how I solve problems. I became faster, more precise, and much more confident before finals."
+                                                        "andreea":  {
+                                                                        "name":  "Cernea Andreea",
+                                                                        "result":  "Student | Exam Preparation",
+                                                                        "review":  "The explanations helped me understand my assignments much better, and my grades improved a lot."
+                                                                    },
+                                                        "anatol":  {
+                                                                       "name":  "Cazac Anatol",
+                                                                       "result":  "Student | Overall Experience",
+                                                                       "review":  "Lessons with Dragoș were engaging and interactive. He explains as many times as needed, with patience, and keeps a friendly atmosphere."
                                                                    },
-                                                        "parent":  {
-                                                                       "name":  "Parent Feedback",
-                                                                       "result":  "Mother of Grade 12 Student",
-                                                                       "review":  "Dragoș is serious, organized, and very clear in communication. We received weekly feedback and saw measurable progress."
-                                                                   }
+                                                        "stanislav":  {
+                                                                           "name":  "Corcimari Stanislav",
+                                                                           "result":  "Student | Lesson Clarity",
+                                                                           "review":  "I understood how to solve exercise 11 in the exam, and that gave me more confidence."
+                                                                       },
+                                                        "mihai":  {
+                                                                      "name":  "Mihai Timbur",
+                                                                      "result":  "Student | Overall Experience",
+                                                                      "review":  "A top-tier teacher."
+                                                                  },
+                                                        "nicoleta":  {
+                                                                          "name":  "Nicoleta Brus",
+                                                                          "result":  "Student | Better Prepared for the Exam",
+                                                                          "review":  "Great lessons. I now feel more prepared for the exam."
+                                                                      }
                                                     }
                                       }
                  },
