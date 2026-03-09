@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import SidebarAccordion from '../components/resourcesViewer/SidebarAccordion'
@@ -16,6 +16,18 @@ function ResourcesPage() {
   const [activeTopicId, setActiveTopicId] = useLocalStorageState<string>('bacActiveTopicId', defaultTopicId)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [tocOpen, setTocOpen] = useState(false)
+
+  useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 900px)').matches
+    if (isMobile && (sidebarOpen || tocOpen)) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [sidebarOpen, tocOpen])
 
   const activeContent: BacTopicContent = useMemo(() => {
     const found = bacContentByTopic.get(activeTopicId)

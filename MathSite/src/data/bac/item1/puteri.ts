@@ -75,7 +75,7 @@ export const puteri: BacTopicContent = {
       type: 'callout',
       variant: 'warning',
       title: 'Atenție',
-      text: '(-2)^2 este 4, dar -2^2 este -4. Parantezele schimbă semnul.',
+      text: '(-2) la pătrat este 4, dar minus 2 la pătrat este -4. Parantezele schimbă semnul.',
     },
     { type: 'heading', id: 'exemplu-rezolvat', level: 2, text: 'Exemplu concret rezolvat' },
     {

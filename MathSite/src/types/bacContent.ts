@@ -16,7 +16,7 @@ export type ContentBlock =
         id: string
         title: string
         accent: 'easy' | 'medium' | 'hard'
-        items: { id: string; label: string; latex: string; answer: string }[]
+        items: { id: string; label: string; latex: string; answer: string; prompt?: string; details?: string }[]
       }[]
     }
   | {
