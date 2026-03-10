@@ -120,7 +120,6 @@
 
 .resources-viewer-page .rv-layout > * {
   opacity: 0;
-  transform: translateY(10px);
   animation: rv-enter-fade 320ms ease forwards;
 }
 
@@ -139,12 +138,10 @@
 @keyframes rv-enter-fade {
   from {
     opacity: 0;
-    transform: translateY(10px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -416,6 +413,8 @@
   margin: 6px 0 8px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .rv-content-eyebrow {
@@ -1158,7 +1157,6 @@
 @media (prefers-reduced-motion: reduce) {
   .resources-viewer-page .rv-layout > * {
     opacity: 1 !important;
-    transform: none !important;
     animation: none !important;
   }
 }
@@ -1403,5 +1401,26 @@
     font-size: 0.8rem;
   }
 
+}
+
+@media (max-width: 420px) {
+  .rv-grade-switch-btn {
+    padding: 0.5rem 0.62rem;
+    font-size: 0.84rem;
+  }
+
+  .rv-accordion-trigger {
+    padding: 10px 11px;
+    gap: 8px;
+  }
+
+  .rv-topic-link {
+    font-size: 0.9rem;
+    padding: 7px 8px;
+  }
+
+  .rv-toc-item {
+    font-size: 0.9rem;
+  }
 }
 

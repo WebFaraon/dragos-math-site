@@ -108,14 +108,19 @@ function SidebarAccordion({
           const isOpen = openItemId === item.itemId
           return (
             <div key={item.itemId} className={`rv-accordion-item${isOpen ? ' open' : ''}`}>
-              <button type="button" className="rv-accordion-trigger" onClick={() => handleToggle(item.itemId)}>
+              <button
+                type="button"
+                className="rv-accordion-trigger"
+                aria-expanded={isOpen}
+                onClick={() => handleToggle(item.itemId)}
+              >
                 <span className="rv-accordion-icon">
                   <Icon size={18} />
                 </span>
                 <span className="rv-accordion-title">{item.title}</span>
                 <ChevronDown size={18} className="rv-accordion-chevron" />
               </button>
-              <div className="rv-accordion-panel" aria-hidden={!isOpen}>
+              <div className="rv-accordion-panel" aria-hidden={!isOpen} style={{ maxHeight: isOpen ? '2000px' : '0px' }}>
                 <div className="rv-topic-list">
                   {item.topics.map((topic) => (
                     <TopicLink
