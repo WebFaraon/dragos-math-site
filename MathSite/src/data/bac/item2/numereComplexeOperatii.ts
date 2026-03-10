@@ -18,7 +18,7 @@ export const numereComplexeOperatii: BacTopicContent = {
       type: 'callout',
       variant: 'note',
       title: 'Exemple',
-      text: '(2+3i)+(4-2i)=6+i, iar (5+7i)-(3+2i)=2+5i.',
+      text: '$(2+3i)+(4-2i)=6+i$, iar $(5+7i)-(3+2i)=2+5i$.',
     },
 
     { type: 'heading', id: 'inmultire', level: 2, text: '2. Înmulțirea' },

@@ -12,6 +12,7 @@ import {
   Binary,
   Layers,
   ListChecks,
+  Percent,
 } from 'lucide-react'
 import type { BacNavItem } from '../../types/bacContent'
 import TopicLink from './TopicLink'
@@ -20,6 +21,8 @@ type SidebarAccordionProps = {
   items: BacNavItem[]
   activeTopicId: string
   onSelectTopic: (topicId: string) => void
+  selectedGrade: 9 | 12
+  onSelectGrade: (grade: 9 | 12) => void
 }
 
 const iconMap: Record<string, ComponentType<{ size?: number }>> = {
@@ -35,9 +38,27 @@ const iconMap: Record<string, ComponentType<{ size?: number }>> = {
   item10: Activity,
   item11: Dice5,
   item12: Binary,
+  'g9-item1': Calculator,
+  'g9-item2': Hash,
+  'g9-item3': Activity,
+  'g9-item4': Percent,
+  'g9-item5': Sigma,
+  'g9-item6': ListChecks,
+  'g9-item7': Triangle,
+  'g9-item8': ListChecks,
+  'g9-item9': Layers,
+  'g9-item10': Pyramid,
+  'g9-item11': Hash,
+  'g9-item12': Activity,
 }
 
-function SidebarAccordion({ items, activeTopicId, onSelectTopic }: SidebarAccordionProps) {
+function SidebarAccordion({
+  items,
+  activeTopicId,
+  onSelectTopic,
+  selectedGrade,
+  onSelectGrade,
+}: SidebarAccordionProps) {
   const initialOpen = useMemo(() => {
     const match = items.find((item) => item.topics.some((topic) => topic.id === activeTopicId))
     return match?.itemId ?? items[0]?.itemId
@@ -56,9 +77,30 @@ function SidebarAccordion({ items, activeTopicId, onSelectTopic }: SidebarAccord
 
   return (
     <div className="rv-sidebar-accordion">
-      <div className="rv-sidebar-title">
-        <p className="rv-sidebar-eyebrow">RESURSE BAC</p>
-        <h2>Pregătire Bacalaureat - Matematică</h2>
+      <div className="rv-sidebar-grade-card">
+        <p className="rv-sidebar-grade-label">Selectează clasa</p>
+        <div className="rv-grade-switch rv-grade-switch-integrated">
+          <div className="rv-grade-switch-control" role="radiogroup" aria-label="Selecteaza clasa">
+            <button
+              type="button"
+              role="radio"
+              aria-checked={selectedGrade === 9}
+              className={`rv-grade-switch-btn${selectedGrade === 9 ? ' is-active' : ''}`}
+              onClick={() => onSelectGrade(9)}
+            >
+              a IX-a
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked={selectedGrade === 12}
+              className={`rv-grade-switch-btn${selectedGrade === 12 ? ' is-active' : ''}`}
+              onClick={() => onSelectGrade(12)}
+            >
+              a XII-a
+            </button>
+          </div>
+        </div>
       </div>
       <div className="rv-accordion">
         {items.map((item) => {

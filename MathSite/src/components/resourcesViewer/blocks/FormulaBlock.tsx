@@ -1,5 +1,6 @@
 import { BlockMath, InlineMath } from 'react-katex'
 import 'katex/dist/katex.min.css'
+import InlineLatexText from './InlineLatexText'
 
 type FormulaBlockProps = {
   latex: string
@@ -10,7 +11,11 @@ type FormulaBlockProps = {
 function FormulaBlock({ latex, inline, description }: FormulaBlockProps) {
   return (
     <div className={`rv-formula${inline ? ' inline' : ''}${description ? ' has-desc' : ''}`}>
-      {description && <p className="rv-formula-desc">{description}</p>}
+      {description && (
+        <p className="rv-formula-desc">
+          <InlineLatexText text={description} />
+        </p>
+      )}
       {inline ? <InlineMath math={latex} /> : <BlockMath math={latex} />}
     </div>
   )

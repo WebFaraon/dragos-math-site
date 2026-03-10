@@ -36,7 +36,7 @@ export const radicali: BacTopicContent = {
     {
       type: 'formula',
       latex: '\\sqrt[n]{a\\cdot b} = \\sqrt[n]{a}\\cdot\\sqrt[n]{b}',
-      description: 'Pentru a, b >= 0 când n este par.',
+      description: 'Pentru $a,b \\ge 0$ când $n$ este par.',
     },
     {
       type: 'callout',
@@ -47,7 +47,7 @@ export const radicali: BacTopicContent = {
     {
       type: 'formula',
       latex: '\\sqrt[n]{\\frac{a}{b}} = \\frac{\\sqrt[n]{a}}{\\sqrt[n]{b}}',
-      description: 'b != 0 și a, b >= 0 când n este par.',
+      description: '$b \\ne 0$ și $a,b \\ge 0$ când $n$ este par.',
     },
     {
       type: 'formula',

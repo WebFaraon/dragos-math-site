@@ -1,4 +1,4 @@
-﻿import type { BacTopicContent, ContentBlock } from '../../types/bacContent'
+import type { BacTopicContent, ContentBlock } from '../../types/bacContent'
 import TextBlock from './blocks/TextBlock'
 import ImageBlock from './blocks/ImageBlock'
 import CalloutBlock from './blocks/CalloutBlock'
@@ -12,9 +12,87 @@ type ContentRendererProps = {
   content: BacTopicContent
 }
 
+type LessonSectionKind = 'definition' | 'properties' | 'examples' | 'notes' | 'practice'
+
+type LessonSection = {
+  id: string
+  title: string
+  kind: LessonSectionKind
+  blocks: ContentBlock[]
+}
+
+type SectionMeta = {
+  icon: string
+  label: string
+}
+
+const sectionMetaMap: Record<LessonSectionKind, SectionMeta> = {
+  definition: { icon: '📘', label: 'Definiții' },
+  properties: { icon: '🧠', label: 'Proprietăți' },
+  examples: { icon: '✏️', label: 'Exemple' },
+  notes: { icon: '⚠️', label: 'Observații' },
+  practice: { icon: '📌', label: 'Antrenament' },
+}
+
+const normalizeForMatch = (value: string) =>
+  normalizeMojibake(value)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+
+const includesAny = (source: string, words: string[]) => words.some((word) => source.includes(word))
+
+function detectSectionKind(title: string): LessonSectionKind {
+  const normalized = normalizeForMatch(title)
+
+  if (includesAny(normalized, ['exerciti', 'antrenament'])) return 'practice'
+  if (includesAny(normalized, ['propriet', 'regul', 'identit'])) return 'properties'
+  if (includesAny(normalized, ['exempl', 'aplicat', 'rezolvat', 'calcul'])) return 'examples'
+  if (includesAny(normalized, ['observ', 'important', 'atentie', 'domeniu', 'nota'])) return 'notes'
+  return 'definition'
+}
+
+function buildLessonSections(blocks: ContentBlock[]): LessonSection[] {
+  const sections: LessonSection[] = []
+  let currentSection: LessonSection | null = null
+  let fallbackIndex = 1
+
+  const createFallbackSection = () => {
+    const title = 'Introducere'
+    return {
+      id: `intro-${fallbackIndex++}`,
+      title,
+      kind: detectSectionKind(title),
+      blocks: [],
+    }
+  }
+
+  blocks.forEach((block) => {
+    if (block.type === 'heading' && block.level === 2) {
+      if (currentSection) sections.push(currentSection)
+
+      const title = normalizeMojibake(block.text)
+      currentSection = {
+        id: block.id,
+        title,
+        kind: detectSectionKind(title),
+        blocks: [],
+      }
+      return
+    }
+
+    if (!currentSection) currentSection = createFallbackSection()
+    currentSection.blocks.push(block)
+  })
+
+  if (currentSection) sections.push(currentSection)
+  return sections
+}
+
 function ContentRenderer({ content }: ContentRendererProps) {
   const normalizedTitle = normalizeMojibake(content.title)
   const normalizedSubtitle = content.subtitle ? normalizeMojibake(content.subtitle) : null
+  const lessonSections = buildLessonSections(content.blocks)
 
   return (
     <div className="rv-content">
@@ -24,20 +102,47 @@ function ContentRenderer({ content }: ContentRendererProps) {
         {normalizedSubtitle && <p className="rv-content-subtitle">{normalizedSubtitle}</p>}
       </header>
       <div className="rv-content-blocks">
-        {content.blocks.map((block, index) => (
-          <ContentBlockRenderer key={`${block.type}-${index}`} block={block} />
+        {lessonSections.map((section) => (
+          <LessonSectionCard key={section.id} section={section} />
         ))}
       </div>
     </div>
   )
 }
 
-function ContentBlockRenderer({ block }: { block: ContentBlock }) {
+function LessonSectionCard({ section }: { section: LessonSection }) {
+  const sectionMeta = sectionMetaMap[section.kind]
+
+  return (
+    <section className={`rv-lesson-card rv-lesson-card-${section.kind}`} aria-labelledby={`section-title-${section.id}`}>
+      <header className="rv-lesson-card-header" id={section.id}>
+        <span className="rv-lesson-card-icon" aria-hidden="true">
+          {sectionMeta.icon}
+        </span>
+        <div className="rv-lesson-card-heading-wrap">
+          <p className="rv-lesson-card-label">{sectionMeta.label}</p>
+          <h2 id={`section-title-${section.id}`}>{section.title}</h2>
+        </div>
+      </header>
+      <div className="rv-lesson-card-body">
+        {section.blocks.map((block, index) => (
+          <ContentBlockRenderer
+            key={`${section.id}-${block.type}-${index}`}
+            block={block}
+            sectionKind={section.kind}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function ContentBlockRenderer({ block, sectionKind }: { block: ContentBlock; sectionKind: LessonSectionKind }) {
   switch (block.type) {
     case 'heading': {
       const Tag = block.level === 2 ? 'h2' : 'h3'
       return (
-        <div className="rv-heading" id={block.id}>
+        <div className={`rv-heading ${block.level === 3 ? 'rv-subheading' : ''}`} id={block.id}>
           <Tag>{normalizeMojibake(block.text)}</Tag>
         </div>
       )
@@ -54,8 +159,14 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
       )
     case 'image':
       return <ImageBlock src={block.src} alt={block.alt} caption={block.caption} />
-    case 'formula':
-      return <FormulaBlock latex={block.latex} inline={block.inline} description={block.description} />
+    case 'formula': {
+      const highlight = sectionKind === 'properties' || Boolean(block.description)
+      return (
+        <div className={`rv-key-formula${highlight ? ' highlighted' : ''}`}>
+          <FormulaBlock latex={block.latex} inline={block.inline} description={block.description} />
+        </div>
+      )
+    }
     case 'exercise_list':
       return <ExerciseListBlock levels={block.levels} />
     case 'exercise_mcq':
