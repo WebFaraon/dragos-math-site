@@ -515,7 +515,7 @@
   background: var(--bg-surface);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
-  transform: translateX(calc(100% * var(--rv-active-index)));
+  transform: translateX(calc(100% * var(--rv-active-index, 0)));
   transition: transform 240ms ease;
 }
 
@@ -658,7 +658,6 @@
   align-items: center;
   text-align: center;
   min-width: 0;
-  width: 100%;
   overflow: hidden;
 }
 
@@ -910,6 +909,20 @@
   .rv-toc.open {
     transform: translateX(0);
   }
+
+  .rv-exercise-level-index {
+    width: 46px;
+    height: 46px;
+    font-size: 1rem;
+  }
+
+  .rv-exercise-level-label {
+    font-size: 1rem;
+  }
+
+  .rv-exercise-content .katex {
+    font-size: clamp(1.05rem, 4.3vw, 1.22rem);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -1012,19 +1025,25 @@
   .rv-exercise-content {
     overflow-x: auto;
     overflow-y: hidden;
-    justify-content: flex-start;
+    justify-content: center;
     -webkit-overflow-scrolling: touch;
   }
 
   .rv-exercise-content .katex-display {
-    min-width: max-content;
-    max-width: none;
+    min-width: 0;
+    max-width: 100%;
     margin: 0 auto;
     overflow-x: visible;
+    text-align: center;
+  }
+
+  .rv-exercise-content.is-long-math .katex-display {
+    min-width: max-content;
+    max-width: none;
   }
 
   .rv-exercise-content .katex {
-    font-size: clamp(0.9rem, 3.6vw, 1.05rem);
+    font-size: clamp(1.02rem, 4.4vw, 1.2rem);
   }
 
   .rv-level-switch-btn {

@@ -1,6 +1,5 @@
 import { useLayoutEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
 import HomePage from './pages/HomePage.jsx'
 import ProgramsPage from './pages/ProgramsPage.jsx'
 import Grade9Page from './pages/Grade9Page.jsx'
@@ -8,7 +7,6 @@ import Grade12Page from './pages/Grade12Page.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import ResourcesPage from './pages/ResourcesPage.tsx'
 import FeedbackPage from './pages/Feedback.jsx'
-import PageTransition from './components/PageTransition.jsx'
 
 function RouteScrollManager() {
   const location = useLocation()
@@ -46,100 +44,23 @@ function RouteScrollManager() {
   return null
 }
 
-function RouteTransitionOverflowLock() {
-  const location = useLocation()
-
-  useLayoutEffect(() => {
-    const html = document.documentElement
-    const body = document.body
-
-    html.classList.add('route-transition-lock')
-    body.classList.add('route-transition-lock')
-
-    const unlockTimer = window.setTimeout(() => {
-      html.classList.remove('route-transition-lock')
-      body.classList.remove('route-transition-lock')
-    }, 340)
-
-    return () => {
-      window.clearTimeout(unlockTimer)
-      html.classList.remove('route-transition-lock')
-      body.classList.remove('route-transition-lock')
-    }
-  }, [location.pathname])
-
-  return null
-}
-
 function App() {
   const location = useLocation()
 
   return (
     <>
-      <RouteTransitionOverflowLock />
       <RouteScrollManager />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route
-            path="/"
-            element={
-              <PageTransition>
-                <HomePage />
-              </PageTransition>
-            }
-          />
-          <Route
-            path="/programs"
-            element={
-              <PageTransition>
-                <ProgramsPage />
-              </PageTransition>
-            }
-          />
-          <Route
-            path="/programs/grade-9"
-            element={
-              <PageTransition>
-                <Grade9Page />
-              </PageTransition>
-            }
-          />
-          <Route
-            path="/programs/grade-12"
-            element={
-              <PageTransition>
-                <Grade12Page />
-              </PageTransition>
-            }
-          />
-          <Route
-            path="/resources"
-            element={
-              <PageTransition>
-                <ResourcesPage />
-              </PageTransition>
-            }
-          />
-          <Route
-            path="/feedback"
-            element={
-              <PageTransition>
-                <FeedbackPage />
-              </PageTransition>
-            }
-          />
-          <Route path="/results" element={<Navigate to="/feedback" replace />} />
-          <Route path="/testimonials" element={<Navigate to="/feedback" replace />} />
-          <Route
-            path="/contact"
-            element={
-              <PageTransition>
-                <ContactPage />
-              </PageTransition>
-            }
-          />
-        </Routes>
-      </AnimatePresence>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/programs" element={<ProgramsPage />} />
+        <Route path="/programs/grade-9" element={<Grade9Page />} />
+        <Route path="/programs/grade-12" element={<Grade12Page />} />
+        <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/feedback" element={<FeedbackPage />} />
+        <Route path="/results" element={<Navigate to="/feedback" replace />} />
+        <Route path="/testimonials" element={<Navigate to="/feedback" replace />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
     </>
   )
 }
