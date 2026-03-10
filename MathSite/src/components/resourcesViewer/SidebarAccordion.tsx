@@ -64,15 +64,15 @@ function SidebarAccordion({
     return match?.itemId ?? items[0]?.itemId
   }, [activeTopicId, items])
 
-  const [openItems, setOpenItems] = useState<string[]>(() => (initialOpen ? [initialOpen] : []))
+  const [openItemId, setOpenItemId] = useState<string | null>(() => initialOpen ?? null)
 
   useEffect(() => {
     if (!initialOpen) return
-    setOpenItems((prev) => (prev.includes(initialOpen) ? prev : [...prev, initialOpen]))
+    setOpenItemId((prev) => (prev === initialOpen ? prev : initialOpen))
   }, [initialOpen])
 
   const handleToggle = (itemId: string) => {
-    setOpenItems((prev) => (prev.includes(itemId) ? prev.filter((id) => id !== itemId) : [...prev, itemId]))
+    setOpenItemId((prev) => (prev === itemId ? null : itemId))
   }
 
   return (
@@ -105,7 +105,7 @@ function SidebarAccordion({
       <div className="rv-accordion">
         {items.map((item) => {
           const Icon = iconMap[item.itemId] ?? BookOpen
-          const isOpen = openItems.includes(item.itemId)
+          const isOpen = openItemId === item.itemId
           return (
             <div key={item.itemId} className={`rv-accordion-item${isOpen ? ' open' : ''}`}>
               <button type="button" className="rv-accordion-trigger" onClick={() => handleToggle(item.itemId)}>

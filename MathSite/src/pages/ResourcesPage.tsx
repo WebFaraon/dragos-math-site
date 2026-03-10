@@ -40,6 +40,11 @@ function ResourcesPage() {
     }))
   }, [activeTopicId, defaultTopicId, gradeResources.contentByTopic, selectedGrade, setActiveTopicByGrade])
 
+  useEffect(() => {
+    document.documentElement.classList.remove('route-transition-lock')
+    document.body.classList.remove('route-transition-lock')
+  }, [])
+
   const activeContent: BacTopicContent = useMemo(() => {
     const found = gradeResources.contentByTopic.get(activeTopicId)
     if (found) return found
@@ -109,17 +114,6 @@ function ResourcesPage() {
     }
     setTocOpen(false)
   }
-
-  useEffect(() => {
-    const shouldLock = sidebarOpen || tocOpen
-    document.documentElement.classList.toggle('route-transition-lock', shouldLock)
-    document.body.classList.toggle('route-transition-lock', shouldLock)
-
-    return () => {
-      document.documentElement.classList.remove('route-transition-lock')
-      document.body.classList.remove('route-transition-lock')
-    }
-  }, [sidebarOpen, tocOpen])
 
   return (
     <div className="app">

@@ -162,35 +162,35 @@
   padding: 20px;
   box-shadow: var(--shadow-soft);
   height: calc(100vh - var(--navbar-height) - 48px);
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
   font-family: inherit;
 }
 
 .rv-sidebar-accordion {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-right: 4px;
-  overscroll-behavior: contain;
-  scrollbar-gutter: stable;
+  min-height: 100%;
+  padding-right: 2px;
 }
 
-.rv-sidebar-accordion::-webkit-scrollbar {
+.rv-sidebar::-webkit-scrollbar {
   width: 10px;
 }
 
-.rv-sidebar-accordion::-webkit-scrollbar-track {
+.rv-sidebar::-webkit-scrollbar-track {
   background: color-mix(in srgb, var(--bg-surface) 85%, transparent);
   border-radius: 999px;
 }
 
-.rv-sidebar-accordion::-webkit-scrollbar-thumb {
+.rv-sidebar::-webkit-scrollbar-thumb {
   background: color-mix(in srgb, var(--accent) 35%, var(--border));
   border-radius: 999px;
   border: 2px solid color-mix(in srgb, var(--bg-surface) 85%, transparent);
 }
 
-.rv-sidebar-accordion {
+.rv-sidebar {
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--accent) 35%, var(--border))
     color-mix(in srgb, var(--bg-surface) 85%, transparent);
@@ -1199,22 +1199,12 @@
     transform: translateX(-110%);
     transition: transform var(--theme-duration) var(--theme-ease);
     z-index: 30;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
-    touch-action: pan-y;
-    border-radius: 0 18px 18px 0;
-  }
-
-  .rv-sidebar .rv-sidebar-accordion {
-    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
     touch-action: pan-y;
-    padding-right: 2px;
+    border-radius: 0 18px 18px 0;
   }
 
   .rv-sidebar.open {
@@ -1227,7 +1217,6 @@
     width: min(80vw, 300px);
     transform: translateX(110%);
     display: block;
-    overflow-y: auto;
     border-radius: 18px 0 0 18px;
   }
 
