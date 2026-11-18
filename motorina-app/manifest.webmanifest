@@ -1,0 +1,24 @@
+{
+  "name": "DieselLog — jurnalul mașinii tale",
+  "short_name": "DieselLog",
+  "description": "Consum de motorină, kilometraj, trasee și costuri, într-un singur loc.",
+  "lang": "ro",
+  "id": "./",
+  "start_url": "./#/dash",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#06080c",
+  "theme_color": "#06080c",
+  "categories": ["utilities", "productivity", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "Alimentare nouă", "short_name": "Alimentare", "url": "./?add=fill", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Traseu nou", "short_name": "Traseu", "url": "./?add=trip", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
