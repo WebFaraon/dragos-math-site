@@ -569,7 +569,7 @@ function placeNavIndicators() {
   });
 }
 function route() {
-  const p = (location.hash.match(/^#\/(\w+)/) || [])[1];
+  const p = (location.hash.match(/^#(\w+)/) || [])[1];
   const page = PAGES.includes(p) ? p : 'dash';
   if (page === current) return;
   current = page;
@@ -695,7 +695,7 @@ const mq = matchMedia('(prefers-color-scheme: dark)');
 function applyTheme() {
   const t = state.settings.theme, dark = t === 'dark' || (t === 'auto' && mq.matches);
   document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-  $('meta[name=theme-color]').content = dark ? '#06080c' : '#eef1f6';
+  const tc = $('meta[name=theme-color]'); if (tc) tc.content = dark ? '#06080c' : '#eef1f6';
   $$('.js-theme use').forEach((u) => u.setAttribute('href', dark ? '#i-sun' : '#i-moon'));
   themeSel && themeSel.set(t);
 }
@@ -724,13 +724,26 @@ function initSettings() {
   ff.addEventListener('submit', submitFill); $('#sheet-trip').addEventListener('submit', submitTrip);
 
   $('#btn-export').addEventListener('click', () => {
-    const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' }), a = document.createElement('a');
+    const json = JSON.stringify(state, null, 2);
+    if (window.self !== window.top) { // încorporat într-un frame: descărcările sunt blocate, copiem în clipboard
+      (navigator.clipboard ? navigator.clipboard.writeText(json) : Promise.reject()).then(() => toast('Datele (JSON) au fost copiate'), () => toast('Nu am putut copia datele'));
+      return;
+    }
+    const blob = new Blob([json], { type: 'application/json' }), a = document.createElement('a');
     a.href = URL.createObjectURL(blob); a.download = `dieselog-${toStr(new Date())}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
     toast('Datele au fost exportate');
   });
-  $('#btn-reset').addEventListener('click', () => {
-    if (!confirm('Resetezi toate datele la valorile demonstrative? Ce ai adăugat tu se pierde.')) return;
-    localStorage.removeItem(KEY); state = load(); S = computeStats(); applyTheme(); applyMotion(); renderPage(current); toast('Date demo restabilite');
+  let resetArmed = false, resetT;
+  $('#btn-reset').addEventListener('click', (e) => {
+    const btn = e.currentTarget;
+    if (!resetArmed) { // confirmare în pagină (confirm() nu funcționează peste tot)
+      resetArmed = true; btn.textContent = 'Apasă din nou: se pierd datele tale';
+      resetT = setTimeout(() => { resetArmed = false; btn.textContent = 'Resetează demo'; }, 4000);
+      return;
+    }
+    clearTimeout(resetT); resetArmed = false; btn.textContent = 'Resetează demo';
+    try { localStorage.removeItem(KEY); } catch (err) { /* ignorat */ }
+    state = load(); S = computeStats(); applyTheme(); applyMotion(); renderPage(current); toast('Date demo restabilite');
   });
 }
 
@@ -756,7 +769,6 @@ function boot() {
   $$('.js-carname').forEach((e) => (e.textContent = state.car.name)); $$('.js-carplate').forEach((e) => (e.textContent = state.car.plate)); $$('.js-carsub').forEach((e) => (e.textContent = state.car.sub));
   applyMotion(); initSettings(); applyTheme();
   $$('.page').forEach((p) => $$('[data-anim]', p).forEach((el, i) => el.style.setProperty('--i', i)));
-  if (!location.hash) history.replaceState(null, '', '#/dash');
   route();
   const add = new URLSearchParams(location.search).get('add');
   if (add === 'fill' || add === 'trip') setTimeout(() => showSheet(add), 500);

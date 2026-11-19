@@ -4,7 +4,7 @@
   "description": "Consum de motorină, kilometraj, trasee și costuri, într-un singur loc.",
   "lang": "ro",
   "id": "./",
-  "start_url": "./#/dash",
+  "start_url": "./#dash",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
