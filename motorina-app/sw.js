@@ -1,11 +1,12 @@
 /* Service worker: aplicația funcționează și fără internet. */
-const VERSION = 'dieselog-v1';
+const VERSION = 'dieselog-v2';
 const SHELL = [
   './', 'index.html', 'styles.css', 'fonts.css', 'app.js', 'manifest.webmanifest',
   'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png',
-  'fonts/Manrope-400-800-latin.woff2', 'fonts/Manrope-400-800-latin-ext.woff2',
-  'fonts/JetBrainsMono-500-latin.woff2', 'fonts/JetBrainsMono-500-latin-ext.woff2',
-  'fonts/JetBrainsMono-700-latin.woff2', 'fonts/JetBrainsMono-700-latin-ext.woff2',
+  'fonts/Archivo-100-900-latin.woff2', 'fonts/Archivo-100-900-latin-ext.woff2',
+  'fonts/IBMPlexMono-400-latin.woff2', 'fonts/IBMPlexMono-400-latin-ext.woff2',
+  'fonts/IBMPlexMono-500-latin.woff2', 'fonts/IBMPlexMono-500-latin-ext.woff2',
+  'fonts/IBMPlexMono-600-latin.woff2', 'fonts/IBMPlexMono-600-latin-ext.woff2',
 ];
 
 self.addEventListener('install', (e) => {
@@ -22,9 +23,9 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET' || new URL(req.url).origin !== location.origin) return;
-  const isFont = req.url.includes('/fonts/') || req.url.includes('/icons/');
+  const isStatic = req.url.includes('/fonts/') || req.url.includes('/icons/');
   e.respondWith(
-    isFont
+    isStatic
       ? caches.match(req).then((hit) => hit || fetch(req))
       : fetch(req)
           .then((res) => { const copy = res.clone(); caches.open(VERSION).then((c) => c.put(req, copy)); return res; })

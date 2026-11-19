@@ -1,23 +1,23 @@
 <!doctype html>
-<html lang="ro" data-theme="dark">
+<html lang="ro" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DieselLog — jurnalul mașinii tale</title>
-<meta name="description" content="Urmărește consumul de motorină, kilometrajul, traseele și costurile mașinii tale.">
-<meta name="theme-color" content="#06080c">
-<meta name="color-scheme" content="dark light">
+<title>DieselLog</title>
+<meta name="description" content="Jurnal de bord pentru consumul de motorină, kilometraj, trasee și costuri.">
+<meta name="theme-color" content="#ecede8">
+<meta name="color-scheme" content="light dark">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="DieselLog">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <script>
   // aplică tema înainte de prima randare (fără „flash")
   try {
-    var s = JSON.parse(localStorage.getItem('dieselog.v1') || '{}');
+    var s = JSON.parse(localStorage.getItem('dieselog.v2') || '{}');
     var t = (s.settings && s.settings.theme) || 'auto';
     var dark = t === 'dark' || (t === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
     document.documentElement.dataset.theme = dark ? 'dark' : 'light';
@@ -29,10 +29,8 @@
 </head>
 <body>
 
-<!-- Sprite de iconițe -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5ef2c0"/><stop offset="1" stop-color="#4fb7ff"/></linearGradient>
     <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/></symbol>
     <symbol id="i-fuel" viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 012-2h6a2 2 0 012 2v16M3 21h12M6 8h6M14 9h2a2 2 0 012 2v5a1.5 1.5 0 003 0V9l-3-3"/></symbol>
     <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h6.5a3.5 3.5 0 000-7h-5a3.5 3.5 0 010-7H16"/></symbol>
@@ -42,65 +40,44 @@
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
     <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
     <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
-    <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 17a9 9 0 1116 0M12 17l4-6"/></symbol>
-    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 7a2 2 0 012-2h11v3M4 7v10a2 2 0 002 2h13a1 1 0 001-1V9a1 1 0 00-1-1H6a2 2 0 01-2-1zM16 13.5h2"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.2 6 10.5a6 6 0 11-12 0C6 9.2 12 3 12 3z"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3zM8.5 12l2.5 2.5 4.5-5"/></symbol>
-    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.4 2.4-2.6-.6-.6-2.6z"/></symbol>
-    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
     <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
     <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/></symbol>
     <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4M6 12v7a1 1 0 001 1h10a1 1 0 001-1v-7"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13 7l4 4"/></symbol>
   </defs>
 </svg>
-
-<div class="ambient" aria-hidden="true">
-  <i class="blob blob--a"></i><i class="blob blob--b"></i><i class="blob blob--c"></i>
-  <i class="grain"></i>
-</div>
 
 <div class="app">
 
   <!-- ===== Bară laterală (desktop) ===== -->
-  <aside class="side">
-    <a class="brand" href="#dash" aria-label="DieselLog">
-      <span class="brand__mark"><svg viewBox="0 0 32 32"><path d="M16 3s9 9.6 9 16a9 9 0 11-18 0c0-6.4 9-16 9-16z" fill="url(#bg)"/><path d="M11 20a5 5 0 0110 0M16 20l3-4" stroke="#06080c" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></span>
-      <span class="brand__name">Diesel<b>Log</b></span>
-    </a>
+  <aside class="rail">
+    <a class="brand" href="#dash" aria-label="DieselLog – Acasă"><i class="brand__sq"></i>DieselLog</a>
+    <p class="rail__tag">Jurnal de bord</p>
 
-    <nav class="nav nav--side" aria-label="Navigare principală">
-      <i class="nav__ind"></i>
-      <a href="#dash" data-page="dash" class="nav__item"><svg class="ico"><use href="#i-home"/></svg><span>Acasă</span></a>
-      <a href="#fuel" data-page="fuel" class="nav__item"><svg class="ico"><use href="#i-fuel"/></svg><span>Alimentări</span></a>
-      <a href="#routes" data-page="routes" class="nav__item"><svg class="ico"><use href="#i-route"/></svg><span>Trasee</span></a>
-      <a href="#car" data-page="car" class="nav__item"><svg class="ico"><use href="#i-car"/></svg><span>Mașina</span></a>
+    <nav class="nav" aria-label="Navigare principală">
+      <a href="#dash" data-page="dash" class="nav__item"><svg class="ico"><use href="#i-home"/></svg>Acasă</a>
+      <a href="#fuel" data-page="fuel" class="nav__item"><svg class="ico"><use href="#i-fuel"/></svg>Alimentări</a>
+      <a href="#routes" data-page="routes" class="nav__item"><svg class="ico"><use href="#i-route"/></svg>Trasee</a>
+      <a href="#car" data-page="car" class="nav__item"><svg class="ico"><use href="#i-car"/></svg>Mașina</a>
     </nav>
 
-    <div class="side__foot">
-      <button class="btn btn--primary btn--block" data-open="fill"><svg class="ico"><use href="#i-plus"/></svg>Alimentare nouă</button>
-      <button class="btn btn--ghost btn--block" data-open="trip"><svg class="ico"><use href="#i-route"/></svg>Traseu nou</button>
-      <div class="carchip">
-        <span class="carchip__dot"></span>
-        <div><b class="js-carname">—</b><small class="js-carplate">—</small></div>
+    <div class="rail__foot">
+      <button class="btn btn--primary btn--block" data-open="fill"><svg class="ico"><use href="#i-plus"/></svg>Alimentare</button>
+      <button class="btn btn--block" data-open="trip"><svg class="ico"><use href="#i-plus"/></svg>Traseu</button>
+      <div class="rail__car">
+        <div><b class="js-carname">—</b><span class="js-carplate plate-txt"></span></div>
         <button class="iconbtn js-theme" aria-label="Schimbă tema"><svg class="ico"><use href="#i-moon"/></svg></button>
       </div>
     </div>
   </aside>
 
-  <!-- ===== Conținut ===== -->
   <div class="main">
-
     <header class="topbar">
-      <a class="brand brand--sm" href="#dash" aria-label="DieselLog">
-        <span class="brand__mark"><svg viewBox="0 0 32 32"><path d="M16 3s9 9.6 9 16a9 9 0 11-18 0c0-6.4 9-16 9-16z" fill="url(#bg)"/><path d="M11 20a5 5 0 0110 0M16 20l3-4" stroke="#06080c" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></span>
-        <span class="brand__name">Diesel<b>Log</b></span>
-      </a>
+      <a class="brand" href="#dash" aria-label="DieselLog – Acasă"><i class="brand__sq"></i>DieselLog</a>
       <div class="topbar__actions">
-        <button class="pill js-install" hidden><svg class="ico"><use href="#i-download"/></svg>Instalează</button>
+        <button class="btn btn--sm btn--primary js-install" hidden><svg class="ico"><use href="#i-download"/></svg>Instalează</button>
         <button class="iconbtn js-theme" aria-label="Schimbă tema"><svg class="ico"><use href="#i-moon"/></svg></button>
       </div>
     </header>
@@ -111,96 +88,72 @@
       <section class="page" id="page-dash" data-page="dash">
         <header class="page-head" data-anim>
           <div>
-            <p class="eyebrow" id="dash-date">—</p>
-            <h1 id="dash-greet">Bun venit</h1>
+            <p class="label" id="dash-date">—</p>
+            <h1 class="js-carname">—</h1>
+            <p class="sub js-carsub">—</p>
           </div>
           <div class="head-actions">
-            <button class="btn btn--ghost" data-open="trip"><svg class="ico"><use href="#i-route"/></svg>Traseu</button>
+            <button class="btn" data-open="trip"><svg class="ico"><use href="#i-plus"/></svg>Traseu</button>
             <button class="btn btn--primary" data-open="fill"><svg class="ico"><use href="#i-plus"/></svg>Alimentare</button>
           </div>
         </header>
 
-        <div class="grid">
-          <!-- Hero: kilometraj total -->
-          <article class="card hero tilt span-8" data-anim>
-            <svg class="hero__rings" viewBox="0 0 400 400" aria-hidden="true">
-              <circle cx="200" cy="200" r="120"/><circle cx="200" cy="200" r="160"/><circle cx="200" cy="200" r="198"/>
-              <path d="M200 200L200 4" class="hero__sweep"/>
-            </svg>
-            <div class="hero__top">
-              <span class="chip chip--mint"><i class="live"></i>Kilometraj total</span>
-              <span class="hero__car js-carname">—</span>
-            </div>
+        <section class="odoblock" data-anim>
+          <div class="odoblock__main">
+            <p class="label">Kilometraj total</p>
             <div class="odo" id="odo" aria-live="polite"></div>
-            <div class="hero__stats">
-              <div><small>Luna aceasta</small><b><span data-count="0" id="h-month">0</span> km</b></div>
-              <div><small>Medie zilnică</small><b><span data-count="0" data-dec="1" id="h-avg">0</span> km</b></div>
-              <div><small>Azi</small><b><span data-count="0" data-dec="1" id="h-today">0</span> km</b></div>
-            </div>
-            <svg class="spark" id="h-spark" viewBox="0 0 300 64" preserveAspectRatio="none" aria-hidden="true"></svg>
-          </article>
+            <dl class="facts">
+              <div><dt>Luna aceasta</dt><dd><span id="h-month" data-count="0">0</span> km</dd></div>
+              <div><dt>Medie / zi, 30 zile</dt><dd><span id="h-avg" data-count="0" data-dec="1">0</span> km</dd></div>
+              <div><dt>Azi</dt><dd><span id="h-today" data-count="0" data-dec="1">0</span> km</dd></div>
+            </dl>
+          </div>
+          <div class="odoblock__fuel">
+            <p class="label">Rezervor, estimat</p>
+            <div class="fuelbar" id="fuelbar" aria-hidden="true"></div>
+            <div class="fuelscale"><span>E</span><span>½</span><span>F</span></div>
+            <dl class="facts facts--2">
+              <div><dt>Rămas</dt><dd><span id="g-l">—</span> L</dd></div>
+              <div><dt>Autonomie</dt><dd><span id="g-km">—</span> km</dd></div>
+            </dl>
+            <p class="note" id="g-note"></p>
+          </div>
+        </section>
 
-          <!-- Rezervor -->
-          <article class="card gaugecard span-4" data-anim>
-            <div class="card__head"><h3>Rezervor estimat</h3><span class="chip" id="g-ago">—</span></div>
-            <div class="gauge" id="gauge"></div>
-            <div class="gauge__meta">
-              <div><small>Rămas</small><b><span data-count="0" data-dec="0" id="g-l">0</span> L</b></div>
-              <div><small>Autonomie</small><b><span data-count="0" id="g-km">0</span> km</b></div>
-            </div>
-          </article>
+        <section class="strip" data-anim>
+          <div class="metric"><p class="label">Consum mediu</p><p class="metric__v"><span id="k-cons">—</span><em>L/100 km</em></p><p class="note" id="k-cons-n"></p></div>
+          <div class="metric"><p class="label">Cheltuit luna aceasta</p><p class="metric__v"><span id="k-spend">—</span><em>lei</em></p><p class="note" id="k-spend-n"></p></div>
+          <div class="metric"><p class="label">Cost pe kilometru</p><p class="metric__v"><span id="k-cpk">—</span><em>lei/km</em></p><p class="note" id="k-cpk-n"></p></div>
+          <div class="metric"><p class="label">Preț mediu motorină</p><p class="metric__v"><span id="k-price">—</span><em>lei/L</em></p><p class="note" id="k-price-n"></p></div>
+        </section>
 
-          <!-- KPI -->
-          <article class="card kpi span-3" data-anim>
-            <span class="kpi__ico kpi__ico--mint"><svg class="ico"><use href="#i-gauge"/></svg></span>
-            <small>Consum mediu</small>
-            <div class="kpi__val"><span data-count="0" data-dec="1" id="k-cons">0</span><em>L/100 km</em></div>
-            <span class="delta" id="k-cons-d">—</span>
-          </article>
-          <article class="card kpi span-3" data-anim>
-            <span class="kpi__ico kpi__ico--amber"><svg class="ico"><use href="#i-wallet"/></svg></span>
-            <small>Cheltuit luna aceasta</small>
-            <div class="kpi__val"><span data-count="0" id="k-spend">0</span><em>lei</em></div>
-            <span class="delta delta--flat" id="k-spend-d">—</span>
-          </article>
-          <article class="card kpi span-3" data-anim>
-            <span class="kpi__ico kpi__ico--blue"><svg class="ico"><use href="#i-trend"/></svg></span>
-            <small>Cost pe kilometru</small>
-            <div class="kpi__val"><span data-count="0" data-dec="2" id="k-cpk">0</span><em>lei/km</em></div>
-            <span class="delta delta--flat" id="k-cpk-d">—</span>
-          </article>
-          <article class="card kpi span-3" data-anim>
-            <span class="kpi__ico kpi__ico--rose"><svg class="ico"><use href="#i-drop"/></svg></span>
-            <small>Preț mediu motorină</small>
-            <div class="kpi__val"><span data-count="0" data-dec="2" id="k-price">0</span><em>lei/L</em></div>
-            <span class="delta delta--flat" id="k-price-d">—</span>
-          </article>
-
-          <!-- Grafic km/zi -->
-          <article class="card span-7" data-anim>
-            <div class="card__head">
-              <div><h3>Kilometri pe zi</h3><p class="muted" id="km-sum">—</p></div>
+        <div class="split split--7-5">
+          <article class="panel" data-anim>
+            <div class="panel__head">
+              <div><h3>Kilometri pe zi</h3><p class="note" id="km-sum"></p></div>
               <div class="seg" id="seg-km"></div>
             </div>
             <div class="chart" id="chart-km"></div>
           </article>
-
-          <!-- Grafic consum -->
-          <article class="card span-5" data-anim>
-            <div class="card__head">
-              <div><h3>Consum la 100 km</h3><p class="muted">de la o alimentare plină la alta</p></div>
-            </div>
+          <article class="panel" data-anim>
+            <div class="panel__head"><div><h3>Consum la 100 km</h3><p class="note">de la o alimentare plină la următoarea</p></div></div>
             <div class="chart" id="chart-cons"></div>
           </article>
+        </div>
 
-          <!-- Recente -->
-          <article class="card span-6" data-anim>
-            <div class="card__head"><h3>Ultimele trasee</h3><a class="link" href="#routes">Vezi toate <svg class="ico"><use href="#i-arrow"/></svg></a></div>
-            <ul class="list" id="recent-trips"></ul>
+        <article class="panel" data-anim>
+          <div class="panel__head"><h3>Întreținere</h3><a class="link" href="#car">Toate scadențele <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+          <div id="dash-service"></div>
+        </article>
+
+        <div class="split">
+          <article class="panel" data-anim>
+            <div class="panel__head"><h3>Ultimele trasee</h3><a class="link" href="#routes">Toate <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+            <div id="recent-trips"></div>
           </article>
-          <article class="card span-6" data-anim>
-            <div class="card__head"><h3>Ultimele alimentări</h3><a class="link" href="#fuel">Vezi toate <svg class="ico"><use href="#i-arrow"/></svg></a></div>
-            <ul class="list" id="recent-fills"></ul>
+          <article class="panel" data-anim>
+            <div class="panel__head"><h3>Ultimele alimentări</h3><a class="link" href="#fuel">Toate <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+            <div id="recent-fills"></div>
           </article>
         </div>
       </section>
@@ -208,142 +161,129 @@
       <!-- ================= ALIMENTĂRI ================= -->
       <section class="page" id="page-fuel" data-page="fuel">
         <header class="page-head" data-anim>
-          <div><p class="eyebrow">Combustibil</p><h1>Alimentări</h1></div>
-          <div class="head-actions"><button class="btn btn--primary" data-open="fill"><svg class="ico"><use href="#i-plus"/></svg>Alimentare nouă</button></div>
+          <div><p class="label">Combustibil</p><h1>Alimentări</h1></div>
+          <div class="head-actions"><button class="btn btn--primary" data-open="fill"><svg class="ico"><use href="#i-plus"/></svg>Alimentare</button></div>
         </header>
 
-        <div class="grid">
-          <article class="card stat span-3" data-anim><small>Total litri</small><div class="stat__v"><span data-count="0" data-dec="0" id="f-l">0</span><em>L</em></div></article>
-          <article class="card stat span-3" data-anim><small>Total cheltuit</small><div class="stat__v"><span data-count="0" id="f-spend">0</span><em>lei</em></div></article>
-          <article class="card stat span-3" data-anim><small>Preț mediu</small><div class="stat__v"><span data-count="0" data-dec="2" id="f-price">0</span><em>lei/L</em></div></article>
-          <article class="card stat span-3" data-anim><small>Alimentări</small><div class="stat__v"><span data-count="0" id="f-n">0</span><em>în total</em></div></article>
+        <section class="strip" data-anim>
+          <div class="metric"><p class="label">Total litri</p><p class="metric__v"><span id="f-l">—</span><em>L</em></p></div>
+          <div class="metric"><p class="label">Total cheltuit</p><p class="metric__v"><span id="f-spend">—</span><em>lei</em></p></div>
+          <div class="metric"><p class="label">Preț mediu</p><p class="metric__v"><span id="f-price">—</span><em>lei/L</em></p></div>
+          <div class="metric"><p class="label">Alimentări</p><p class="metric__v"><span id="f-n">0</span><em>înregistrate</em></p></div>
+        </section>
 
-          <article class="card span-7" data-anim>
-            <div class="card__head"><div><h3>Prețul motorinei</h3><p class="muted">lei/litru la fiecare alimentare</p></div></div>
+        <div class="split split--7-5">
+          <article class="panel" data-anim>
+            <div class="panel__head"><div><h3>Prețul motorinei</h3><p class="note">lei pe litru, la fiecare alimentare</p></div></div>
             <div class="chart" id="chart-price"></div>
           </article>
-          <article class="card span-5" data-anim>
-            <div class="card__head"><div><h3>Cheltuieli pe lună</h3><p class="muted">motorină, în lei</p></div></div>
+          <article class="panel" data-anim>
+            <div class="panel__head"><div><h3>Cheltuieli pe lună</h3><p class="note">motorină, în lei</p></div></div>
             <div class="cols" id="cols-month"></div>
           </article>
-
-          <article class="card span-12" data-anim>
-            <div class="card__head"><h3>Istoric</h3></div>
-            <div id="fill-history"></div>
-          </article>
         </div>
+
+        <article class="panel" data-anim>
+          <div class="panel__head"><h3>Istoric</h3></div>
+          <div id="fill-history"></div>
+        </article>
       </section>
 
       <!-- ================= TRASEE ================= -->
       <section class="page" id="page-routes" data-page="routes">
         <header class="page-head" data-anim>
-          <div><p class="eyebrow">Unde mergi</p><h1>Trasee</h1></div>
+          <div><p class="label">Unde mergi</p><h1>Trasee</h1></div>
           <div class="head-actions">
             <div class="select" id="sel-range"></div>
-            <button class="btn btn--primary" data-open="trip"><svg class="ico"><use href="#i-plus"/></svg>Traseu nou</button>
+            <button class="btn btn--primary" data-open="trip"><svg class="ico"><use href="#i-plus"/></svg>Traseu</button>
           </div>
         </header>
 
-        <div class="grid">
-          <article class="card stat span-3" data-anim><small>Distanță</small><div class="stat__v"><span data-count="0" id="r-km">0</span><em>km</em></div></article>
-          <article class="card stat span-3" data-anim><small>Timp la volan</small><div class="stat__v"><span id="r-time">0</span></div></article>
-          <article class="card stat span-3" data-anim><small>Trasee</small><div class="stat__v"><span data-count="0" id="r-n">0</span><em>deplasări</em></div></article>
-          <article class="card stat span-3" data-anim><small>Cost estimat</small><div class="stat__v"><span data-count="0" id="r-cost">0</span><em>lei</em></div></article>
+        <section class="strip" data-anim>
+          <div class="metric"><p class="label">Distanță</p><p class="metric__v"><span id="r-km">0</span><em>km</em></p></div>
+          <div class="metric"><p class="label">Timp la volan</p><p class="metric__v"><span id="r-time">0 min</span></p></div>
+          <div class="metric"><p class="label">Deplasări</p><p class="metric__v"><span id="r-n">0</span></p></div>
+          <div class="metric"><p class="label">Cost estimat</p><p class="metric__v"><span id="r-cost">—</span><em>lei</em></p></div>
+        </section>
 
-          <article class="card map span-7" data-anim>
-            <div class="card__head"><div><h3>Harta locurilor tale</h3><p class="muted">grosimea liniei = cât des mergi</p></div></div>
-            <div class="map__stage" id="map"></div>
+        <div class="split">
+          <article class="panel" data-anim>
+            <div class="panel__head"><div><h3>Rute frecvente</h3><p class="note">de la → până la, după număr de deplasări</p></div></div>
+            <ul class="bars" id="top-routes"></ul>
           </article>
-          <article class="card span-5" data-anim>
-            <div class="card__head"><div><h3>Destinații frecvente</h3><p class="muted">după numărul de vizite</p></div></div>
+          <article class="panel" data-anim>
+            <div class="panel__head"><div><h3>Destinații</h3><p class="note">după număr de vizite</p></div></div>
             <ul class="bars" id="top-places"></ul>
           </article>
-
-          <article class="card span-12" data-anim>
-            <div class="card__head"><h3>Jurnal de trasee</h3></div>
-            <div id="trip-history"></div>
-            <button class="btn btn--ghost btn--block more" id="trip-more" hidden>Arată mai multe</button>
-          </article>
         </div>
+
+        <article class="panel" data-anim>
+          <div class="panel__head"><h3>Jurnal de trasee</h3></div>
+          <div id="trip-history"></div>
+          <button class="btn btn--block more" id="trip-more" hidden>Arată mai multe</button>
+        </article>
       </section>
 
       <!-- ================= MAȘINA ================= -->
       <section class="page" id="page-car" data-page="car">
         <header class="page-head" data-anim>
-          <div><p class="eyebrow">Garaj</p><h1>Mașina mea</h1></div>
+          <div><p class="label">Garaj</p><h1>Mașina mea</h1></div>
+          <div class="head-actions"><button class="btn" data-open="car"><svg class="ico"><use href="#i-edit"/></svg>Editează</button></div>
         </header>
 
-        <div class="grid">
-          <article class="card carcard span-12" data-anim>
-            <div class="carcard__info">
-              <span class="chip chip--amber">Date demonstrative</span>
-              <h2 class="js-carname">—</h2>
-              <p class="muted js-carsub">—</p>
-              <div class="plate"><i></i><span class="js-carplate">—</span></div>
-            </div>
-            <svg class="carart" viewBox="0 0 420 170" aria-hidden="true">
-              <defs>
-                <linearGradient id="cb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--car-top)"/><stop offset="1" stop-color="var(--car-bot)"/></linearGradient>
-                <radialGradient id="cg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#5ef2c0" stop-opacity=".55"/><stop offset="1" stop-color="#5ef2c0" stop-opacity="0"/></radialGradient>
-              </defs>
-              <ellipse cx="210" cy="150" rx="190" ry="12" fill="url(#cg)"/>
-              <path class="carart__body" d="M24 118C24 104 34 99 52 96L106 80C122 60 148 46 196 46L268 46C300 48 322 66 340 86L380 94C398 98 404 106 404 118L404 124L24 124Z" fill="url(#cb)"/>
-              <path class="carart__glass" d="M118 80C132 62 152 54 190 54L226 54L226 86L118 86ZM236 54L268 54C288 56 304 68 318 86L236 86Z"/>
-              <path class="carart__line" d="M30 108H398"/>
-              <path class="carart__light" d="M388 100c8 2 12 6 12 12l-14-1z"/>
-              <g class="wheel" style="--cx:104px"><circle cx="104" cy="124" r="27" class="tyre"/><g class="rim"><circle cx="104" cy="124" r="15"/><path d="M104 109v30M89 124h30M93.4 113.4l21.2 21.2M114.6 113.4l-21.2 21.2"/></g></g>
-              <g class="wheel" style="--cx:322px"><circle cx="322" cy="124" r="27" class="tyre"/><g class="rim"><circle cx="322" cy="124" r="15"/><path d="M322 109v30M307 124h30M311.4 113.4l21.2 21.2M332.6 113.4l-21.2 21.2"/></g></g>
-            </svg>
-          </article>
+        <article class="panel talon" data-anim>
+          <div class="talon__head">
+            <div><p class="label">Fișa mașinii</p><h2 class="js-carname">—</h2><p class="sub js-carsub">—</p></div>
+            <div class="plate"><i>RO</i><span class="js-carplate">—</span></div>
+          </div>
+          <dl class="specs" id="specs"></dl>
+        </article>
 
-          <article class="card span-7" data-anim>
-            <div class="card__head"><h3>Date tehnice</h3></div>
-            <dl class="specs" id="specs"></dl>
-          </article>
+        <article class="panel" data-anim>
+          <div class="panel__head">
+            <div><h3>Scadențe și întreținere</h3><p class="note">uleiul, plăcuțele, ITP, RCA, rovinieta</p></div>
+            <button class="btn btn--sm" data-open="service"><svg class="ico"><use href="#i-plus"/></svg>Adaugă</button>
+          </div>
+          <div id="service-list"></div>
+        </article>
 
-          <article class="card span-5" data-anim>
-            <div class="card__head"><h3>Scadențe & întreținere</h3></div>
-            <div class="rings" id="rings"></div>
-          </article>
-
-          <article class="card span-7" data-anim>
-            <div class="card__head"><h3>Preferințe</h3></div>
+        <div class="split">
+          <article class="panel" data-anim>
+            <div class="panel__head"><h3>Preferințe</h3></div>
             <div class="prefs">
               <div class="pref">
                 <div><b>Temă</b><small>Aspectul aplicației</small></div>
                 <div class="select" id="sel-theme"></div>
               </div>
-              <div class="pref">
-                <div><b>Combustibil implicit</b><small>Folosit la alimentări noi</small></div>
-                <div class="select" id="sel-fuel"></div>
-              </div>
-              <label class="pref">
-                <div><b>Animații</b><small>Efecte și tranziții</small></div>
+              <label class="pref" for="sw-motion">
+                <div><b>Animații</b><small>Mișcare și tranziții</small></div>
                 <span class="switch"><input type="checkbox" role="switch" id="sw-motion"><span class="switch__track"><span class="switch__thumb"></span></span></span>
               </label>
-              <label class="pref">
+              <label class="pref" for="sw-notif">
                 <div><b>Notificări scadențe</b><small>ITP, RCA, rovinietă, revizie</small></div>
                 <span class="switch"><input type="checkbox" role="switch" id="sw-notif"><span class="switch__track"><span class="switch__thumb"></span></span></span>
               </label>
-              <label class="pref">
+              <label class="pref" for="sw-alert">
                 <div><b>Alertă consum ridicat</b><small>Te anunță dacă depășești media</small></div>
                 <span class="switch"><input type="checkbox" role="switch" id="sw-alert"><span class="switch__track"><span class="switch__thumb"></span></span></span>
               </label>
             </div>
           </article>
 
-          <article class="card span-5 install" data-anim id="install-card">
-            <div class="card__head"><h3>Aplicație pe telefon</h3><span class="chip" id="install-state">—</span></div>
-            <p class="muted" id="install-text"></p>
+          <article class="panel install" data-anim id="install-card">
+            <div class="panel__head"><h3>Aplicație pe telefon</h3><span class="tag" id="install-state">—</span></div>
+            <p class="note note--lg" id="install-text"></p>
             <button class="btn btn--primary btn--block js-install" hidden><svg class="ico"><use href="#i-download"/></svg>Instalează aplicația</button>
             <ol class="steps" id="install-steps" hidden>
               <li>Deschide în <b>Safari</b> și apasă <svg class="ico ico--inline"><use href="#i-share"/></svg> <b>Partajează</b></li>
               <li>Alege <b>Adaugă pe ecranul principal</b></li>
             </ol>
             <hr>
+            <p class="label">Datele tale</p>
+            <p class="note note--lg">Totul se salvează doar pe acest dispozitiv. Fă un export din când în când.</p>
             <div class="datarow">
-              <button class="btn btn--ghost" id="btn-export"><svg class="ico"><use href="#i-download"/></svg>Exportă datele</button>
-              <button class="btn btn--danger" id="btn-reset">Resetează demo</button>
+              <button class="btn" id="btn-export"><svg class="ico"><use href="#i-download"/></svg>Exportă datele</button>
+              <button class="btn btn--danger" id="btn-reset">Șterge toate datele</button>
             </div>
           </article>
         </div>
@@ -353,54 +293,57 @@
   </div>
 
   <!-- ===== Bară de jos (telefon) ===== -->
-  <nav class="nav nav--tab" aria-label="Navigare principală">
-    <i class="nav__ind"></i>
-    <a href="#dash" data-page="dash" class="nav__item"><svg class="ico"><use href="#i-home"/></svg><span>Acasă</span></a>
-    <a href="#fuel" data-page="fuel" class="nav__item"><svg class="ico"><use href="#i-fuel"/></svg><span>Alimentări</span></a>
-    <a href="#routes" data-page="routes" class="nav__item"><svg class="ico"><use href="#i-route"/></svg><span>Trasee</span></a>
-    <a href="#car" data-page="car" class="nav__item"><svg class="ico"><use href="#i-car"/></svg><span>Mașina</span></a>
+  <nav class="tabbar" aria-label="Navigare principală">
+    <a href="#dash" data-page="dash" class="tab"><svg class="ico"><use href="#i-home"/></svg><span>Acasă</span></a>
+    <a href="#fuel" data-page="fuel" class="tab"><svg class="ico"><use href="#i-fuel"/></svg><span>Alimentări</span></a>
+    <button class="tab tab--add" data-open="add" aria-label="Adaugă"><i><svg class="ico"><use href="#i-plus"/></svg></i></button>
+    <a href="#routes" data-page="routes" class="tab"><svg class="ico"><use href="#i-route"/></svg><span>Trasee</span></a>
+    <a href="#car" data-page="car" class="tab"><svg class="ico"><use href="#i-car"/></svg><span>Mașina</span></a>
   </nav>
-
-  <!-- ===== FAB (telefon) ===== -->
-  <div class="fab" id="fab">
-    <button class="fab__opt" data-open="trip" tabindex="-1"><span>Traseu</span><i><svg class="ico"><use href="#i-route"/></svg></i></button>
-    <button class="fab__opt" data-open="fill" tabindex="-1"><span>Alimentare</span><i><svg class="ico"><use href="#i-fuel"/></svg></i></button>
-    <button class="fab__main" id="fab-main" aria-label="Adaugă" aria-expanded="false"><svg class="ico"><use href="#i-plus"/></svg></button>
-  </div>
 </div>
 
 <!-- ===== Foi (formulare) ===== -->
 <div class="sheetwrap" id="sheetwrap" hidden>
   <div class="sheetwrap__bg" data-close></div>
 
+  <div class="sheet sheet--sm" id="sheet-add" role="dialog" aria-modal="true" aria-labelledby="t-add" hidden>
+    <i class="sheet__grab"></i>
+    <header class="sheet__head">
+      <div><p class="label">Adaugă</p><h2 id="t-add">Ce vrei să notezi?</h2></div>
+      <button type="button" class="iconbtn" data-close aria-label="Închide"><svg class="ico"><use href="#i-close"/></svg></button>
+    </header>
+    <div class="sheet__body">
+      <button class="bigopt" data-open="fill"><svg class="ico"><use href="#i-fuel"/></svg><span><b>Alimentare</b><small>litri, preț, kilometraj de pe bord</small></span><svg class="ico"><use href="#i-arrow"/></svg></button>
+      <button class="bigopt" data-open="trip"><svg class="ico"><use href="#i-route"/></svg><span><b>Traseu</b><small>de unde până unde, câți kilometri</small></span><svg class="ico"><use href="#i-arrow"/></svg></button>
+    </div>
+  </div>
+
   <form class="sheet" id="sheet-fill" role="dialog" aria-modal="true" aria-labelledby="t-fill" hidden novalidate>
     <i class="sheet__grab"></i>
     <header class="sheet__head">
-      <div><p class="eyebrow">Combustibil</p><h2 id="t-fill">Alimentare nouă</h2></div>
+      <div><p class="label">Combustibil</p><h2 id="t-fill">Alimentare nouă</h2></div>
       <button type="button" class="iconbtn" data-close aria-label="Închide"><svg class="ico"><use href="#i-close"/></svg></button>
     </header>
     <div class="sheet__body">
       <div class="row2">
-        <label class="field"><span>Data</span><input type="date" name="date" required></label>
-        <label class="field"><span>Kilometraj bord</span><div class="field__in"><input type="text" inputmode="numeric" name="odo" placeholder="152000" required><em>km</em></div></label>
+        <div class="field"><label for="fill-date">Data</label><input type="date" id="fill-date" name="date" required></div>
+        <div class="field"><label for="fill-odo">Kilometraj bord</label><div class="field__in"><input type="text" id="fill-odo" inputmode="numeric" name="odo" placeholder="226700" required><em>km</em></div></div>
       </div>
       <div class="row2">
-        <label class="field"><span>Litri</span><div class="field__in"><input type="text" inputmode="decimal" name="liters" placeholder="38,50" required><em>L</em></div></label>
-        <label class="field"><span>Preț pe litru</span><div class="field__in"><input type="text" inputmode="decimal" name="ppl" placeholder="7,20" required><em>lei/L</em></div></label>
+        <div class="field"><label for="fill-liters">Litri</label><div class="field__in"><input type="text" id="fill-liters" inputmode="decimal" name="liters" placeholder="38,50" required><em>L</em></div></div>
+        <div class="field"><label for="fill-ppl">Preț pe litru</label><div class="field__in"><input type="text" id="fill-ppl" inputmode="decimal" name="ppl" placeholder="7,20" required><em>lei/L</em></div></div>
       </div>
-      <div class="field"><span>Stație</span><div class="select" id="sel-station"></div></div>
-      <label class="pref pref--flat">
+      <div class="field"><label id="lbl-station">Benzinărie</label><div class="select" id="sel-station" aria-labelledby="lbl-station"></div></div>
+      <div class="field" id="station-other" hidden><label for="fill-other">Numele benzinăriei</label><input type="text" id="fill-other" name="station_other" placeholder="ex. Mol" autocomplete="off"></div>
+      <label class="pref pref--flat" for="fill-full">
         <div><b>Rezervor plin</b><small>Necesar pentru calculul consumului</small></div>
-        <span class="switch"><input type="checkbox" role="switch" name="full" checked><span class="switch__track"><span class="switch__thumb"></span></span></span>
+        <span class="switch"><input type="checkbox" role="switch" id="fill-full" name="full" checked><span class="switch__track"><span class="switch__thumb"></span></span></span>
       </label>
-      <div class="total">
-        <small>Total de plată</small>
-        <b><span id="fill-total">0,00</span> <em>lei</em></b>
-      </div>
+      <div class="total"><span class="label">Total de plată</span><b><span id="fill-total">0,00</span> <em>lei</em></b></div>
       <p class="form-err" id="fill-err" role="alert" hidden></p>
     </div>
     <footer class="sheet__foot">
-      <button type="button" class="btn btn--ghost" data-close>Anulează</button>
+      <button type="button" class="btn" data-close>Anulează</button>
       <button type="submit" class="btn btn--primary"><svg class="ico"><use href="#i-check"/></svg>Salvează</button>
     </footer>
   </form>
@@ -408,28 +351,83 @@
   <form class="sheet" id="sheet-trip" role="dialog" aria-modal="true" aria-labelledby="t-trip" hidden novalidate>
     <i class="sheet__grab"></i>
     <header class="sheet__head">
-      <div><p class="eyebrow">Deplasare</p><h2 id="t-trip">Traseu nou</h2></div>
+      <div><p class="label">Deplasare</p><h2 id="t-trip">Traseu nou</h2></div>
       <button type="button" class="iconbtn" data-close aria-label="Închide"><svg class="ico"><use href="#i-close"/></svg></button>
     </header>
     <div class="sheet__body">
       <div class="row2">
-        <label class="field"><span>De la</span><input type="text" name="from" list="places" placeholder="Acasă" autocomplete="off" required></label>
-        <label class="field"><span>Până la</span><input type="text" name="to" list="places" placeholder="Birou" autocomplete="off" required></label>
+        <div class="field"><label for="trip-from">De la</label><input type="text" id="trip-from" name="from" list="places" placeholder="Acasă" autocomplete="off" required></div>
+        <div class="field"><label for="trip-to">Până la</label><input type="text" id="trip-to" name="to" list="places" placeholder="Birou" autocomplete="off" required></div>
       </div>
       <datalist id="places"></datalist>
       <div class="row2">
-        <label class="field"><span>Distanță</span><div class="field__in"><input type="text" inputmode="decimal" name="km" placeholder="18,4" required><em>km</em></div></label>
-        <label class="field"><span>Durată</span><div class="field__in"><input type="text" inputmode="numeric" name="min" placeholder="35" required><em>min</em></div></label>
+        <div class="field"><label for="trip-km">Distanță</label><div class="field__in"><input type="text" id="trip-km" inputmode="decimal" name="km" placeholder="18,4" required><em>km</em></div></div>
+        <div class="field"><label for="trip-min">Durată</label><div class="field__in"><input type="text" id="trip-min" inputmode="numeric" name="min" placeholder="35" required><em>min</em></div></div>
       </div>
       <div class="row2">
-        <label class="field"><span>Data</span><input type="date" name="date" required></label>
-        <label class="field"><span>Ora</span><input type="time" name="time" required></label>
+        <div class="field"><label for="trip-date">Data</label><input type="date" id="trip-date" name="date" required></div>
+        <div class="field"><label for="trip-time">Ora plecării</label><input type="time" id="trip-time" name="time" required></div>
       </div>
-      <p class="muted hint">Pe viitor, traseele pot fi înregistrate automat cu GPS-ul telefonului.</p>
+      <label class="pref pref--flat" for="trip-apply">
+        <div><b>Adaugă la kilometrajul total</b><small>Oprește-l dacă ai trecut deja kilometrajul de pe bord</small></div>
+        <span class="switch"><input type="checkbox" role="switch" id="trip-apply" name="apply" checked><span class="switch__track"><span class="switch__thumb"></span></span></span>
+      </label>
       <p class="form-err" id="trip-err" role="alert" hidden></p>
     </div>
     <footer class="sheet__foot">
-      <button type="button" class="btn btn--ghost" data-close>Anulează</button>
+      <button type="button" class="btn" data-close>Anulează</button>
+      <button type="submit" class="btn btn--primary"><svg class="ico"><use href="#i-check"/></svg>Salvează</button>
+    </footer>
+  </form>
+
+  <form class="sheet" id="sheet-car" role="dialog" aria-modal="true" aria-labelledby="t-car" hidden novalidate>
+    <i class="sheet__grab"></i>
+    <header class="sheet__head">
+      <div><p class="label">Garaj</p><h2 id="t-car">Datele mașinii</h2></div>
+      <button type="button" class="iconbtn" data-close aria-label="Închide"><svg class="ico"><use href="#i-close"/></svg></button>
+    </header>
+    <div class="sheet__body">
+      <div class="field"><label for="car-name">Marcă și model</label><input type="text" id="car-name" name="name" required></div>
+      <div class="row2">
+        <div class="field"><label for="car-engine">Motorizare</label><input type="text" id="car-engine" name="engine" placeholder="1.5 motorină"></div>
+        <div class="field"><label for="car-power">Putere</label><div class="field__in"><input type="text" id="car-power" inputmode="numeric" name="power"><em>CP</em></div></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="car-year">Anul fabricației</label><input type="text" id="car-year" inputmode="numeric" name="year"></div>
+        <div class="field"><label for="car-plate">Număr de înmatriculare</label><input type="text" id="car-plate" name="plate" autocapitalize="characters" autocomplete="off"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="car-odo">Kilometraj curent</label><div class="field__in"><input type="text" id="car-odo" inputmode="decimal" name="odo" required><em>km</em></div></div>
+        <div class="field"><label for="car-tank">Capacitate rezervor</label><div class="field__in"><input type="text" id="car-tank" inputmode="decimal" name="tank" required><em>L</em></div></div>
+      </div>
+      <div class="field"><label for="car-cons">Consum mediu de referință</label><div class="field__in"><input type="text" id="car-cons" inputmode="decimal" name="cons" required><em>L/100 km</em></div></div>
+      <p class="note">Consumul de referință se folosește până ai cel puțin două alimentări pline; după aceea aplicația îl calculează din datele tale.</p>
+      <p class="form-err" id="car-err" role="alert" hidden></p>
+    </div>
+    <footer class="sheet__foot">
+      <button type="button" class="btn" data-close>Anulează</button>
+      <button type="submit" class="btn btn--primary"><svg class="ico"><use href="#i-check"/></svg>Salvează</button>
+    </footer>
+  </form>
+
+  <form class="sheet" id="sheet-service" role="dialog" aria-modal="true" aria-labelledby="t-service" hidden novalidate>
+    <i class="sheet__grab"></i>
+    <header class="sheet__head">
+      <div><p class="label">Întreținere</p><h2 id="t-service">Scadență nouă</h2></div>
+      <button type="button" class="iconbtn" data-close aria-label="Închide"><svg class="ico"><use href="#i-close"/></svg></button>
+    </header>
+    <div class="sheet__body">
+      <div class="field"><label id="lbl-stype">Tip</label><div class="select" id="sel-stype" aria-labelledby="lbl-stype"></div></div>
+      <div class="field"><label for="srv-label">Denumire</label><input type="text" id="srv-label" name="label" placeholder="ex. Plăcuțe de frână" autocomplete="off" required></div>
+      <div class="row2" id="srv-km">
+        <div class="field"><label for="srv-every">La fiecare</label><div class="field__in"><input type="text" id="srv-every" inputmode="numeric" name="every" placeholder="10000"><em>km</em></div></div>
+        <div class="field"><label for="srv-last">Făcut la</label><div class="field__in"><input type="text" id="srv-last" inputmode="decimal" name="last"><em>km</em></div></div>
+      </div>
+      <div class="field" id="srv-date" hidden><label for="srv-due">Scadent la data de</label><input type="date" id="srv-due" name="due"></div>
+      <p class="form-err" id="service-err" role="alert" hidden></p>
+    </div>
+    <footer class="sheet__foot">
+      <button type="button" class="btn" data-close>Anulează</button>
       <button type="submit" class="btn btn--primary"><svg class="ico"><use href="#i-check"/></svg>Salvează</button>
     </footer>
   </form>
